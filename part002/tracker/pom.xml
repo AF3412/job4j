@@ -1,0 +1,14 @@
+<project>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>ru.af3412.part002.tracker</groupId>
+	<artifactId>tracker</artifactId>
+	<version>1.0</version>
+	<packaging>jar</packaging>
+
+	<parent>
+		<groupId>ru.af3412.part002</groupId>
+		<artifactId>part002</artifactId>
+		<version>1.0</version>
+	</parent>
+
+</project>

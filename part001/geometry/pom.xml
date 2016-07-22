@@ -1,0 +1,17 @@
+<project>
+
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>ru.af3412.part001.geometry</groupId>
+	<artifactId>geometry</artifactId>
+	<name>geometry</name>
+	<version>1.0</version>
+	<packaging>jar</packaging>
+	
+	<parent>
+		<groupId>ru.af3412.part001</groupId>
+		<artifactId>part001</artifactId>
+		<version>1.0</version>
+	</parent>
+	
+</project>

@@ -1,0 +1,17 @@
+<project>
+
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>ru.af3412.part001.cycle</groupId>
+	<artifactId>cycle</artifactId>
+	<name>cycle</name>
+	<version>1.0</version>
+	<packaging>jar</packaging>
+	
+	<parent>
+		<groupId>ru.af3412.part001</groupId>
+		<artifactId>part001</artifactId>
+		<version>1.0</version>
+	</parent>
+	
+</project>

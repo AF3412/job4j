@@ -1,0 +1,24 @@
+<project>
+
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>ru.af3412.part001</groupId>
+	<artifactId>part001</artifactId>
+	<name>part001</name>
+	<version>1.0</version>
+	<packaging>pom</packaging>
+	
+	<parent>
+		<groupId>ru.af3412</groupId>
+		<artifactId>job4j</artifactId>
+		<version>1.0</version>
+	</parent>
+	
+	<modules>
+		<module>array</module>
+		<module>calculator</module>
+		<module>cycle</module>
+		<module>geometry</module>
+	</modules>
+
+</project>
