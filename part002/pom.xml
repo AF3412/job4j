@@ -16,6 +16,7 @@
 	
 	<modules>
 		<module>tracker</module>
+		<module>exception</module>
 	</modules>
 
 </project>
