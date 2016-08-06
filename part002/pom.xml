@@ -17,6 +17,7 @@
 	<modules>
 		<module>tracker</module>
 		<module>exception</module>
-	</modules>
+        <module>chess</module>
+    </modules>
 
 </project>
