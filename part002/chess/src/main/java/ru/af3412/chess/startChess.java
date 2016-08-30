@@ -12,7 +12,7 @@ public class startChess {
         chess.createBoard();
 
         Pawn pawn1 = new Pawn(chess.board[1][1], true);
-        chess.moveFigure
+
         chess.printBoard();
 
 
