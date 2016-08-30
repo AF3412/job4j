@@ -1,21 +1,28 @@
 package ru.af3412.chess;
 
-
 /**
  * @author Filatov Alexander
- *
+ * @since 23.08.2016
  */
+public abstract class Figure {
 
-public class Figure {
+    /**
+     * Figure color
+     * white color true
+     * black color false
+     */
+    boolean color;
 
-    private final String name;
+    Cell cell;
 
-    public Figure(String name) {
-        this.name = name;
+    //Board chessBoard;
+
+    public Figure(Cell cell, boolean color) {
+      //  this.chessBoard = chessBoard;
+        this.cell = cell;
+        this.color = color;
     }
 
-    public String getName() {
-        return name;
-    }
+   // abstract Cell[] move(Cell distance);
 
 }

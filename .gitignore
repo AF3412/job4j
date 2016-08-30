@@ -49,10 +49,10 @@ fabric.properties
 ### Intellij Patch ###
 # Comment Reason: https://github.com/joeblau/gitignore.io/issues/186#issuecomment-215987721
 
-# *.iml
-# modules.xml
-# .idea/misc.xml
-# *.ipr
+*.iml
+modules.xml
+.idea/misc.xml
+*.ipr
 
 
 ### Maven ###
@@ -105,3 +105,13 @@ $RECYCLE.BIN/
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+.idea/
+job4j.iml
+part001/array/array.iml
+part001/calculator/calculator.iml
+part001/cycle/cycle.iml
+part001/geometry/geometry.iml
+part002/chess/src/main/resources/
+part002/exception/tracker (1) (ru.af3412.part002.exception).iml
+part002/part002.iml
+part002/tracker/tracker (2) (ru.af3412.part002.tracker).iml
