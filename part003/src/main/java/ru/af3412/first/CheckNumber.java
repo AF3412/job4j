@@ -7,8 +7,8 @@ package ru.af3412.first;
 public class CheckNumber {
 
     /**
-    * @param num is the integer number
-    */
+     * @param num is the integer number
+     */
     int num;
 
     public CheckNumber(int num) {
