@@ -21,9 +21,9 @@ public class CheckNumber {
     public String checked() {
         String text;
         if (num % 2 == 0) {
-            text = String.format("This is an even number");
+            text = "This is an even number";
         } else {
-            text = String.format("This is an odd number");
+            text = "This is an odd number";
         }
         return text;
     }
