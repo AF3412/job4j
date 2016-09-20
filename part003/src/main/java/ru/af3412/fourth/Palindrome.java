@@ -10,28 +10,18 @@ public class Palindrome {
 
     /**
      * @param text takes the word
-     * @return boolean value of five letters or not
-     */
-    public boolean checkFiveLetters(String text) {
-        return (text.length() == 5);
-    }
-
-    /**
-     * @param text takes the word
-     * @return formatted word lowercase
-     */
-    public String lowerCase(String text) {
-        return (text.toLowerCase());
-    }
-
-    /**
-     * @param text takes the word
      * @return boolean value palindrome or not
      */
     public boolean checkWordPalindrome(String text) {
-        text = lowerCase(text);
-        return (text.equals(new StringBuffer(text).reverse().toString()));
-
+        boolean checkPalindrome = true;
+        char[] chText = text.toCharArray();
+        for (int index = 0; index < chText.length / 2; index++) {
+            if (chText[index] != chText[chText.length - index - 1]) {
+                checkPalindrome = false;
+                break;
+            }
+        }
+        return (checkPalindrome);
     }
 
     /**
@@ -39,8 +29,9 @@ public class Palindrome {
      * @return result(check five letters or not; palindrome or not)
      */
     public String checkFiveLowerWordPalindrome(String text) {
+        text = text.toLowerCase();
         String result;
-        if (checkFiveLetters(text)) {
+        if (text.length() == 5) {
             if (checkWordPalindrome(text)) {
                 result = "Word is a palindrome";
             } else {

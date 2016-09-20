@@ -13,34 +13,6 @@ public class PalindromeTest {
 
 
     @Test
-    public void whenInpunStringCheckIsFiveLetters() {
-
-        Palindrome palindrome = new Palindrome();
-        String textOne = "55555";
-        String textTwo = "";
-        boolean checkFiveOne;
-        boolean checkFiveTwo;
-
-        checkFiveOne = palindrome.checkFiveLetters(textOne);
-        checkFiveTwo = palindrome.checkFiveLetters(textTwo);
-
-        assertTrue(checkFiveOne);
-        assertFalse(checkFiveTwo);
-    }
-
-    @Test
-    public void whenInputStringThenConvertStringToLowerCase() {
-        Palindrome palindrome = new Palindrome();
-        String textOne = "Test";
-        String checkText = "test";
-        String testText;
-
-        testText = palindrome.lowerCase(textOne);
-
-        assertThat(testText, is(checkText));
-    }
-
-    @Test
     public void checkPalindromeClass() {
         Palindrome palindrome = new Palindrome();
         String textOne = "kokok";
