@@ -20,6 +20,7 @@ public class StartSum {
 
     /**
      * Method "enterValue" check for a integer and add in an array. If value not a integer, then param err change tu true
+     *
      * @param ask printing message
      */
 
@@ -28,28 +29,26 @@ public class StartSum {
         Scanner scanner = new Scanner(System.in);
         if (!scanner.hasNextInt()) {
             this.err = true;
-        }
-        else {
+        } else {
             number[index++] = scanner.nextInt();
         }
     }
 
     /**
      * Method summ() returned text
+     *
      * @return returned text; value Sum or error message
      */
 
     public String summ() {
         String text;
         if (!err) {
-            text = ("Sum: " + (new SummOfTwo(number[0], number[1])).summ());
-        }
-        else {
-            text =  ("One of the numbers is not an integer");
+            text = String.format("Sum: %s", (new SummOfTwo(number[0], number[1])).summ());
+        } else {
+            text = ("One of the numbers is not an integer");
         }
         return text;
     }
-
 
 
 }

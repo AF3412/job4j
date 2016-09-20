@@ -3,9 +3,8 @@ package ru.af3412.second;
 /**
  * @author Filatov Alexander
  * @since 15.09.2016
- *
+ * <p>
  * This class returned sum of two integer values
-
  */
 public class SummOfTwo {
 
