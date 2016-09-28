@@ -14,7 +14,9 @@ public class StartChat {
     public static void main(String[] args) throws IOException {
 
         Chat chat = new Chat();
-        chat.start(new File("data\\file.txt"));
+        chat.start(new File("data\\file.txt"), new File("data\\output.txt"));
+
+
 
 
 

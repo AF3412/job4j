@@ -13,15 +13,15 @@ public class Chat {
 
     /**
      * Загружаю файл в строку, возвращаю случайную строку. Новая строка та, что разделена "Enter"
+     *
      * @param file Файл, который переводится в строку
      * @return случайная строка из файла
      * @throws IOException
      */
-    public String getStringFromFile(File file) throws IOException {
+    public String[] getArrayStringFromFile(File file) throws IOException {
         BufferedReader myfile = new BufferedReader(new FileReader(file));
         StringBuilder sb = new StringBuilder();
         String line;
-        String[] arrayLine;
 
         try {
             while ((line = myfile.readLine()) != null) {
@@ -37,42 +37,61 @@ public class Chat {
             }
         }
         line = sb.toString();
-        arrayLine = line.split("\n");
-        return arrayLine[rnd.nextInt(arrayLine.length)];
+        return (line.split("\n"));
 
     }
 
+    public String getRandomString(String[] string) {
+        return string[rnd.nextInt(string.length)];
+    }
+
     /**
-     * Читает консоль, выводит случайную строку.
-     * @param file
-     * @throws IOException
+     * Метод start Читает консоль, выводит случайную строку, записывает лог в файл output.txt.
+     * <p>
+     * При инициализации обращается к методу getArrayStringFromFile и возвращает из файла массив строк;
+     * метод getRandomString возвращает случайную строку из массива строк;
+     * PrintWriter pw пишет все, что выводится в консоль;
+     * StringBuilder sb сохраняет данные для вывода на консоль и передачи в PrintWriter pw;
+     * String stringIn является строкой, которую вводит пользователь.
+     * Используется для работы с управляющими командами 'стоп', 'продолжить' и 'выход';
+     * String randomString получает случайную строку из файла.
+     * boolean stop является индикатором выводить случайную строку или нет.
+     *
+     * @param fileIn  задает файл, откуда брать ответы
+     * @param fileOut задает файл, куда писать лог
      */
-    public void start(File file) throws IOException {
+
+    public void start(File fileIn, File fileOut) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        File fileOut = new File("data\\fileOut");
-        PrintWriter pw = new PrintWriter("data\\output.txt");
-        String string;
+        String[] arrayRandomString = getArrayStringFromFile(fileIn);
+        PrintWriter pw = new PrintWriter(fileOut);
+        StringBuilder sb = new StringBuilder();
+        String stringIn;
+        String randomString;
         boolean stop = false;
         System.out.println("Программа консольный чат. Команды: 'стоп', 'продолжить' и 'выход'");
-        for (; ; ) {
-            string = (String) br.readLine();
-            if (string.equals("выход")) {
-                break;
-            }
-            if (string.equals("стоп")) {
+        do {
+            stringIn = br.readLine();
+            sb.append(stringIn).append("\n");
+
+            if (stringIn.equals("стоп")) {
                 stop = true;
             }
-            if (string.equals("продолжить")) {
+            if (stringIn.equals("продолжить")) {
                 stop = false;
             }
             if (!stop) {
-                System.out.println(this.getStringFromFile(file));
+                randomString = getRandomString(arrayRandomString);
+                System.out.println(randomString);
+                sb.append(randomString);
             }
-            pw.println(System.out);
 
+            pw.println(sb.toString());
+            sb.delete(0, sb.length());
 
-        }
-
+        } while (!stringIn.equals("выход"));
+        pw.flush();
+        pw.close();
 
     }
 
