@@ -11,6 +11,15 @@ import java.util.Random;
  */
 public class ChatServer {
 
+    /**
+     * @param rnd return random int
+     * @param serverPort listen net port
+     * @param arrayString is an array of string from a file
+     * @param in get values from the client
+     * @param out return random string from file to client
+     * @param serverSocket initializing server port
+     * @param fromClient listened server socket
+     */
     private Random rnd;
     private int serverPort;
     private String[] arrayString;
@@ -19,12 +28,17 @@ public class ChatServer {
     private ServerSocket serverSocket = null;
     private Socket fromClient = null;
 
+
+    /**
+     * This method received a message from the client and sends a random string
+     *
+     * @param file get file for answers
+     * @throws IOException
+     */
     public void start(File file) throws IOException {
 
         boolean stop = false;
-
         this.init(file);
-
         String input;
 
         try {
@@ -55,6 +69,13 @@ public class ChatServer {
         }
 
     }
+
+    /**
+     * This method initializes the start values
+     *
+     * @param file get file for answers
+     * @throws IOException
+     */
 
     protected void init(File file) throws IOException {
 
@@ -88,6 +109,11 @@ public class ChatServer {
 
     }
 
+    /**
+     * @param readFile get file for answers
+     * @return array of string from a file
+     * @throws IOException
+     */
     protected String[] returnArrayStringFromFile(File readFile) throws IOException {
         BufferedReader file = new BufferedReader(new FileReader(readFile));
         StringBuilder sb = new StringBuilder();
@@ -110,6 +136,10 @@ public class ChatServer {
         return (line.split("\n"));
     }
 
+    /**
+     * @param string is array string from file
+     * @return random string
+     */
     protected String getRandomString(String[] string) {
         return string[rnd.nextInt(string.length)];
     }

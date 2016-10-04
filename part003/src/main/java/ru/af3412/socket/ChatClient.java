@@ -6,15 +6,31 @@ import java.io.*;
 /**
  * @author Filatov Alexander
  * @since 29.09.2016
+ * This class - the client to the server sends requests and receives responses writes the values in the file
  */
 
 public class ChatClient {
 
-    Socket fromserver = null;
-    String IPAddress = "127.0.0.1";
+    /**
+     * @param IPAddress is server IP address
+     * @param fromServer is server socket
+     * @param in is stream from server
+     * @param out is stream to server
+     * @param inUser gets the keyboard input
+     */
+
+    String IPAddress;
+    Socket fromServer = null;
     BufferedReader in;
     PrintWriter out;
     BufferedReader inUser;
+
+    /**
+     * This method sends the data to the server, receives a response, and writes a log file
+     *
+     * @param fileOut is a log file
+     * @throws IOException
+     */
 
     public void start(File fileOut) throws IOException {
 
@@ -43,14 +59,20 @@ public class ChatClient {
         out.close();
         in.close();
         inUser.close();
-        fromserver.close();
+        fromServer.close();
     }
 
+    /**
+     * This method initializes the start values
+     *
+     * @throws IOException
+     */
     public void init() throws IOException {
 
-        this.fromserver = new Socket(IPAddress, 4444);
-        this.in = new BufferedReader(new InputStreamReader(fromserver.getInputStream()));
-        this.out = new PrintWriter(fromserver.getOutputStream(), true);
+        this.IPAddress = "127.0.0.1";
+        this.fromServer = new Socket(IPAddress, 4444);
+        this.in = new BufferedReader(new InputStreamReader(fromServer.getInputStream()));
+        this.out = new PrintWriter(fromServer.getOutputStream(), true);
         this.inUser = new BufferedReader(new InputStreamReader(System.in));
 
     }
