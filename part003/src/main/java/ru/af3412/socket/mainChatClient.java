@@ -1,5 +1,6 @@
 package ru.af3412.socket;
 
+import java.io.File;
 import java.io.IOException;
 
 /**
@@ -11,7 +12,7 @@ public class mainChatClient {
     public static void main(String[] args) throws IOException {
 
         ChatClient chatClient = new ChatClient();
-        chatClient.start();
+        chatClient.start(new File("data\\outSocket.txt"));
 
     }
 }

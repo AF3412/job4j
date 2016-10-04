@@ -12,29 +12,46 @@ public class ChatClient {
 
     Socket fromserver = null;
     String IPAddress = "127.0.0.1";
+    BufferedReader in;
+    PrintWriter out;
+    BufferedReader inUser;
 
-    public void start() throws IOException {
+    public void start(File fileOut) throws IOException {
 
+        this.init();
+
+        PrintWriter pw = new PrintWriter(fileOut);
+        StringBuilder sb = new StringBuilder();
 
         System.out.println("Welcome to Client side");
 
-        fromserver = new Socket(IPAddress, 4444);
-        BufferedReader in = new BufferedReader(new InputStreamReader(fromserver.getInputStream()));
-        PrintWriter out = new PrintWriter(fromserver.getOutputStream(), true);
-        BufferedReader inu = new BufferedReader(new InputStreamReader(System.in));
-
         String fuser, fserver;
 
-        while ((fuser = inu.readLine()) != null) {
+        while ((fuser = inUser.readLine()) != null) {
+            sb.append(fuser).append("\n");
             out.println(fuser);
             fserver = in.readLine();
+            sb.append(fserver).append("\n");
+            pw.println(sb.toString());
+            sb.delete(0, sb.length());
             System.out.println(fserver);
             if (fuser.equalsIgnoreCase("выход")) break;
         }
 
+        pw.flush();
+        pw.close();
         out.close();
         in.close();
-        inu.close();
+        inUser.close();
         fromserver.close();
+    }
+
+    public void init() throws IOException {
+
+        this.fromserver = new Socket(IPAddress, 4444);
+        this.in = new BufferedReader(new InputStreamReader(fromserver.getInputStream()));
+        this.out = new PrintWriter(fromserver.getOutputStream(), true);
+        this.inUser = new BufferedReader(new InputStreamReader(System.in));
+
     }
 }
