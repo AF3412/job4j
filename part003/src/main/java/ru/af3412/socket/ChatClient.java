@@ -19,11 +19,8 @@ public class ChatClient {
      * @param inUser gets the keyboard input
      */
 
-    String IPAddress;
-    Socket fromServer = null;
-    BufferedReader in;
-    PrintWriter out;
-    BufferedReader inUser;
+    String ipAddress = "127.0.0.1";
+    int socketPort = 4444;
 
     /**
      * This method sends the data to the server, receives a response, and writes a log file
@@ -34,46 +31,36 @@ public class ChatClient {
 
     public void start(File fileOut) throws IOException {
 
-        this.init();
+        try (Socket fromServer = new Socket(ipAddress, socketPort);
+             BufferedReader in = new BufferedReader(new InputStreamReader(fromServer.getInputStream()));
+             BufferedReader inUser = new BufferedReader(new InputStreamReader(System.in));
+             PrintWriter out = new PrintWriter(fromServer.getOutputStream(), true)
+            ) {
 
-        PrintWriter pw = new PrintWriter(fileOut);
-        StringBuilder sb = new StringBuilder();
+            PrintWriter pw = new PrintWriter(fileOut);
+            StringBuilder sb = new StringBuilder();
 
-        System.out.println("Welcome to Client side");
+            System.out.println("Welcome to Client side");
 
-        String fuser, fserver;
+            String fuser, fserver;
 
-        while ((fuser = inUser.readLine()) != null) {
-            sb.append(fuser).append("\n");
-            out.println(fuser);
-            fserver = in.readLine();
-            sb.append(fserver).append("\n");
-            pw.println(sb.toString());
-            sb.delete(0, sb.length());
-            System.out.println(fserver);
-            if (fuser.equalsIgnoreCase("выход")) break;
+            while ((fuser = inUser.readLine()) != null) {
+                sb.append(fuser).append("\n");
+                out.println(fuser);
+                fserver = in.readLine();
+                sb.append(fserver).append("\n");
+                pw.println(sb.toString());
+                sb.delete(0, sb.length());
+                System.out.println(fserver);
+                if (fuser.equalsIgnoreCase("выход")) break;
+            }
+
+            pw.flush();
+
+        } catch (IOException ex) {
+            System.out.println("IO exception");
         }
 
-        pw.flush();
-        pw.close();
-        out.close();
-        in.close();
-        inUser.close();
-        fromServer.close();
     }
 
-    /**
-     * This method initializes the start values
-     *
-     * @throws IOException
-     */
-    public void init() throws IOException {
-
-        this.IPAddress = "127.0.0.1";
-        this.fromServer = new Socket(IPAddress, 4444);
-        this.in = new BufferedReader(new InputStreamReader(fromServer.getInputStream()));
-        this.out = new PrintWriter(fromServer.getOutputStream(), true);
-        this.inUser = new BufferedReader(new InputStreamReader(System.in));
-
-    }
 }

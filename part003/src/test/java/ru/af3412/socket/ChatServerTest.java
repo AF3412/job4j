@@ -24,10 +24,10 @@ public class ChatServerTest {
     public void testReturnArrayStringFromFile() throws Exception {
 
         File file = new File("..\\data\\test\\chat_readFileToArrayString.txt");
-        Chat chat = new Chat();
+        ChatServer chat = new ChatServer();
         String[] valueArrayString = {"1","2","3","4","5"};
 
-        String[] testString = chat.getArrayStringFromFile(file);
+        String[] testString = chat.returnArrayStringFromFile(file);
 
         assertThat(valueArrayString, is(testString));
 
@@ -36,7 +36,7 @@ public class ChatServerTest {
     @Test
     public void testGetRandomString() throws Exception {
 
-        Chat rnd = mock(Chat.class);
+        ChatServer rnd = mock(ChatServer.class);
         String[] valueArrayString = {"1","2","3","4","5"};
         when(rnd.getRandomString(valueArrayString)).thenReturn("1");
         String valueString = "1";

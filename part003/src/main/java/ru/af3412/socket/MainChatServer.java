@@ -7,12 +7,13 @@ import java.io.IOException;
  * @author Filatov Alexander
  * @since 29.09.2016
  */
-public class mainChatClient {
+public class MainChatServer {
 
     public static void main(String[] args) throws IOException {
 
-        ChatClient chatClient = new ChatClient();
-        chatClient.start(new File("data\\outSocket.txt"));
+        ChatServer chatServer = new ChatServer();
+        chatServer.start(new File("data\\file.txt"));
 
     }
+
 }
