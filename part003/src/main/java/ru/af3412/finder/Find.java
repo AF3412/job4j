@@ -1,22 +1,60 @@
 package ru.af3412.finder;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+
 /**
  * @author Filatov Alexander
  * @since 12.10.2016
- *
- *
-1. Создать программу для поиска файла.
-2. Программа должна искать данные в заданном каталоге и подкаталогах.
-3. Имя файла может задаваться, целиком, по маске, по регулярному выражение(не обязательно).
-4. Программа должна собираться в jar и запускаться через java -jar find.jar -d c:/ -n *.txt -m -o log.txt
-Ключи
--d - директория в которая начинать поиск.
--n - имя файл, маска, либо регулярное выражение.
--m - искать по макс, либо -f - полное совпадение имени. -r регулярное выражение.
--o - результат записать в файл.
-5. Программа должна записывать результат в файл.
-6. В программе должна быть валидация ключей и подсказка.
- *
+ * The base class for file search
  */
+
 public class Find {
+
+    private String[] args;
+    private File fileLog;
+
+    /**
+     * Constructor
+     *
+     * @param args is users command line parameters
+     */
+    public Find(String[] args) {
+        this.args = args;
+    }
+
+    /**
+     * This method checked args and searched file
+     */
+    protected void find() {
+        Validator validator = new Validator(this.args);
+        if (validator.validate()) {
+            fileLog = new File(args[6]);
+            if (args[4].equals("-f")) {
+                FindByFullName findByFullName = new FindByFullName();
+                this.writeLog(findByFullName.find(args[1], args[3]));
+            }
+
+        } else {
+            System.out.println(validator.usage());
+        }
+
+    }
+
+    /**
+     * This method writing log file.
+     *
+     * @param foundFiles is string with search result
+     */
+    private void writeLog(String foundFiles) {
+        try (PrintWriter pw = new PrintWriter(fileLog)) {
+            pw.print(foundFiles);
+            pw.flush();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+
 }
