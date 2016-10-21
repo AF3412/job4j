@@ -8,6 +8,8 @@ public class StartFind {
 
     public static void main(String[] args) {
 
+
+        System.out.println(args[0]);
         Find find = new Find(args);
         find.find();
     }

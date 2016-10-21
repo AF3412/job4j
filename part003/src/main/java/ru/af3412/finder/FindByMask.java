@@ -1,24 +1,25 @@
 package ru.af3412.finder;
 
-
 import java.io.File;
+import java.nio.file.*;
 
 /**
- * Searches for the full file name
+ * @author Filatov Alexander
+ * @since 20.10.2016
  */
-public class FindByFullName {
+public class FindByMask  {
 
     private StringBuilder sb = new StringBuilder();
-    private String findFile;
 
-    public FindByFullName(String findFile) {
-        this.findFile = findFile;
+    PathMatcher matcher;
+
+    public FindByMask(String findFile) {
+
+        this.matcher = FileSystems.getDefault().getPathMatcher("glob:" + findFile);
+        System.out.print(findFile);
+
     }
 
-    /**
-     * @param path     is start path for search file
-     * @return a string with the search results
-     */
     protected String find(String path) {
 
         System.out.println("Search...");
@@ -32,7 +33,7 @@ public class FindByFullName {
                 if (file.isDirectory()) {
                     find(file.getAbsolutePath());
                 } else {
-                    if (file.getName().equals(this.findFile)) {
+                    if (matcher.matches(Paths.get(file.getName()))) {
                         sb.append(file.getAbsoluteFile()).append("\n");
                     }
                 }
