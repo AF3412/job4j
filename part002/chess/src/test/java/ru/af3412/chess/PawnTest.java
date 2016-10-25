@@ -5,11 +5,16 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
+ * The type Pawn test.
+ *
  * @author Filatov Alexander
  * @since 03.09.2016
  */
 public class PawnTest {
 
+    /**
+     * In bound test true.
+     */
     @Test
     public void inBoundTestTrue() {
 
@@ -21,6 +26,9 @@ public class PawnTest {
 
     }
 
+    /**
+     * In bound test false.
+     */
     @Test
     public void inBoundTestFalse() {
 
@@ -32,6 +40,9 @@ public class PawnTest {
 
     }
 
+    /**
+     * Is free cell true.
+     */
     @Test
     public void isFreeCellTrue() {
 
@@ -45,6 +56,9 @@ public class PawnTest {
 
     }
 
+    /**
+     * Is free cell false.
+     */
     @Test
     public void isFreeCellFalse() {
 
@@ -58,6 +72,9 @@ public class PawnTest {
 
     }
 
+    /**
+     * Is can move pawn true.
+     */
     @Test
     public void isCanMovePawnTrue() {
 
@@ -70,6 +87,9 @@ public class PawnTest {
 
     }
 
+    /**
+     * Is can move pawn false horizontal position.
+     */
     @Test
     public void isCanMovePawnFalseHorizontalPosition() {
 
@@ -82,6 +102,9 @@ public class PawnTest {
 
     }
 
+    /**
+     * Is can move pawn false more two move.
+     */
     @Test
     public void isCanMovePawnFalseMoreTwoMove() {
 
@@ -94,6 +117,9 @@ public class PawnTest {
 
     }
 
+    /**
+     * Is can move pawn false non free cell.
+     */
     @Test
     public void isCanMovePawnFalseNonFreeCell() {
 

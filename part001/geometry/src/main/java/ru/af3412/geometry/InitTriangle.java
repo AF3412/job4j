@@ -1,7 +1,15 @@
 package af3412;
 
+/**
+ * The type Init triangle.
+ */
 public class InitTriangle {
-	public static void main(String[] args) {
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     */
+    public static void main(String[] args) {
 	
 		Point a = new Point(0, 0);
 		Point b = new Point(1, 0);

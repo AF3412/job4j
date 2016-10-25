@@ -1,7 +1,15 @@
 package af3412;
 
+/**
+ * The type Init cube function.
+ */
 class InitCubeFunction{
-	public static void main(String[] args) {
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     */
+    public static void main(String[] args) {
 
 		int first = Integer.valueOf(args[0]);
 		int second = Integer.valueOf(args[1]);

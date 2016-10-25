@@ -8,7 +8,7 @@ import java.io.PrintWriter;
  * The type Find.
  *
  * @author Filatov Alexander
- * @since 12.10.2016  The base class for file search command line example: -d C:\Users\filatov\job4j\data -n test.txt -f -o log.txt
+ * @since 12.10.2016 The base class for file search command line example: -d C:\Users\filatov\job4j\data -n test.txt -f -o log.txt
  */
 public class Find {
 

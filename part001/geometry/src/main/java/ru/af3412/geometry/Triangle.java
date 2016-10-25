@@ -1,17 +1,41 @@
 package af3412;
 
+/**
+ * The type Triangle.
+ */
 public class Triangle {
-	public Point a;
-	public Point b;
-	public Point c;
+    /**
+     * The A.
+     */
+    public Point a;
+    /**
+     * The B.
+     */
+    public Point b;
+    /**
+     * The C.
+     */
+    public Point c;
 
-	public Triangle(Point a, Point b, Point c) {
+    /**
+     * Instantiates a new Triangle.
+     *
+     * @param a the a
+     * @param b the b
+     * @param c the c
+     */
+    public Triangle(Point a, Point b, Point c) {
 		this.a = a;
 		this.b = b;
 		this.c = c;
 	}
 
-	public boolean exists(){
+    /**
+     * Exists boolean.
+     *
+     * @return the boolean
+     */
+    public boolean exists(){
 		double dist_one = a.distanceTo(b);
 		double dist_two = b.distanceTo(c);
 		double dist_three = c.distanceTo(a);
@@ -21,7 +45,12 @@ public class Triangle {
 		else return false;
 	}
 
-	public double area() {
+    /**
+     * Area double.
+     *
+     * @return the double
+     */
+    public double area() {
 		//calculate the triangle area
 		if (this.exists()) {
 			double dist_one = a.distanceTo(b);

@@ -1,14 +1,30 @@
 package af3412;
 
+/**
+ * The type Factorial.
+ */
 public class Factorial{
-	
-		int value;
 
-		public Factorial(int value){
+    /**
+     * The Value.
+     */
+    int value;
+
+    /**
+     * Instantiates a new Factorial.
+     *
+     * @param value the value
+     */
+    public Factorial(int value){
 			this.value = value;
 		}
 
-		int calculate(){
+    /**
+     * Calculate int.
+     *
+     * @return the int
+     */
+    int calculate(){
 			int result = 1;
 			if (value != 0)
 				for (int index = 1; index <= value; index++){
