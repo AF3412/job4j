@@ -4,6 +4,8 @@ import java.io.File;
 import java.nio.file.*;
 
 /**
+ * The type Find by mask.
+ *
  * @author Filatov Alexander
  * @since 20.10.2016
  */
@@ -11,8 +13,16 @@ public class FindByMask  {
 
     private StringBuilder sb = new StringBuilder();
 
+    /**
+     * The Matcher.
+     */
     PathMatcher matcher;
 
+    /**
+     * Instantiates a new Find by mask.
+     *
+     * @param findFile the find file
+     */
     public FindByMask(String findFile) {
 
         this.matcher = FileSystems.getDefault().getPathMatcher("glob:" + findFile);
@@ -20,6 +30,12 @@ public class FindByMask  {
 
     }
 
+    /**
+     * Find string.
+     *
+     * @param path the path
+     * @return the string
+     */
     protected String find(String path) {
 
         System.out.println("Search...");

@@ -5,13 +5,11 @@ import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 
 /**
+ * The type Find.
+ *
  * @author Filatov Alexander
- * @since 12.10.2016
- * The base class for file search
- * command line example: -d C:\Users\filatov\job4j\data -n test.txt -f -o log.txt
- *                        0  1                           2  3        4  5  6
+ * @since 12.10.2016  The base class for file search command line example: -d C:\Users\filatov\job4j\data -n test.txt -f -o log.txt
  */
-
 public class Find {
 
     private String[] args;
@@ -32,14 +30,13 @@ public class Find {
     protected void find() {
         Validator validator = new Validator(this.args);
         if (validator.validate()) {
-            fileLog = new File(args[6]);
-            if (args[4].equals("-f")) {
-                FindByFullName findByFullName = new FindByFullName(args[3]);
-                this.writeLog(findByFullName.find(args[1]));
-            }
-            else if (args[4].equals("-m")) {
-                FindByMask findByMask = new FindByMask(args[3]);
-                this.writeLog(findByMask.find(args[1]));
+            fileLog = new File(validator.getNameLogFile());
+            if (validator.getSearchOption().equals("-f")) {
+                FindByFullName findByFullName = new FindByFullName(validator.getSearchFile());
+                this.writeLog(findByFullName.find(validator.getSearchDir()));
+            } else if (validator.getSearchOption().equals("-m")) {
+                FindByMask findByMask = new FindByMask(validator.getSearchFile());
+                this.writeLog(findByMask.find(validator.getSearchDir()));
             }
 
         } else {

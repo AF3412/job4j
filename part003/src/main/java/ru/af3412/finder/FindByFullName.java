@@ -11,12 +11,19 @@ public class FindByFullName {
     private StringBuilder sb = new StringBuilder();
     private String findFile;
 
+    /**
+     * Instantiates a new Find by full name.
+     *
+     * @param findFile the find file
+     */
     public FindByFullName(String findFile) {
         this.findFile = findFile;
     }
 
     /**
-     * @param path     is start path for search file
+     * Find string.
+     *
+     * @param path is start path for search file
      * @return a string with the search results
      */
     protected String find(String path) {
