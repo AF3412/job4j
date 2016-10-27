@@ -1,8 +1,6 @@
 package ru.af3412.finder;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
 
 /**
  * The type Find.
@@ -13,7 +11,7 @@ import java.io.PrintWriter;
 public class Find {
 
     private String[] args;
-    private File fileLog;
+
 
     /**
      * Constructor
@@ -30,33 +28,19 @@ public class Find {
     protected void find() {
         Validator validator = new Validator(this.args);
         if (validator.validate()) {
-            fileLog = new File(validator.getNameLogFile());
+            LogWriter logWriter = new LogWriter(new File(validator.getNameLogFile()));
             if (validator.getSearchOption().equals("-f")) {
                 FindByFullName findByFullName = new FindByFullName(validator.getSearchFile());
-                this.writeLog(findByFullName.find(validator.getSearchDir()));
+                logWriter.write(findByFullName.find(validator.getSearchDir()));
             } else if (validator.getSearchOption().equals("-m")) {
                 FindByMask findByMask = new FindByMask(validator.getSearchFile());
-                this.writeLog(findByMask.find(validator.getSearchDir()));
+                logWriter.write(findByMask.find(validator.getSearchDir()));
             }
 
         } else {
             System.out.println(validator.usage());
         }
 
-    }
-
-    /**
-     * This method writing log file.
-     *
-     * @param foundFiles is string with search result
-     */
-    private void writeLog(String foundFiles) {
-        try (PrintWriter pw = new PrintWriter(fileLog)) {
-            pw.print(foundFiles);
-            pw.flush();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
     }
 
 
