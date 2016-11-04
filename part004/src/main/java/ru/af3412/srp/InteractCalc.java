@@ -1,16 +1,5 @@
 package ru.af3412.srp;
 
-
-import java.util.Scanner;
-/**
- * Введите число: 1
- * Введите действие (/*+-)
- * Введите число: 1
- * Результат: 2
- * Для продолжения работы введите действие, для нового вычисления введите число, для выхода введите exit
- *
- */
-
 /**
  * The type Interact calc.
  *
@@ -107,10 +96,6 @@ public class InteractCalc {
 
         return value;
 
-    }
-
-    private void showMenu() {
-        System.out.print("");
     }
 
 }
