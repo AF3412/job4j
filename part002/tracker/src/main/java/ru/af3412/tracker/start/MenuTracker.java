@@ -1,5 +1,8 @@
 package ru.af3412.tracker.start;
 
+/**
+ * The type Edit item.
+ */
 class EditItem implements UserAction {
 
 	public int key() {
@@ -27,18 +30,30 @@ class EditItem implements UserAction {
 
 }
 
+/**
+ * The type Menu tracker.
+ */
 public class MenuTracker {
 
 	private Input input;
 	private Tracker tracker;
 	private UserAction[] action = new UserAction[5];
 
-	public MenuTracker(Input input, Tracker tracker) {
+    /**
+     * Instantiates a new Menu tracker.
+     *
+     * @param input   the input
+     * @param tracker the tracker
+     */
+    public MenuTracker(Input input, Tracker tracker) {
 		this.input = input;
 		this.tracker = tracker;
 	}
 
-	public void fillAction() {
+    /**
+     * Fill action.
+     */
+    public void fillAction() {
 		this.action[0] = this.new AddItem();
 		this.action[1] = new MenuTracker.ShowItem();
 		this.action[2] = new EditItem();
@@ -46,11 +61,19 @@ public class MenuTracker {
 		this.action[4] = new DeleteItem();
 	}
 
-	public void select(int key) {
+    /**
+     * Select.
+     *
+     * @param key the key
+     */
+    public void select(int key) {
 		this.action[key].execute(this.input, this.tracker);
 	}
 
-	public void show() {
+    /**
+     * Show.
+     */
+    public void show() {
 		for (UserAction action : this.action) {
 			if (action != null) {
 				System.out.println(action.info());

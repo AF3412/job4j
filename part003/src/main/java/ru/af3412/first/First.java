@@ -8,8 +8,16 @@ package ru.af3412.first;
 
 import java.util.Scanner;
 
+/**
+ * The type First.
+ */
 public class First {
 
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     */
     public static void main(String[] args) {
 /**
  * @param sc is the number entered from the keyboard

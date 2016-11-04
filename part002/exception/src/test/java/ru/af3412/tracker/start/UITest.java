@@ -4,8 +4,14 @@ import org.junit.*;
 
 import static org.hamcrest.core.Is.is;
 
+/**
+ * The type Ui test.
+ */
 public class UITest {
 
+    /**
+     * When add item that add in array.
+     */
     @Test
     public void whenAddItemThatAddInArray() {
 
@@ -21,6 +27,9 @@ public class UITest {
 
     }
 
+    /**
+     * When add comment that add comment in item.
+     */
     @Test
     public void whenAddCommentThatAddCommentInItem() {
 
@@ -36,6 +45,9 @@ public class UITest {
 
     }
 
+    /**
+     * When edit item that item edit in array.
+     */
     @Test
     public void whenEditItemThatItemEditInArray() {
 
@@ -56,6 +68,9 @@ public class UITest {
 
     }
 
+    /**
+     * When delete item that item delete in array.
+     */
     @Test
     public void whenDeleteItemThatItemDeleteInArray() {
 

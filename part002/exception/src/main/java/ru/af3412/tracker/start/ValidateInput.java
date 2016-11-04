@@ -1,5 +1,8 @@
 package ru.af3412.tracker.start;
 
+/**
+ * The type Validate input.
+ */
 public class ValidateInput extends ConsoleInput {
 
 	public int ask(String question, int[] range) {

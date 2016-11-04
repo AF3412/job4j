@@ -1,18 +1,32 @@
 package af3412;
 
+/**
+ * The type Array bubble sort.
+ */
 public class ArrayBubbleSort{
-	
-	int[] array;
 
+    /**
+     * The Array.
+     */
+    int[] array;
+
+    /**
+     * Instantiates a new Array bubble sort.
+     *
+     * @param array the array
+     */
 /*
-	Constructor
+    Constructor
 */
 	public ArrayBubbleSort(int[] array){
 		this.array = array;
 	}
 
+    /**
+     * Print array.
+     */
 /*
-	Print Array method
+    Print Array method
 */
 	public void printArray(){
 		for(int index : array){
@@ -21,8 +35,13 @@ public class ArrayBubbleSort{
 		System.out.println();
 	}
 
+    /**
+     * Bubble sort int [ ].
+     *
+     * @return the int [ ]
+     */
 /*
-	Sort Array method
+    Sort Array method
 */
 	public int[] bubbleSort(){
 		for(int indexA=1; indexA < array.length; indexA++){

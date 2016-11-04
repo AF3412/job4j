@@ -5,11 +5,16 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
 /**
+ * The type Summ of two test.
+ *
  * @author Filatov Alexander
  * @since 15.09.2016
  */
 public class SummOfTwoTest {
 
+    /**
+     * Test summ.
+     */
     @Test
     public void testSumm() {
 

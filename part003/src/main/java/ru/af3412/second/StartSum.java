@@ -3,19 +3,28 @@ package ru.af3412.second;
 import java.util.Scanner;
 
 /**
+ * The type Start sum.
+ *
  * @author Filatov Alexander
  * @since 16.09.2016
  */
 public class StartSum {
 
     /**
+     * The Number.
+     *
      * @param number is array of integer;
      * @param index is count for array "number"
      * @param err is boolean value of integer number or not
      */
-
     int[] number = new int[2];
+    /**
+     * The Index.
+     */
     int index = 0;
+    /**
+     * The Err.
+     */
     boolean err = false;
 
     /**
@@ -23,7 +32,6 @@ public class StartSum {
      *
      * @param ask printing message
      */
-
     public void enterValue(String ask) {
         System.out.print(ask);
         Scanner scanner = new Scanner(System.in);
@@ -39,7 +47,6 @@ public class StartSum {
      *
      * @return returned text; value Sum or error message
      */
-
     public String summ() {
         String text;
         if (!err) {

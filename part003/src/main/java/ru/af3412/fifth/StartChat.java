@@ -6,11 +6,19 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 /**
+ * The type Start chat.
+ *
  * @author Filatov Alexander
  * @since 24.09.2016
  */
 public class StartChat {
 
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     * @throws IOException the io exception
+     */
     public static void main(String[] args) throws IOException {
 
         Chat chat = new Chat();

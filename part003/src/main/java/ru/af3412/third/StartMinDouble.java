@@ -1,11 +1,18 @@
 package ru.af3412.third;
 
 /**
+ * The type Start min double.
+ *
  * @author Filatov Alexander
  * @since 17.09.2016
  */
 public class StartMinDouble {
 
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     */
     public static void main(String[] args) {
 
         /**

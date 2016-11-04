@@ -1,17 +1,33 @@
 package ru.af3412.tracker.start;
 
+/**
+ * The type Comment.
+ */
 public class Comment {
 
 	private String text;
 
-	public Comment() {
+    /**
+     * Instantiates a new Comment.
+     */
+    public Comment() {
 	}
 
-	public Comment(String text) {
+    /**
+     * Instantiates a new Comment.
+     *
+     * @param text the text
+     */
+    public Comment(String text) {
 		this.text = text;
 	}
 
-	public String getText() {
+    /**
+     * Gets text.
+     *
+     * @return the text
+     */
+    public String getText() {
 		return this.text;
 	}
 

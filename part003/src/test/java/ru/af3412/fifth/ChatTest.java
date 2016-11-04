@@ -11,11 +11,18 @@ import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
 /**
+ * The type Chat test.
+ *
  * @author Filatov Alexander
  * @since 27.09.2016
  */
 public class ChatTest {
 
+    /**
+     * Test read file to array string.
+     *
+     * @throws IOException the io exception
+     */
     @Test
     public void testReadFileToArrayString() throws IOException {
 
@@ -29,6 +36,9 @@ public class ChatTest {
 
     }
 
+    /**
+     * Test get random string.
+     */
     @Test
     public void testGetRandomString() {
         Chat rnd = mock(Chat.class);

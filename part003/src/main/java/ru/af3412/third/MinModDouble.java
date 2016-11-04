@@ -4,6 +4,8 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 /**
+ * The type Min mod double.
+ *
  * @author Filatov Alexander
  * @since 17.09.2016
  */
@@ -16,8 +18,17 @@ public class MinModDouble {
      * @param index is count of array
      */
     private final int number = 3;
+    /**
+     * The Scanner.
+     */
     Scanner scanner = new Scanner(System.in);
+    /**
+     * The Array.
+     */
     double[] array = new double[number];
+    /**
+     * The Index.
+     */
     int index = 0;
 
     /**
@@ -33,6 +44,7 @@ public class MinModDouble {
 
     /**
      * sorts the array to increase
+     *
      * @return first value after sorted (it's min value)
      */
     public double minValue() {

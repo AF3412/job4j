@@ -4,6 +4,8 @@ import java.io.*;
 import java.util.Random;
 
 /**
+ * The type Chat.
+ *
  * @author Filatov Alexander
  * @since 23.09.2016
  */
@@ -16,7 +18,7 @@ public class Chat {
      *
      * @param file Файл, который переводится в строку
      * @return случайная строка из файла
-     * @throws IOException
+     * @throws IOException the io exception
      */
     public String[] getArrayStringFromFile(File file) throws IOException {
         BufferedReader myfile = new BufferedReader(new FileReader(file));
@@ -41,6 +43,12 @@ public class Chat {
 
     }
 
+    /**
+     * Gets random string.
+     *
+     * @param string the string
+     * @return the random string
+     */
     public String getRandomString(String[] string) {
         return string[rnd.nextInt(string.length)];
     }
@@ -59,8 +67,8 @@ public class Chat {
      *
      * @param fileIn  задает файл, откуда брать ответы
      * @param fileOut задает файл, куда писать лог
+     * @throws IOException the io exception
      */
-
     public void start(File fileIn, File fileOut) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String[] arrayRandomString = getArrayStringFromFile(fileIn);

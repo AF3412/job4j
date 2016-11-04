@@ -1,8 +1,16 @@
 package ru.af3412.tracker.start;
 
+/**
+ * The type Edit item.
+ */
 class EditItem extends BaseAction {
 
-	EditItem (String actionName) {
+    /**
+     * Instantiates a new Edit item.
+     *
+     * @param actionName the action name
+     */
+    EditItem (String actionName) {
 		super(actionName);
 	}
 
@@ -27,6 +35,9 @@ class EditItem extends BaseAction {
 
 }
 
+/**
+ * The type Menu tracker.
+ */
 public class MenuTracker {
 
 	private Input input;
@@ -34,12 +45,21 @@ public class MenuTracker {
 	private int position = 0;
 	private UserAction[] action = new UserAction[5];
 
-	public MenuTracker(Input input, Tracker tracker) {
+    /**
+     * Instantiates a new Menu tracker.
+     *
+     * @param input   the input
+     * @param tracker the tracker
+     */
+    public MenuTracker(Input input, Tracker tracker) {
 		this.input = input;
 		this.tracker = tracker;
 	}
 
-	public void fillAction() {
+    /**
+     * Fill action.
+     */
+    public void fillAction() {
 		this.action[position++] = this.new AddItem("Add Item");
 		this.action[position++] = new MenuTracker.ShowItem("Show all item");
 		this.action[position++] = new EditItem("Edit Item");
@@ -47,7 +67,12 @@ public class MenuTracker {
 		this.action[position++] = new DeleteItem("Delete Item");
 	}
 
-	public int[] getRange() {
+    /**
+     * Get range int [ ].
+     *
+     * @return the int [ ]
+     */
+    public int[] getRange() {
 		int[] range = new int[this.action.length];
 		for (int count = 0; count < range.length; count++) {
 			range[count] = count;
@@ -55,11 +80,19 @@ public class MenuTracker {
 		return (range);
 	}
 
-	public void select(int key) {
+    /**
+     * Select.
+     *
+     * @param key the key
+     */
+    public void select(int key) {
 		this.action[key].execute(this.input, this.tracker);
 	}
 
-	public void show() {
+    /**
+     * Show.
+     */
+    public void show() {
 		for (UserAction action : this.action) {
 			if (action != null) {
 				System.out.println(action.info());
@@ -69,7 +102,12 @@ public class MenuTracker {
 
 	private class AddItem extends BaseAction {
 
-		AddItem (String actionName) {
+        /**
+         * Instantiates a new Add item.
+         *
+         * @param actionName the action name
+         */
+        AddItem (String actionName) {
 			super(actionName);
 		}	
 
@@ -87,7 +125,12 @@ public class MenuTracker {
 
 	private static class ShowItem extends BaseAction {
 
-		ShowItem (String actionName) {
+        /**
+         * Instantiates a new Show item.
+         *
+         * @param actionName the action name
+         */
+        ShowItem (String actionName) {
 			super(actionName);
 		}	
 
@@ -107,7 +150,12 @@ public class MenuTracker {
 
 	private class FindId extends BaseAction {
 
-		FindId (String actionName) {
+        /**
+         * Instantiates a new Find id.
+         *
+         * @param actionName the action name
+         */
+        FindId (String actionName) {
 			super(actionName);
 		}	
 
@@ -131,7 +179,12 @@ public class MenuTracker {
 
 	private class DeleteItem extends BaseAction {
 
-		DeleteItem (String actionName) {
+        /**
+         * Instantiates a new Delete item.
+         *
+         * @param actionName the action name
+         */
+        DeleteItem (String actionName) {
 			super(actionName);
 		}	
 

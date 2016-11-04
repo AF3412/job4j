@@ -1,11 +1,18 @@
 package ru.af3412;
 
 /**
+ * The type Two arrays.
+ *
  * @author Filatov Alexander
  * @since 12.10.2016
  */
 public class TwoArrays {
 
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     */
     public static void main(String[] args) {
 
         int[] arrayFirst = {1,2,12}; //первый массив

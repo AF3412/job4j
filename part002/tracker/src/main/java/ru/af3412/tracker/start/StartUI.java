@@ -1,14 +1,27 @@
 package ru.af3412.tracker.start;
 
+/**
+ * The type Start ui.
+ */
 public class StartUI {
 
 	private Input input;
 
-	public StartUI(Input input){
+    /**
+     * Instantiates a new Start ui.
+     *
+     * @param input the input
+     */
+    public StartUI(Input input){
 		this.input = input;
 	}
 
-	/* Main method*/
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     */
+/* Main method*/
 	public static void main(String[] args) {
 
 		Input input = new ConsoleInput();
@@ -18,7 +31,10 @@ public class StartUI {
 
 	private Tracker tracker = new Tracker();
 
-	public void init() {
+    /**
+     * Init.
+     */
+    public void init() {
 
 		MenuTracker menu = new MenuTracker(this.input, tracker);
 		menu.fillAction();

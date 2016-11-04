@@ -1,10 +1,21 @@
 package ru.af3412.tracker.start;
 
+/**
+ * The type Base action.
+ */
 public abstract class BaseAction implements UserAction {
 
-	public String actionName;
+    /**
+     * The Action name.
+     */
+    public String actionName;
 
-	public BaseAction(String actionName){
+    /**
+     * Instantiates a new Base action.
+     *
+     * @param actionName the action name
+     */
+    public BaseAction(String actionName){
 		this.actionName = actionName;
 	}
 

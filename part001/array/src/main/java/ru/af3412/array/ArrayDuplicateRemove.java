@@ -1,18 +1,32 @@
 package af3412;
 
+/**
+ * The type Array duplicate remove.
+ */
 public class ArrayDuplicateRemove{
 
-	String[] array;
+    /**
+     * The Array.
+     */
+    String[] array;
 
+    /**
+     * Instantiates a new Array duplicate remove.
+     *
+     * @param array the array
+     */
 /*
-	Constructor
+    Constructor
 */
 	public ArrayDuplicateRemove(String[] array){
 		this.array = array;
 	}
 
-	/*
-	Print Array method
+    /**
+     * Print array.
+     */
+/*
+    Print Array method
 */
 	public void printArray(){
 		for(String index : array){
@@ -21,7 +35,10 @@ public class ArrayDuplicateRemove{
 		System.out.println();
 	}
 
-	public void removeDuplicate(){
+    /**
+     * Remove duplicate.
+     */
+    public void removeDuplicate(){
 		for(int indexA=0; indexA != array.length; indexA++){
 			if (array[indexA] != null){
 				for(int indexB = indexA + 1; indexB != array.length; indexB++){

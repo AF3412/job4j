@@ -1,17 +1,32 @@
 package af3412;
 
+/**
+ * The type Rotate array.
+ */
 public class RotateArray{
 
-	int[][] array;
+    /**
+     * The Array.
+     */
+    int[][] array;
+
+    /**
+     * Instantiates a new Rotate array.
+     *
+     * @param array the array
+     */
 /*
-	Constructor
+    Constructor
 */
 	public RotateArray(int[][] array){
 		this.array = array;
 	}
 
-/* 
-	print array 
+    /**
+     * Print two array.
+     */
+/*
+    print array
 */
 	public void printTwoArray(){
 		for(int indexA = 0; indexA < array.length; indexA++){
@@ -22,8 +37,11 @@ public class RotateArray{
 		}
 	}
 
-/* 
-	rotate array 
+    /**
+     * Rotate.
+     */
+/*
+    rotate array
 */
 	public void rotate(){
 		int[][] tempArray = new int[array.length][array.length];

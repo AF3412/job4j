@@ -9,6 +9,8 @@ package ru.af3412.fourth;
 public class Palindrome {
 
     /**
+     * Check word palindrome boolean.
+     *
      * @param text takes the word
      * @return boolean value palindrome or not
      */
@@ -25,8 +27,10 @@ public class Palindrome {
     }
 
     /**
+     * Check five lower word palindrome string.
+     *
      * @param text takes the word
-     * @return result(check five letters or not; palindrome or not)
+     * @return result(check five letters or not palindrome or not) string
      */
     public String checkFiveLowerWordPalindrome(String text) {
         text = text.toLowerCase();

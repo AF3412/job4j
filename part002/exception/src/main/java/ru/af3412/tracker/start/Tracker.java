@@ -2,29 +2,58 @@ package ru.af3412.tracker.start;
 
 import java.util.*;
 
+/**
+ * The type Tracker.
+ */
 public class Tracker {
 
 	private Item[] items = new Item[1];
 	private int positionItem = 0;
 	private Random RN = new Random();
 
-	protected void add(String name, String description) {
+    /**
+     * Add.
+     *
+     * @param name        the name
+     * @param description the description
+     */
+    protected void add(String name, String description) {
 		Item item = new Item(name, description, this.generateId(), System.currentTimeMillis());
 		this.items[positionItem++] = item;
 		this.items = doubleItems(this.items);
 	}
 
-	protected void addComments(Item item, String comment) {
+    /**
+     * Add comments.
+     *
+     * @param item    the item
+     * @param comment the comment
+     */
+    protected void addComments(Item item, String comment) {
 		item.addComments(comment);
 	}
 
-	protected void itemEdit(Item item, String name, String description, String comment) {
+    /**
+     * Item edit.
+     *
+     * @param item        the item
+     * @param name        the name
+     * @param description the description
+     * @param comment     the comment
+     */
+    protected void itemEdit(Item item, String name, String description, String comment) {
 		item.setName(name);
 		item.setDescription(description);
 		this.addComments(item, comment);
 	}
 
-	protected Item findById(String id){
+    /**
+     * Find by id item.
+     *
+     * @param id the id
+     * @return the item
+     */
+    protected Item findById(String id){
 		Item result = null;
 		for (Item item : items) {
 			if (item != null && item.getId().equals(id)) {
@@ -35,7 +64,12 @@ public class Tracker {
 		return result;
 	}
 
-	protected void delete(String id){
+    /**
+     * Delete.
+     *
+     * @param id the id
+     */
+    protected void delete(String id){
 		for (int index = 0; index != items.length; index++) {
 			if (items[index] != null && items[index].getId().equals(id)) {
 				items[index] = null;
@@ -45,7 +79,12 @@ public class Tracker {
 		sortArray(this.items);
 	}
 
-	protected Item[] getAll() {
+    /**
+     * Get all item [ ].
+     *
+     * @return the item [ ]
+     */
+    protected Item[] getAll() {
 		Item[] result = new Item[positionItem];
 		for (int index = 0; index != positionItem; index++){
 			result[index] = this.items[index];

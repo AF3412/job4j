@@ -6,12 +6,17 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
 /**
+ * The type Palindrome test.
+ *
  * @author Filatov Alexander
  * @since 18.09.2016
  */
 public class PalindromeTest {
 
 
+    /**
+     * Check palindrome class.
+     */
     @Test
     public void checkPalindromeClass() {
         Palindrome palindrome = new Palindrome();
@@ -28,6 +33,9 @@ public class PalindromeTest {
 
     }
 
+    /**
+     * Check start palindrome class.
+     */
     @Test
     public void checkStartPalindromeClass() {
         Palindrome palindrome = new Palindrome();

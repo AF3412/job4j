@@ -5,9 +5,10 @@ import java.net.*;
 import java.util.Random;
 
 /**
+ * The type Chat server.
+ *
  * @author Filatov Alexander
- * @since 28.09.2016
- * this class get random answers from file
+ * @since 28.09.2016 this class get random answers from file
  */
 public class ChatServer {
 
@@ -22,12 +23,7 @@ public class ChatServer {
      * This method received a message from the client and sends a random string
      *
      * @param file get file for answers
-     * @param arrayString is an array of string from a file
-     * @param in get values from the client
-     * @param out return random string from file to client
-     * @param serverSocket initializing server port
-     * @param fromClient listened server socket
-     * @throws IOException
+     * @throws IOException the io exception
      */
     public void start(File file) throws IOException {
 
@@ -58,9 +54,11 @@ public class ChatServer {
     }
 
     /**
+     * Return array string from file string [ ].
+     *
      * @param readFile get file for answers
      * @return array of string from a file
-     * @throws IOException
+     * @throws IOException the io exception
      */
     protected String[] returnArrayStringFromFile(File readFile) throws IOException {
 
@@ -79,6 +77,8 @@ public class ChatServer {
     }
 
     /**
+     * Gets random string.
+     *
      * @param string is array string from file
      * @return random string
      */

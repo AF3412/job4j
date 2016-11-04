@@ -1,6 +1,8 @@
 package ru.af3412.chess;
 
 /**
+ * The type Pawn.
+ *
  * @author Filatov Alexander
  * @since 01.09.2016
  */
@@ -44,6 +46,7 @@ public class Pawn extends Figure {
 
     /**
      * check boundary table
+     *
      * @param ver is vertical position
      * @param hor is horizontal position
      * @return true or false of boundary table
@@ -54,10 +57,11 @@ public class Pawn extends Figure {
 
     /**
      * check FreeCell
-     * @param board this board
+     *
+     * @param board    this board
      * @param startVer is started vertical position
-     * @param endVer is ended position
-     * @param hor is horizontal line
+     * @param endVer   is ended position
+     * @param hor      is horizontal line
      * @return true or false checkfree cell
      */
     boolean isFreeCell(Figure[][] board, int startVer, int endVer, int hor) {

@@ -11,15 +11,27 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 /**
+ * The type Chat server test.
+ *
  * @author Filatov Alexander
  * @since 04.10.2016
  */
 public class ChatServerTest {
+    /**
+     * Start.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void start() throws Exception {
 
     }
 
+    /**
+     * Test return array string from file.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void testReturnArrayStringFromFile() throws Exception {
 
@@ -33,6 +45,11 @@ public class ChatServerTest {
 
     }
 
+    /**
+     * Test get random string.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void testGetRandomString() throws Exception {
 

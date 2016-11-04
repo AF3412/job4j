@@ -3,9 +3,15 @@ package ru.af3412.tracker.start;
 import org.junit.*;
 import static org.hamcrest.core.Is.is;
 
+/**
+ * The type Ui test.
+ */
 public class UITest{
-	
-	@Test
+
+    /**
+     * When add item that add in array.
+     */
+    @Test
 	public void whenAddItemThatAddInArray() {
 
 		Tracker tracker = new Tracker();
@@ -20,7 +26,10 @@ public class UITest{
 		
 	}
 
-	@Test
+    /**
+     * When add comment that add comment in item.
+     */
+    @Test
 	public void whenAddCommentThatAddCommentInItem() {
 
 		Tracker tracker = new Tracker();
@@ -35,7 +44,10 @@ public class UITest{
 		
 	}
 
-	@Test
+    /**
+     * When edit item that item edit in array.
+     */
+    @Test
 	public void whenEditItemThatItemEditInArray() {
 
 		Tracker tracker = new Tracker();
@@ -55,7 +67,10 @@ public class UITest{
 
 	}
 
-	@Test
+    /**
+     * When delete item that item delete in array.
+     */
+    @Test
 	public void whenDeleteItemThatItemDeleteInArray() {
 
 		Tracker tracker = new Tracker();

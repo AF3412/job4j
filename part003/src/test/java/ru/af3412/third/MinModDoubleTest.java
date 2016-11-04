@@ -6,10 +6,15 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
 /**
+ * The type Min mod double test.
+ *
  * @author Filatov Alexander
  * @since 17.09.2016
  */
 public class MinModDoubleTest {
+    /**
+     * Min value.
+     */
     @Test
     public void minValue() {
 

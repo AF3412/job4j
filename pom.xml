@@ -37,6 +37,7 @@
 		<module>part001</module>
 		<module>part002</module>
         <module>part003</module>
+        <module>part004</module>
     </modules>
 
 </project>

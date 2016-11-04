@@ -6,11 +6,16 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
 /**
+ * The type Check number test.
+ *
  * @author Filatov Alexander
  * @since 14.09.2016
  */
 public class CheckNumberTest {
 
+    /**
+     * Integer test.
+     */
     @Test
     public void integerTest() {
 
@@ -23,6 +28,9 @@ public class CheckNumberTest {
 
     }
 
+    /**
+     * Not integer test.
+     */
     @Test
     public void notIntegerTest() {
 

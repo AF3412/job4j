@@ -5,11 +5,16 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
 /**
+ * The type Start sum test.
+ *
  * @author Filatov Alexander
  * @since 17.09.2016
  */
 public class StartSumTest {
 
+    /**
+     * Test method summ with two integer.
+     */
     @Test
     public void testMethodSummWithTwoInteger() {
 

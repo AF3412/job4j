@@ -1,11 +1,30 @@
 package ru.af3412.tracker.start;
 
+/**
+ * The interface User action.
+ */
 public interface UserAction {
 
-	int key();
+    /**
+     * Key int.
+     *
+     * @return the int
+     */
+    int key();
 
-	void execute(Input input, Tracker tracker);
+    /**
+     * Execute.
+     *
+     * @param input   the input
+     * @param tracker the tracker
+     */
+    void execute(Input input, Tracker tracker);
 
-	String info();
+    /**
+     * Info string.
+     *
+     * @return the string
+     */
+    String info();
 	
 }

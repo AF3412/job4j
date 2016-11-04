@@ -1,5 +1,8 @@
 package ru.af3412.tracker.start;
 
+/**
+ * The type Item.
+ */
 public class Item {
 
 	private String name;
@@ -9,10 +12,21 @@ public class Item {
 	private int positionComments = 0;
 	private Comment[] comments = new Comment[10]; // new comments
 
-	public Item() {
+    /**
+     * Instantiates a new Item.
+     */
+    public Item() {
 	}
 
-	public Item(String name, String description, String id, long dateCreate) {
+    /**
+     * Instantiates a new Item.
+     *
+     * @param name        the name
+     * @param description the description
+     * @param id          the id
+     * @param dateCreate  the date create
+     */
+    public Item(String name, String description, String id, long dateCreate) {
 		this.name = name;
 		this.description = description;
 		this.id = id;
@@ -24,35 +38,75 @@ public class Item {
 		return String.format("Name: %s; Description: %s; Id: %s", this.name, this.description, this.id);
 	}
 
-	public void setName(String name) {
+    /**
+     * Sets name.
+     *
+     * @param name the name
+     */
+    public void setName(String name) {
 		this.name = name;
 	}
 
-	public String getName() {
+    /**
+     * Gets name.
+     *
+     * @return the name
+     */
+    public String getName() {
 		return this.name;
 	}
 
-	public void setDescription(String desc) {
+    /**
+     * Sets description.
+     *
+     * @param desc the desc
+     */
+    public void setDescription(String desc) {
 		this.description = desc;
 	}
 
-	public String getDescription() {
+    /**
+     * Gets description.
+     *
+     * @return the description
+     */
+    public String getDescription() {
 		return this.description;
 	}
 
-	public String getId() {
+    /**
+     * Gets id.
+     *
+     * @return the id
+     */
+    public String getId() {
 		return this.id;
 	}
 
-	public long getDateCreate() {
+    /**
+     * Gets date create.
+     *
+     * @return the date create
+     */
+    public long getDateCreate() {
 		return this.dateCreate;
 	}
 
-	public void addComments(String comment) {
+    /**
+     * Add comments.
+     *
+     * @param comment the comment
+     */
+    public void addComments(String comment) {
 		comments[positionComments++] = (new Comment(comment));
 	}
 
-	public Comment[] getAllComments() {
+    /**
+     * Get all comments comment [ ].
+     *
+     * @return the comment [ ]
+     */
+    public Comment[] getAllComments() {
 		Comment[] result = new Comment[positionComments];
 		for (int index = 0; index != positionComments; index++) {
 			result[index] = this.comments[index];
