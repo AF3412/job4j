@@ -16,8 +16,8 @@ public class Pawn extends Figure {
     /**
      *
      * @param board this board (array figures)
-     * @param startVer start vertical position
-     * @param startHor start horizontal position
+     * @param startVer logic vertical position
+     * @param startHor logic horizontal position
      * @param endVer end vertical position
      * @param endHor end horizontal position
      * @return true or false check can move figures

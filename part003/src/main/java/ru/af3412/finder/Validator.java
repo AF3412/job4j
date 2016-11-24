@@ -105,7 +105,7 @@ public class Validator {
      */
     protected String usage() {
         return ("Usage: java -jar find.jar -d c:\\ -n *.txt -m -o log.txt \n" +
-                "-d is start search directory \n" +
+                "-d is logic search directory \n" +
                 "-n is file, or mask or regular expressions \n" +
                 "-f find at the full name, -m find at the mask, -r find at the regular expression \n" +
                 "-o write search result to file ");

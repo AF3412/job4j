@@ -10,6 +10,10 @@ import java.util.Scanner;
  */
 public class Input {
 
+
+    /**
+     * The scanner for input.
+     */
     private Scanner scanner = new Scanner(System.in);
 
     /**

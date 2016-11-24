@@ -3,7 +3,7 @@ package af3412;
 /**
  * The type Rotate array.
  */
-public class RotateArray{
+public class RotateArray {
 
     /**
      * The Array.
@@ -18,9 +18,9 @@ public class RotateArray{
 /*
     Constructor
 */
-	public RotateArray(int[][] array){
-		this.array = array;
-	}
+    public RotateArray(int[][] array) {
+        this.array = array;
+    }
 
     /**
      * Print two array.
@@ -28,14 +28,14 @@ public class RotateArray{
 /*
     print array
 */
-	public void printTwoArray(){
-		for(int indexA = 0; indexA < array.length; indexA++){
-			for(int indexB = 0; indexB < array.length; indexB++){
-				System.out.print(array[indexA][indexB] + " ");
-			}
-			System.out.println();
-		}
-	}
+    public void printTwoArray() {
+        for (int indexA = 0; indexA < array.length; indexA++) {
+            for (int indexB = 0; indexB < array.length; indexB++) {
+                System.out.print(array[indexA][indexB] + " ");
+            }
+            System.out.println();
+        }
+    }
 
     /**
      * Rotate.
@@ -43,16 +43,16 @@ public class RotateArray{
 /*
     rotate array
 */
-	public void rotate(){
-		int[][] tempArray = new int[array.length][array.length];
-		for(int indexA = 0; indexA < array.length; indexA++){
-			for(int indexB = 0; indexB < array.length; indexB++){
-				tempArray[indexB][array.length - indexA - 1] = array[indexA][indexB];	
-			}
-		}
-		array = tempArray;
-		tempArray = null;
+    public void rotate() {
+        int[][] tempArray = new int[array.length][array.length];
+        for (int indexA = 0; indexA < array.length; indexA++) {
+            for (int indexB = 0; indexB < array.length; indexB++) {
+                tempArray[indexB][array.length - indexA - 1] = array[indexA][indexB];
+            }
+        }
+        array = tempArray;
+        tempArray = null;
 
-	}
+    }
 
 }

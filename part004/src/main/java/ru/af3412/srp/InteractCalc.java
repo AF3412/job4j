@@ -11,15 +11,15 @@ public class InteractCalc {
     /**
      * The Input.
      */
-    Input input = new Input();
+    private Input input = new Input();
     /**
      * The Validator.
      */
-    Validator validator = new Validator();
+    private Validator validator = new Validator();
     /**
      * The Calculator.
      */
-    Calculator calculator = new Calculator();
+    private Calculator calculator = new Calculator();
 
     /**
      * Start.
@@ -35,7 +35,7 @@ public class InteractCalc {
         do {
             first = numberInput();
             do {
-                operation = MathOperationInput();
+                operation = mathOperationInput();
                 second = numberInput();
                 result = calculator.calculate(first, operation, second);
                 System.out.printf("Result: %s, \n", result);
@@ -55,7 +55,7 @@ public class InteractCalc {
      *
      * @return the double
      */
-    protected double numberInput() {
+    public double numberInput() {
 
         String userInput;
         double value = 0;
@@ -79,7 +79,7 @@ public class InteractCalc {
      *
      * @return the string
      */
-    protected String MathOperationInput() {
+    protected String mathOperationInput() {
 
         String userInput;
         String value = "";

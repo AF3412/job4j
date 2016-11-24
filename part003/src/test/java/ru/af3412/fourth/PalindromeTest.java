@@ -34,7 +34,7 @@ public class PalindromeTest {
     }
 
     /**
-     * Check start palindrome class.
+     * Check logic palindrome class.
      */
     @Test
     public void checkStartPalindromeClass() {

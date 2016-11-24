@@ -17,14 +17,14 @@ public class Calculator {
      * @return the double
      */
     public double calculate(double first, String operation, double second) {
-        double result= 0;
+        double result = 0;
         if (operation.equals("+")) {
             result = (first + second);
-        } else if(operation.equals("-")) {
+        } else if (operation.equals("-")) {
             result = (first - second);
-        } else if(operation.equals("*")) {
+        } else if (operation.equals("*")) {
             result = (first * second);
-        } else if(operation.equals("/")) {
+        } else if (operation.equals("/")) {
             result = (first / second);
         }
 

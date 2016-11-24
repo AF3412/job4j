@@ -23,7 +23,7 @@ public class FindByFullName {
     /**
      * Find string.
      *
-     * @param path is start path for search file
+     * @param path is logic path for search file
      * @return a string with the search results
      */
     protected String find(String path) {

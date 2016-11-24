@@ -3,7 +3,7 @@ package af3412;
 /**
  * The type Array bubble sort.
  */
-public class ArrayBubbleSort{
+public class ArrayBubbleSort {
 
     /**
      * The Array.
@@ -18,9 +18,9 @@ public class ArrayBubbleSort{
 /*
     Constructor
 */
-	public ArrayBubbleSort(int[] array){
-		this.array = array;
-	}
+    public ArrayBubbleSort(int[] array) {
+        this.array = array;
+    }
 
     /**
      * Print array.
@@ -28,12 +28,12 @@ public class ArrayBubbleSort{
 /*
     Print Array method
 */
-	public void printArray(){
-		for(int index : array){
-			System.out.print(index + " ");
-		}
-		System.out.println();
-	}
+    public void printArray() {
+        for (int index : array) {
+            System.out.print(index + " ");
+        }
+        System.out.println();
+    }
 
     /**
      * Bubble sort int [ ].
@@ -43,18 +43,18 @@ public class ArrayBubbleSort{
 /*
     Sort Array method
 */
-	public int[] bubbleSort(){
-		for(int indexA=1; indexA < array.length; indexA++){
-			for(int indexB=array.length-1; indexB>= indexA; indexB--){
-				if (array[indexB-1] > array[indexB]) {
-					int temp = array[indexB-1];
-					array[indexB-1] = array[indexB];
-					array[indexB] = temp;
-				}
-			}
-		}
-		return array;
-	}
+    public int[] bubbleSort() {
+        for (int indexA = 1; indexA < array.length; indexA++) {
+            for (int indexB = array.length - 1; indexB >= indexA; indexB--) {
+                if (array[indexB - 1] > array[indexB]) {
+                    int temp = array[indexB - 1];
+                    array[indexB - 1] = array[indexB];
+                    array[indexB] = temp;
+                }
+            }
+        }
+        return array;
+    }
 
 }
 

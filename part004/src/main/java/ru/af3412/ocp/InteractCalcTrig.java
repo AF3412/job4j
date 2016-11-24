@@ -1,6 +1,8 @@
 package ru.af3412.ocp;
 
-import ru.af3412.srp.*;
+
+import ru.af3412.srp.Input;
+import ru.af3412.srp.InteractCalc;
 
 /**
  * The type Interact calc trig.
@@ -13,20 +15,20 @@ public class InteractCalcTrig extends InteractCalc {
     /**
      * The Calculator.
      */
-    CalculatorTrig calculator = new CalculatorTrig();
+    private CalculatorTrig calculator = new CalculatorTrig();
 
     /**
      * The Validator.
      */
-    ValidatorTrig validator = new ValidatorTrig();
+    private ValidatorTrig validator = new ValidatorTrig();
 
     /**
      * The Input.
      */
-    Input input = new Input();
+    private Input input = new Input();
 
     /**
-     * Override method start().
+     * Override method logic().
      * add check input trigonometry operation
      */
 
@@ -41,7 +43,7 @@ public class InteractCalcTrig extends InteractCalc {
         do {
             first = numberInput();
             do {
-                operation = MathOperationInput();
+                operation = mathOperationInput();
                 if (validator.checkTrigMathOperation(operation)) {
                     result = calculator.calculate(first, operation);
                 } else {
@@ -61,11 +63,11 @@ public class InteractCalcTrig extends InteractCalc {
 
 
     /**
-     * Override method MathOperationInput().
+     * Override method mathOperationInput().
      * add check input trigonometry operation
      */
     @Override
-    protected String MathOperationInput() {
+    protected String mathOperationInput() {
         String userInput;
         String value = "";
 

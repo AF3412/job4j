@@ -2,17 +2,22 @@ package ru.af3412.srp;
 
 import org.junit.Test;
 
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.*;
 
 /**
+ * The type Validator test.
+ *
  * @author Filatov Alexander
  * @since 01.11.2016
  */
 public class ValidatorTest {
 
+    /**
+     * Validate action parameters is empty.
+     */
     @Test
-    public void validate_action_parameters_is_empty() {
+    public void validateActionParametersIsEmpty() {
 
         String args = "";
         Validator validator = new Validator();
@@ -24,8 +29,11 @@ public class ValidatorTest {
 
     }
 
+    /**
+     * Validate action parameters is plus.
+     */
     @Test
-    public void validate_action_parameters_is_plus() {
+    public void validateActionParametersIsPlus() {
 
         String args = "+";
         Validator validator = new Validator();
@@ -37,8 +45,11 @@ public class ValidatorTest {
 
     }
 
+    /**
+     * Validate action parameters is minus.
+     */
     @Test
-    public void validate_action_parameters_is_minus() {
+    public void validateActionParametersIsMinus() {
 
         String args = "-";
         Validator validator = new Validator();
@@ -50,8 +61,11 @@ public class ValidatorTest {
 
     }
 
+    /**
+     * Validate action parameters is multi.
+     */
     @Test
-    public void validate_action_parameters_is_multi() {
+    public void validateActionParametersIsMulti() {
 
         String args = "*";
         Validator validator = new Validator();
@@ -63,8 +77,11 @@ public class ValidatorTest {
 
     }
 
+    /**
+     * Validate action parameters is div.
+     */
     @Test
-    public void validate_action_parameters_is_div() {
+    public void validateActionParametersIsDiv() {
 
         String args = "/";
         Validator validator = new Validator();
@@ -76,8 +93,11 @@ public class ValidatorTest {
 
     }
 
+    /**
+     * Validate action parameters is another.
+     */
     @Test
-    public void validate_action_parameters_is_another() {
+    public void validateActionParametersIsAnother() {
 
         String args = "sdf43";
         Validator validator = new Validator();
@@ -89,8 +109,11 @@ public class ValidatorTest {
 
     }
 
+    /**
+     * Validate numbers parametrs is number.
+     */
     @Test
-    public void validate_numbers_parametrs_is_number() {
+    public void validateNumbersParametrsIsNumber() {
         String args = "1";
         Validator validator = new Validator();
         boolean expected = true;
@@ -100,8 +123,11 @@ public class ValidatorTest {
         assertThat(expected, is(result));
     }
 
+    /**
+     * Validate numbers parametrs is not number.
+     */
     @Test
-    public void validate_numbers_parametrs_is_not_number() {
+    public void validateNumbersParametrsIsNotNumber() {
         String args = "a";
         Validator validator = new Validator();
         boolean expected = false;

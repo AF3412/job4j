@@ -2,17 +2,24 @@ package ru.af3412.srp;
 
 import org.junit.Test;
 
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.*;
 
 /**
+ * The type Calculator test.
+ *
  * @author Filatov Alexander
  * @since 01.11.2016
  */
 public class CalculatorTest {
 
+    /**
+     * Calculate add test.
+     *
+     * @throws Exception the exception
+     */
     @Test
-    public void calculate_add_test() throws Exception {
+    public void calculateAddTest() throws Exception {
 
         double first = 1;
         double second = 1;
@@ -20,14 +27,19 @@ public class CalculatorTest {
         Calculator calc = new Calculator();
         double expected = 2;
 
-        double result = calc.calculate(first, operation , second);
+        double result = calc.calculate(first, operation, second);
 
         assertThat(expected, is(result));
 
     }
 
+    /**
+     * Calculate sub test.
+     *
+     * @throws Exception the exception
+     */
     @Test
-    public void calculate_sub_test() throws Exception {
+    public void calculateSubTest() throws Exception {
 
         double first = 1;
         double second = 1;
@@ -35,14 +47,19 @@ public class CalculatorTest {
         Calculator calc = new Calculator();
         double expected = 0;
 
-        double result = calc.calculate(first, operation , second);
+        double result = calc.calculate(first, operation, second);
 
         assertThat(expected, is(result));
 
     }
 
+    /**
+     * Calculate multiple test.
+     *
+     * @throws Exception the exception
+     */
     @Test
-    public void calculate_multiple_test() throws Exception {
+    public void calculateMultipleTest() throws Exception {
 
         double first = 1;
         double second = 1;
@@ -50,14 +67,19 @@ public class CalculatorTest {
         Calculator calc = new Calculator();
         double expected = 1;
 
-        double result = calc.calculate(first, operation , second);
+        double result = calc.calculate(first, operation, second);
 
         assertThat(expected, is(result));
 
     }
 
+    /**
+     * Calculate div test.
+     *
+     * @throws Exception the exception
+     */
     @Test
-    public void calculate_div_test() throws Exception {
+    public void calculateDivTest() throws Exception {
 
         double first = 1;
         double second = 1;
@@ -65,7 +87,7 @@ public class CalculatorTest {
         Calculator calc = new Calculator();
         double expected = 1;
 
-        double result = calc.calculate(first, operation , second);
+        double result = calc.calculate(first, operation, second);
 
         assertThat(expected, is(result));
 
