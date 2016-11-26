@@ -62,14 +62,43 @@ public class ControlQuality {
      * The Shop.
      */
     private FoodStorage shop = new Shop();
+
     /**
      * The Ware house.
      */
     private FoodStorage wareHouse = new Warehouse();
+
     /**
      * The Trash.
      */
     private FoodStorage trash = new Trash();
+
+    /**
+     * Gets shop.
+     *
+     * @return the shop
+     */
+    public FoodStorage getShop() {
+        return shop;
+    }
+
+    /**
+     * Gets warehouse.
+     *
+     * @return the ware house
+     */
+    public FoodStorage getWareHouse() {
+        return wareHouse;
+    }
+
+    /**
+     * Gets trash.
+     *
+     * @return the trash
+     */
+    public FoodStorage getTrash() {
+        return trash;
+    }
 
     /**
      * Move food.
@@ -78,17 +107,21 @@ public class ControlQuality {
 
         for (Food food : anyFood.getStorage()) {
 
-            int checkDate = food.checkExpiryDate(this.localDate);
+            if (food != null) {
 
-            if (checkDate < freshFood) {
-                this.wareHouse.addFood(food);
-            } else if ((checkDate > freshFood) && (checkDate < staleFood)) {
-                this.shop.addFood(food);
-            } else if ((checkDate > staleFood) && (checkDate < badFood)) {
-                food.setDisscount(discount);
-                this.shop.addFood(food);
-            } else if (checkDate > badFood) {
-                this.trash.addFood(food);
+                int checkDate = food.checkExpiryDate(this.localDate);
+
+                if (checkDate < freshFood) {
+                    this.wareHouse.addFood(food);
+                } else if ((checkDate > freshFood) && (checkDate < staleFood)) {
+                    this.shop.addFood(food);
+                } else if ((checkDate > staleFood) && (checkDate < badFood)) {
+                    food.setDisscount(discount);
+                    this.shop.addFood(food);
+                } else if (checkDate > badFood) {
+                    this.trash.addFood(food);
+                }
+
             }
         }
     }

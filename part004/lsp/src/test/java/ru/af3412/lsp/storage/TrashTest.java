@@ -1,6 +1,8 @@
-package ru.af3412.lsp.food;
+package ru.af3412.lsp.storage;
 
 import org.junit.Test;
+import ru.af3412.lsp.food.Bread;
+import ru.af3412.lsp.food.Food;
 
 import java.time.LocalDate;
 import java.time.Month;
@@ -12,33 +14,31 @@ import static org.hamcrest.core.Is.is;
  * @author Filatov Alexander
  * @since 26.11.2016
  */
-public class PreservesTest {
+public class TrashTest {
 
     /**
-     * Check expiry date.
+     * Add food.
      *
      * @throws Exception the exception
      */
     @Test
-    public void checkExpiryPreservesDate() throws Exception {
+    public void addFood() throws Exception {
 
-        final int year = 2014;
+        final int year = 2016;
         final int createDay = 10;
         final int expiryDay = 20;
-        final int todayDay = 13;
         final int breadPrice = 10;
-
-
         LocalDate createDate = LocalDate.of(year, Month.NOVEMBER, createDay);
         LocalDate expiryDate = LocalDate.of(year, Month.NOVEMBER, expiryDay);
-        LocalDate todayDate = LocalDate.of(year, Month.NOVEMBER, todayDay);
-        final int expected = 30;
+        Food bread = new Bread("white", createDate, expiryDate, breadPrice);
+        FoodStorage trash = new Trash();
 
-        Food bread = new Preserves("white", createDate, expiryDate, breadPrice);
+        trash.addFood(bread);
 
-        int result = bread.checkExpiryDate(todayDate);
+        Food result = trash.getStorage()[0];
 
-        assertThat(expected, is(result));
+        assertThat(bread, is(result));
+
 
     }
 

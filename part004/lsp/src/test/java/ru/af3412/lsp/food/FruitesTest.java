@@ -34,7 +34,7 @@ public class FruitesTest {
         LocalDate todayDate = LocalDate.of(year, Month.NOVEMBER, todayDay);
         final int expected = 30;
 
-        Food bread = new Bread("white", createDate, expiryDate, breadPrice);
+        Food bread = new Fruites("white", createDate, expiryDate, breadPrice);
 
         int result = bread.checkExpiryDate(todayDate);
 
