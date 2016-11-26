@@ -1,3 +1,2 @@
-# job4j
+# job4j.ru
 Petr Arsentev course
-job4j.ru
