@@ -18,7 +18,7 @@ import static org.hamcrest.core.Is.is;
  * @author Filatov Alexander
  * @since 26.11.2016
  */
-public class ControlQualityTest {
+public class ForwarderTest {
 
     /**
      * Move food.
@@ -42,7 +42,7 @@ public class ControlQualityTest {
         FoodStorage foodStorage = new FoodStorage();
         foodStorage.addFood(bread);
 
-        ControlQuality cq = new ControlQuality(foodStorage, todayDate);
+        Forwarder cq = new Forwarder(foodStorage, todayDate);
         cq.moveFood();
         FoodStorage expectedStorage = cq.getWareHouse();
         Food expectedFood = expectedStorage.getStorage()[0];
@@ -73,7 +73,7 @@ public class ControlQualityTest {
         FoodStorage foodStorage = new FoodStorage();
         foodStorage.addFood(bread);
 
-        ControlQuality cq = new ControlQuality(foodStorage, todayDate);
+        Forwarder cq = new Forwarder(foodStorage, todayDate);
         cq.moveFood();
         FoodStorage expectedStorage = cq.getShop();
         Food expectedFood = expectedStorage.getStorage()[0];
@@ -104,7 +104,7 @@ public class ControlQualityTest {
         FoodStorage foodStorage = new FoodStorage();
         foodStorage.addFood(bread);
 
-        ControlQuality cq = new ControlQuality(foodStorage, todayDate);
+        Forwarder cq = new Forwarder(foodStorage, todayDate);
         cq.moveFood();
         FoodStorage expectedStorage = cq.getTrash();
         Food expectedFood = expectedStorage.getStorage()[0];
@@ -136,7 +136,7 @@ public class ControlQualityTest {
         FoodStorage foodStorage = new FoodStorage();
         foodStorage.addFood(bread);
 
-        ControlQuality cq = new ControlQuality(foodStorage, todayDate);
+        Forwarder cq = new Forwarder(foodStorage, todayDate);
         cq.moveFood();
         FoodStorage expectedStorage = cq.getShop();
         int resultFoodPrice = expectedStorage.getStorage()[0].getDiscount();
