@@ -12,6 +12,11 @@ import java.time.LocalDate;
  */
 public class Trash extends FoodStorage {
 
+    @Override
+    public void choiceStorage(Food food, LocalDate localDate) {
+        super.addFood(food);
+    }
+
     /**
      * Check expiration date boolean.
      *

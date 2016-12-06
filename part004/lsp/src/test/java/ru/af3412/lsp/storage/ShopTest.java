@@ -95,9 +95,9 @@ public class ShopTest {
         LocalDate today = LocalDate.of(year, Month.NOVEMBER, todayNow);
         FoodStorage shop = new Shop();
 
-        shop.addFood(bread, today);
+        shop.choiceStorage(bread, today);
 
-        Food result = shop.getStorage()[0];
+        Food result = shop.getStorage().get(0);
 
         assertThat(bread, is(result));
 
@@ -116,9 +116,9 @@ public class ShopTest {
         FoodStorage shop = new Shop();
         final int expectation = 25;
 
-        shop.addFood(bread, today);
+        shop.choiceStorage(bread, today);
 
-        final int result = shop.getStorage()[0].getDiscount();
+        final int result = shop.getStorage().get(0).getDiscount();
 
         assertThat(expectation, is(result));
 
@@ -137,9 +137,9 @@ public class ShopTest {
         FoodStorage shop = new Shop();
         final int expectation = 0;
 
-        shop.addFood(bread, today);
+        shop.choiceStorage(bread, today);
 
-        final int result = shop.getStorage()[0].getDiscount();
+        final int result = shop.getStorage().get(0).getDiscount();
 
         assertThat(expectation, is(result));
 

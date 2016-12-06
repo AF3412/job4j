@@ -95,9 +95,9 @@ public class WarehouseTest {
         LocalDate today = LocalDate.of(year, Month.NOVEMBER, todayNow);
         FoodStorage warehouse = new Warehouse();
 
-        warehouse.addFood(bread, today);
+        warehouse.choiceStorage(bread, today);
 
-        Food result = warehouse.getStorage()[0];
+        Food result = warehouse.getStorage().get(0);
 
         assertThat(bread, is(result));
 

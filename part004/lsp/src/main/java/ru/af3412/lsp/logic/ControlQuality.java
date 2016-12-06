@@ -4,6 +4,7 @@ import ru.af3412.lsp.food.Food;
 import ru.af3412.lsp.storage.FoodStorage;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 /**
  * The type Control quality.
@@ -14,19 +15,9 @@ import java.time.LocalDate;
 public class ControlQuality {
 
     /**
-     * The number storage.
-     */
-    private final int numberStorages = 10;
-
-    /**
-     * The count for storages array.
-     */
-    private int countStorages = 0;
-
-    /**
      * The Food storage.
      */
-    private FoodStorage[] foodStorage = new FoodStorage[numberStorages];
+    private ArrayList<FoodStorage> foodStorage = new ArrayList<>();
 
     /**
      * Add storages.
@@ -34,7 +25,7 @@ public class ControlQuality {
      * @param storage the storage
      */
     public void addStorages(FoodStorage storage) {
-        this.foodStorage[countStorages++] = storage;
+        this.foodStorage.add(storage);
     }
 
     /**
@@ -42,7 +33,7 @@ public class ControlQuality {
      *
      * @return the food storage [ ]
      */
-    public FoodStorage[] getFoodStorage() {
+    public ArrayList<FoodStorage> getFoodStorage() {
         return foodStorage;
     }
 
@@ -55,7 +46,10 @@ public class ControlQuality {
     public void moveFood(Food food, LocalDate localDate) {
         for (FoodStorage storage : foodStorage) {
             if (storage != null) {
-                storage.addFood(food, localDate);
+                if (storage.checkExpirationDate(food, localDate)) {
+                    storage.choiceStorage(food, localDate);
+                    break;
+                }
             }
         }
     }

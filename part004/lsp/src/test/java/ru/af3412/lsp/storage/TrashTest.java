@@ -95,9 +95,9 @@ public class TrashTest {
         LocalDate today = LocalDate.of(year, Month.NOVEMBER, todayNow);
         FoodStorage trash2 = new Trash();
 
-        trash2.addFood(bread, today);
+        trash2.choiceStorage(bread, today);
 
-        Food result = trash2.getStorage()[0];
+        Food result = trash2.getStorage().get(0);
 
         assertThat(bread, is(result));
 

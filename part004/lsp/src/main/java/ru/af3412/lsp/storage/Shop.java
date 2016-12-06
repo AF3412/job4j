@@ -34,19 +34,21 @@ public class Shop extends FoodStorage {
     private final int discount = 25;
 
     @Override
+    public void choiceStorage(Food food, LocalDate localDate) {
+
+        int stateFood = food.checkExpiryDate(localDate);
+        if (stateFood >= qualityStaleFood)  {
+            food.setDisscount(discount);
+        }
+        super.addFood(food);
+    }
+
+    @Override
     public boolean checkExpirationDate(Food food, LocalDate localDate) {
 
-        boolean value = false;
         int stateFood = food.checkExpiryDate(localDate);
 
-        if ((stateFood >= qualityFreshFood) && (stateFood) < qualityStaleFood) {
-            value = true;
-        } else if ((stateFood >= qualityStaleFood) && (stateFood) < qualityBadFood) {
-            food.setDisscount(discount);
-            value = true;
-        }
-
-        return value;
-
+        return ((stateFood >= qualityFreshFood) && (stateFood < qualityBadFood));
     }
+
 }

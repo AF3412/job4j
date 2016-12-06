@@ -81,7 +81,7 @@ public class ControlQualityTest {
     @Test
     public void whenAddStorageThatControlQualityReturnThisStorage() throws Exception {
 
-        FoodStorage result = cq.getFoodStorage()[0];
+        FoodStorage result = cq.getFoodStorage().get(0);
 
         assertThat(trash, is(result));
 
@@ -103,7 +103,7 @@ public class ControlQualityTest {
 
         cq.moveFood(bread, today);
 
-        Food result = cq.getFoodStorage()[0].getStorage()[0];
+        Food result = cq.getFoodStorage().get(0).getStorage().get(0);
 
         assertThat(bread, is(result));
 
@@ -125,7 +125,7 @@ public class ControlQualityTest {
 
         cq.moveFood(bread, today);
 
-        Food result = cq.getFoodStorage()[1].getStorage()[0];
+        Food result = cq.getFoodStorage().get(1).getStorage().get(0);
 
         assertThat(bread, is(result));
 
@@ -147,7 +147,7 @@ public class ControlQualityTest {
 
         cq.moveFood(bread, today);
 
-        Food result = cq.getFoodStorage()[2].getStorage()[0];
+        Food result = cq.getFoodStorage().get(2).getStorage().get(0);
 
         assertThat(bread, is(result));
 

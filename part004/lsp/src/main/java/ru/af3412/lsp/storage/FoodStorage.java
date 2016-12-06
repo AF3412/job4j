@@ -3,6 +3,7 @@ package ru.af3412.lsp.storage;
 import ru.af3412.lsp.food.Food;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 /**
  * The type Food storage.
@@ -13,19 +14,27 @@ import java.time.LocalDate;
 public abstract class FoodStorage {
 
     /**
-     * Storage size.
-     */
-    private final int storageSize = 10;
-
-    /**
      * The Storage.
      */
-    private Food[] storage = new Food[storageSize];
+    private ArrayList<Food> storage = new ArrayList<>();
 
     /**
-     * The count for storage.
+     * Add food.
+     *
+     * @param food the food
      */
-    private int count = 0;
+    public void addFood(Food food) {
+        this.storage.add(food);
+    }
+
+    /**
+     * Get storage food [ ].
+     *
+     * @return the food [ ]
+     */
+    public ArrayList<Food> getStorage() {
+        return storage;
+    }
 
     /**
      * Add food if the expiry date has passed.
@@ -33,11 +42,7 @@ public abstract class FoodStorage {
      * @param food      the food
      * @param localDate the local date
      */
-    public void addFood(Food food, LocalDate localDate) {
-        if (checkExpirationDate(food, localDate)) {
-            storage[count++] = food;
-        }
-    }
+    public abstract void choiceStorage(Food food, LocalDate localDate);
 
     /**
      * Check expiration date boolean.
@@ -47,15 +52,6 @@ public abstract class FoodStorage {
      * @param localDate the local date
      * @return the boolean
      */
-    protected abstract boolean checkExpirationDate(Food food, LocalDate localDate);
-
-    /**
-     * Get storage food [ ].
-     *
-     * @return the food [ ]
-     */
-    public Food[] getStorage() {
-        return storage;
-    }
+    public abstract boolean checkExpirationDate(Food food, LocalDate localDate);
 
 }
