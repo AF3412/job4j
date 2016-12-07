@@ -6,6 +6,11 @@
 	<name>courses_job4j_by_Petr_Arsentev</name>
 	<version>1.0</version>
 	<packaging>pom</packaging>
+
+	<properties>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+	</properties>
 		
 	<dependencies>
 
