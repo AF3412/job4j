@@ -1,8 +1,5 @@
 package ru.af3412.lsp.storage;
 
-import ru.af3412.lsp.food.Food;
-
-import java.time.LocalDate;
 
 /**
  * The type New warehouse.
@@ -12,14 +9,5 @@ import java.time.LocalDate;
  */
 public class NewWarehouse extends Warehouse {
 
-    @Override
-    public void choiceStorage(Food food, LocalDate localDate) {
-        super.choiceStorage(food, localDate);
-    }
-
-    @Override
-    public boolean checkExpirationDate(Food food, LocalDate localDate) {
-        return super.checkExpirationDate(food, localDate);
-    }
 
 }
