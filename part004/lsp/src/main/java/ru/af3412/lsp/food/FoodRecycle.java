@@ -33,6 +33,15 @@ public class FoodRecycle {
     }
 
     /**
+     * Gets food.
+     *
+     * @return the food
+     */
+    public Food getFood() {
+        return food;
+    }
+
+    /**
      * Gets name.
      *
      * @return the name
