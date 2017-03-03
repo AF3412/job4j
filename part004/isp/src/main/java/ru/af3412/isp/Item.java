@@ -16,7 +16,7 @@ public class Item implements PrintPrefix, AddItem {
     private final String name;
 
     /**
-     * The list of submenu.
+     * The list of subMenu.
      */
     private ArrayList<Item> subItems = new ArrayList<>();
 
