@@ -1,56 +1,42 @@
 package ru.af3412.isp;
 
-import ru.af3412.isp.interfaces.AddItem;
-import ru.af3412.isp.interfaces.Print;
-
 import java.util.ArrayList;
+
+import ru.af3412.isp.Item;
 
 /**
  * The type Menu.
+ *
+ * @author Filatov Alexander
+ * @since 28.02.2017
  */
-public class Menu implements Print, AddItem {
+public class Menu {
 
-    /**
-     * The list of items.
-     */
-    private ArrayList<Item> items = new ArrayList<>();
+    private Prefix prefix;
 
-    /**
-     * The menu prefix.
-     */
-    private String prefix;
+    private ArrayList<Item> items;
 
-    /**
-     * Sets prefix.
-     *
-     * @param prefix the prefix
-     */
-    public void setPrefix(String prefix) {
+    public Menu(Prefix prefix) {
         this.prefix = prefix;
     }
 
-    /**
-     * Add item boolean.
-     *
-     * @param item the item
-     * @return the boolean
-     */
-    public boolean addItem(Item item) {
-        return this.items.add(item);
+    public ArrayList<Item> addItem(Item item) {
+        this.items.add(item);
+        return this.items;
     }
 
-    /**
-     * Print string.
-     *
-     * @return the string
-     */
+    public Prefix getPrefix() {
+        return this.prefix;
+    }
+
+    public ArrayList<Item> getItems() {
+        return this.items;
+    }
+
     public String print() {
-
-        StringBuilder stringBuilder = new StringBuilder();
-        for (Item item : this.items) {
-            stringBuilder.append(item.print(this.prefix));
-        }
-        return stringBuilder.toString();
+        return (new PrintItemsSimple().print(this.items, prefix));
     }
+
+
 
 }
