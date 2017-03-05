@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>ru.af3412.part004.lsp</groupId>
 	<artifactId>lsp</artifactId>
-	<name>lsp</name>
+	<name>dip</name>
 	<version>1.0</version>
 	<packaging>jar</packaging>
 	
