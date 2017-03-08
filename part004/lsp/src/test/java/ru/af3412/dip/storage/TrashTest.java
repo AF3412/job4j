@@ -103,20 +103,4 @@ public class TrashTest {
 
     }
 
-    @Test
-    public void whenCallMethodClearFoodThenClearAllStorageFood() {
-
-        final int todayNow = 20;
-        LocalDate today = LocalDate.of(year, Month.NOVEMBER, todayNow);
-        FoodStorage trash3 = new Trash();
-
-        trash3.choiceStorage(bread, today);
-        trash3.clearFood();
-
-        int result = trash3.getStorage().size();
-
-        assertThat(result, is(0));
-
-    }
-
 }

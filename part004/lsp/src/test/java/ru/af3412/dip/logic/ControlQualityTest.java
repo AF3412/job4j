@@ -73,7 +73,6 @@ public class ControlQualityTest {
 
     }
 
-
     /**
      * When add storage that control quality return this storage.
      *
@@ -152,26 +151,6 @@ public class ControlQualityTest {
 
         assertThat(bread, is(result));
 
-    }
-
-    /**
-     * Test resort.
-     */
-    @Test
-    public void testResort() {
-        LocalDate createDate = LocalDate.of(year, Month.NOVEMBER, createDay);
-        LocalDate expiryDate = LocalDate.of(year, Month.NOVEMBER, expiryDay);
-        Food bread = new Bread("white", createDate, expiryDate, breadPrice);
-        final int todayNow = 11;
-        LocalDate today = LocalDate.of(year, Month.NOVEMBER, todayNow);
-        cq.moveFood(bread, today);
-        final int fewDay = 20;
-        LocalDate fewDate = LocalDate.of(year, Month.NOVEMBER, fewDay);
-
-        cq.resort(fewDate);
-        Food result = cq.getFoodStorage().get(0).getStorage().get(0);
-
-        assertThat(bread, is(result));
     }
 
 }

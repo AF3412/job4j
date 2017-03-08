@@ -2,7 +2,6 @@ package ru.af3412.dip.logic;
 
 import ru.af3412.dip.food.Food;
 import ru.af3412.dip.storage.FoodStorage;
-import ru.af3412.dip.storage.ResortStorage;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -55,31 +54,4 @@ public class ControlQuality {
         }
     }
 
-    /**
-     * Resort.
-     *
-     * @param localDate the local date
-     */
-    public void resort(LocalDate localDate) {
-        ResortStorage resortStorage = new ResortStorage();
-
-        for (FoodStorage storage : this.foodStorage) {
-            if (storage != null) {
-                for (Food food : storage.getStorage()) {
-                    if (food != null) {
-                        resortStorage.addFood(food);
-                    }
-                }
-            }
-        }
-
-        for (FoodStorage storage : this.foodStorage) {
-            storage.clearFood();
-        }
-
-        for (Food food : resortStorage.getStorage()) {
-            this.moveFood(food, localDate);
-        }
-
-    }
 }

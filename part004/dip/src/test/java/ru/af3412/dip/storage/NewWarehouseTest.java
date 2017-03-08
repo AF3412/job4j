@@ -11,12 +11,12 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
 /**
- * The type Trash test.
+ * The type Warehouse test.
  *
  * @author Filatov Alexander
  * @since 26.11.2016
  */
-public class TrashTest {
+public class NewWarehouseTest {
 
     /**
      * The Year.
@@ -48,19 +48,19 @@ public class TrashTest {
     private Food bread = new Bread("white", createDate, expiryDate, breadPrice);
 
     /**
-     * When add fod with date more expiry date that return true.
+     * When add food with date more expiry date that return true.
      *
      * @throws Exception the exception
      */
     @Test
     public void whenAddFoodWithDateMoreExpiryDateThatReturnTrue() throws Exception {
 
-        final int todayNow = 20;
+        final int todayNow = 11;
         LocalDate today = LocalDate.of(year, Month.NOVEMBER, todayNow);
-        FoodStorage trash = new Trash();
+        FoodStorage newWarehouse = new NewWarehouse();
         boolean expectation = true;
 
-        boolean result = trash.checkExpirationDate(bread, today);
+        boolean result = newWarehouse.checkExpirationDate(bread, today);
 
         assertThat(expectation, is(result));
     }
@@ -73,49 +73,33 @@ public class TrashTest {
     @Test
     public void whenAddFodWithDateLessExpiryDateThatReturnFalse() throws Exception {
 
-        final int todayNow = 15;
+        final int todayNow = 20;
         LocalDate today = LocalDate.of(year, Month.NOVEMBER, todayNow);
-        FoodStorage trash = new Trash();
+        FoodStorage newWarehouse = new NewWarehouse();
         boolean expectation = false;
 
-        boolean result = trash.checkExpirationDate(bread, today);
+        boolean result = newWarehouse.checkExpirationDate(bread, today);
 
         assertThat(expectation, is(result));
     }
 
     /**
-     * When add food that trash return this food.
+     * When add food that newWarehouse return this food.
      *
      * @throws Exception the exception
      */
     @Test
-    public void whenAddFoodThatTrashReturnThisFood() throws Exception {
+    public void whenAddFoodThatWarehouseReturnThisFood() throws Exception {
 
-        final int todayNow = 20;
+        final int todayNow = 11;
         LocalDate today = LocalDate.of(year, Month.NOVEMBER, todayNow);
-        FoodStorage trash2 = new Trash();
+        FoodStorage newWarehouse = new NewWarehouse();
 
-        trash2.choiceStorage(bread, today);
+        newWarehouse.choiceStorage(bread, today);
 
-        Food result = trash2.getStorage().get(0);
+        Food result = newWarehouse.getStorage().get(0);
 
         assertThat(bread, is(result));
-
-    }
-
-    @Test
-    public void whenCallMethodClearFoodThenClearAllStorageFood() {
-
-        final int todayNow = 20;
-        LocalDate today = LocalDate.of(year, Month.NOVEMBER, todayNow);
-        FoodStorage trash3 = new Trash();
-
-        trash3.choiceStorage(bread, today);
-        trash3.clearFood();
-
-        int result = trash3.getStorage().size();
-
-        assertThat(result, is(0));
 
     }
 
