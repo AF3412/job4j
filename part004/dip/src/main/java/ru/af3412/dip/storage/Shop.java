@@ -37,7 +37,7 @@ public class Shop extends FoodStorage {
     public void choiceStorage(Food food, LocalDate localDate) {
 
         int stateFood = food.checkExpiryDate(localDate);
-        if (stateFood >= qualityStaleFood)  {
+        if (stateFood >= qualityStaleFood) {
             food.setDisscount(discount);
         }
         super.addFood(food);

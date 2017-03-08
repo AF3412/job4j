@@ -6,6 +6,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 /**
+ * The type Resort storage.
+ *
  * @author Filatov Alexander
  * @since 05.03.2017
  */

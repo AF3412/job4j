@@ -23,7 +23,7 @@ public class Warehouse extends FoodStorage {
      *
      * @param food      the food
      * @param localDate the local date
-     * qualityFood is parameter for check food quality
+     *                  qualityFood is parameter for check food quality
      * @return the boolean
      */
 
@@ -35,7 +35,6 @@ public class Warehouse extends FoodStorage {
         return (food.checkExpiryDate(localDate) < qualityFood);
 
     }
-
 
 
 }

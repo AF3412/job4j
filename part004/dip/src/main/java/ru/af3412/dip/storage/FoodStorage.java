@@ -27,9 +27,12 @@ public abstract class FoodStorage {
         this.storage.add(food);
     }
 
+    /**
+     * Clear food.
+     */
     public void clearFood() {
         for (int i = storage.size() - 1; i >= 0; i--) {
-                storage.remove(i);
+            storage.remove(i);
         }
     }
 
