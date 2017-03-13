@@ -22,6 +22,7 @@
         <module>lsp</module>
         <module>isp</module>
         <module>dip</module>
+        <module>tdd</module>
     </modules>
     
 </project>
