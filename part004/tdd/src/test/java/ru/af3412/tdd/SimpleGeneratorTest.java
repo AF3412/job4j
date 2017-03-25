@@ -31,6 +31,11 @@ public class SimpleGeneratorTest {
         assertThat(result, is(checked));
     }
 
+    /**
+     * When send two s name return value from map.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void whenSendTwoSNameReturnValueFromMap() throws Exception {
         Template template = new SimpleGenerator();
@@ -45,6 +50,11 @@ public class SimpleGeneratorTest {
         assertThat(result, is(checked));
     }
 
+    /**
+     * When send two s name and name two between name one return value from map.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void whenSendTwoSNameAndNameTwoBetweenNameOneReturnValueFromMap() throws Exception {
         Template template = new SimpleGenerator();
@@ -60,7 +70,11 @@ public class SimpleGeneratorTest {
     }
 
 
-
+    /**
+     * When send three identical values all changes.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void whenSendThreeIdenticalValuesAllChanges() throws Exception {
         Template template = new SimpleGenerator();
@@ -75,19 +89,37 @@ public class SimpleGeneratorTest {
     }
 
 
-    @Test
+    /**
+     * When send s name without values from map return exception.
+     *
+     * @throws Exception the exception
+     */
+    @Test(expected = TemplateException.class)
     public void whenSendSNameWithoutValuesFromMapReturnException() throws Exception {
         Template template = new SimpleGenerator();
         String text = "Hello, ${name}.";
         Map<String, String> data = new HashMap<>();
         data.put("subject", "Alex");
-        String checked = "Hello, Alex.";
 
-        String result = template.generate(text, data);
-
-        assertThat(result, is(checked));
+        template.generate(text, data);
     }
 
+
+    /**
+     * When send s name and in the map contains too much values return exception.
+     *
+     * @throws Exception the exception
+     */
+    @Test(expected = TemplateException.class)
+    public void whenSendSNameAndInTheMapContainsTooMuchValuesReturnException() throws Exception {
+        Template template = new SimpleGenerator();
+        String text = "Hello, ${name}.";
+        Map<String, String> data = new HashMap<>();
+        data.put("subject", "Alex");
+        data.put("name", "Joe");
+
+        template.generate(text, data);
+    }
 
 
 }
