@@ -21,10 +21,10 @@ public class SimpleGeneratorTest {
     @Test
     public void whenSendSNameReturnValueFromMap() throws Exception {
         Template template = new SimpleGenerator();
-        String text = "Hello, ${name}.";
+        String text = "Hello, ${name}. My name Joe!";
         Map<String, String> data = new HashMap<>();
         data.put("name", "Alex");
-        String checked = "Hello, Alex.";
+        String checked = "Hello, Alex. My name Joe!";
 
         String result = template.generate(text, data);
 
@@ -113,7 +113,7 @@ public class SimpleGeneratorTest {
     @Test(expected = TemplateException.class)
     public void whenSendSNameAndInTheMapContainsTooMuchValuesReturnException() throws Exception {
         Template template = new SimpleGenerator();
-        String text = "Hello, ${name}.";
+        String text = "Hello, ${name}. My name is John";
         Map<String, String> data = new HashMap<>();
         data.put("subject", "Alex");
         data.put("name", "Joe");
@@ -121,5 +121,50 @@ public class SimpleGeneratorTest {
         template.generate(text, data);
     }
 
+    /**
+     * When send sentence without keys and map with value then return exception.
+     *
+     * @throws Exception the exception
+     */
+    @Test(expected = TemplateException.class)
+    public void whenSendSentenceWithoutKeysAndMapWithValueThenReturnException() throws Exception {
+        Template template = new SimpleGenerator();
+        String text = "Hello! I'm Joe!";
+        Map<String, String> data = new HashMap<>();
+        data.put("subject", "Alex");
+        data.put("name", "Joe");
+
+        template.generate(text, data);
+    }
+
+    /**
+     * When send sentence with keys and map without value then return exception.
+     *
+     * @throws Exception the exception
+     */
+    @Test(expected = TemplateException.class)
+    public void whenSendSentenceWithKeysAndMapWithoutValueThenReturnException() throws Exception {
+        Template template = new SimpleGenerator();
+        String text = "Hello, ${subject}!";
+        Map<String, String> data = new HashMap<>();
+
+        template.generate(text, data);
+    }
+
+    /**
+     * When send s name and in the map contains too much values and world coinciding with key return exception.
+     *
+     * @throws Exception the exception
+     */
+    @Test(expected = TemplateException.class)
+    public void whenSendSNameAndInTheMapContainsTooMuchValuesAndWorldCoincidingWithKeyReturnException() throws Exception {
+        Template template = new SimpleGenerator();
+        String text = "Hello, ${name}. My name is John. What is this subject?";
+        Map<String, String> data = new HashMap<>();
+        data.put("subject", "Alex");
+        data.put("name", "Joe");
+
+        template.generate(text, data);
+    }
 
 }
