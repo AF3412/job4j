@@ -10,14 +10,19 @@ import java.util.regex.Pattern;
  */
 public class SimpleGenerator implements Template {
 
-    private final String PATTERN = "\\$\\{(\\w+)(\\})";
-
     @Override
     public String generate(String template, Map<String, String> data) throws TemplateException {
 
-        Matcher matcher = Pattern.compile(PATTERN).matcher(template);
+        /**
+         * Create regular expression for find.
+         */
+        String pattern = "\\$\\{(\\w+)(\\})";
+        Matcher matcher = Pattern.compile(pattern).matcher(template);
         StringBuffer stringBuffer = new StringBuffer();
 
+        /**
+         * Get all keys and check that used in the string. Else create exception.
+         */
         Set<String> keys = data.keySet();
         for (String key : keys) {
             String tmpValue = new StringBuffer("$").append("{").append(key).append("}").toString();
@@ -25,6 +30,11 @@ public class SimpleGenerator implements Template {
                 throw new TemplateException("Key not found");
             }
         }
+
+        /**
+         * Find all keys in string and replace to values from data.
+         * If Map (data) does not contains value then create exception.
+         */
 
         while (matcher.find()) {
             if (data.containsKey(matcher.group(1))) {
