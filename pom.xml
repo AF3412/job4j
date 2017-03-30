@@ -100,6 +100,7 @@
 		<module>part002</module>
         <module>part003</module>
         <module>part004</module>
+        <module>part005</module>
     </modules>
 
 </project>

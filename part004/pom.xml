@@ -23,6 +23,7 @@
         <module>isp</module>
         <module>dip</module>
         <module>tdd</module>
+        <module>xo</module>
     </modules>
     
 </project>
