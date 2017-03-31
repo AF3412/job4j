@@ -59,19 +59,32 @@ public class StartListCheck {
     public static void main(String[] args) {
 
         TimeListCheck timeListCheck = new TimeListCheck();
-        final String testString = "testString";
 
         ArrayList<String> arrayList = new ArrayList<>();
         LinkedList<String> linkedList = new LinkedList<>();
         TreeSet<String> treeSet = new TreeSet<>();
 
-        System.out.println(timeListCheck.add(arrayList, testString, 1_000_000));
-        System.out.println(timeListCheck.add(linkedList, testString, 1_000_000));
-        System.out.println(timeListCheck.add(treeSet, testString, 1_000_000));
+        long addArrayList = 0;
+        long addLinkedList = 0;
+        long addTreeSet = 0;
+        String testString;
+
+
+        for (int j = 0; j < 10000; j++) {
+            UUID uuid = UUID.randomUUID();
+            testString = uuid.toString();
+            addArrayList += timeListCheck.add(arrayList, testString, 100);
+            addLinkedList += timeListCheck.add(linkedList, testString, 100);
+            addTreeSet += timeListCheck.add(treeSet, testString, 100);
+        }
+
+        System.out.println("Add ArrayList: \t\t" + addArrayList);
+        System.out.println("Add LinkedList: \t" + addLinkedList);
+        System.out.println("Add TreeSet: \t\t" + addTreeSet);
         System.out.println();
-        System.out.println(timeListCheck.delete(arrayList, 1000));
-        System.out.println(timeListCheck.delete(linkedList, 1000));
-        System.out.println(timeListCheck.delete(treeSet, 1000));
+        System.out.println("Remove ArrayList: \t\t" + timeListCheck.delete(arrayList, 1000));
+        System.out.println("Remove LinkedList: \t\t" + timeListCheck.delete(linkedList, 1000));
+        System.out.println("Remove TreeSet: \t\t" + timeListCheck.delete(treeSet, 1000));
 
     }
 }
