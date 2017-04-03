@@ -122,8 +122,9 @@ public class ConvertListTest {
         arrayList.add(0);
         arrayList.add(1);
 
-        int[][] checked = new int[1][1];
+        int[][] checked = new int[1][2];
         checked[0][0] = 0;
+        checked[0][1] = 1;
 
         int[][] result = convertList.toArray(arrayList, 1);
 
@@ -172,16 +173,13 @@ public class ConvertListTest {
         arrayList.add(3);
         arrayList.add(4);
 
-        int[][] checked = new int[3][3];
+        int[][] checked = new int[3][2];
         checked[0][0] = 0;
         checked[0][1] = 1;
-        checked[0][2] = 2;
-        checked[1][0] = 3;
-        checked[1][1] = 4;
-        checked[1][2] = 0;
-        checked[2][0] = 0;
+        checked[1][0] = 2;
+        checked[1][1] = 3;
+        checked[2][0] = 4;
         checked[2][1] = 0;
-        checked[2][2] = 0;
 
         int[][] result = convertList.toArray(arrayList, 3);
 
