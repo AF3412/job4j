@@ -3,6 +3,7 @@ package ru.af3412.convertList;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -22,8 +23,7 @@ public class ConvertListTest {
     public void whenTransferArrayOneValueThenReturnCollectionWithOneValue() throws Exception {
 
         ConvertList convertList = new ConvertList();
-        int[][] array = new int[1][1];
-        array[0][0] = 0;
+        int[][] array = {{0}};
 
         ArrayList<Integer> checked = new ArrayList<>();
         checked.add(0);
@@ -42,19 +42,9 @@ public class ConvertListTest {
     public void whenTransferArray0123ThenReturnCollection0123() throws Exception {
 
         ConvertList convertList = new ConvertList();
-        int[][] array = new int[2][2];
-        int count = 0;
-        for (int i = 0; i < 2; i++) {
-            for (int j = 0; j < 2; j++) {
-                array[i][j] = count;
-                count++;
-            }
-        }
+        int[][] array = {{0, 1}, {2, 3}};
+        List<Integer> checked = Arrays.asList(0, 1, 2, 3);
 
-        ArrayList<Integer> checked = new ArrayList<>();
-        for (int i = 0; i < 4; i++) {
-            checked.add(i);
-        }
         List<Integer> result = convertList.toList(array);
 
         assertThat(result, is(checked));
@@ -70,19 +60,9 @@ public class ConvertListTest {
     public void whenTransferArray012345678ThenReturnCollection012345678() throws Exception {
 
         ConvertList convertList = new ConvertList();
-        int[][] array = new int[3][3];
-        int count = 0;
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                array[i][j] = count;
-                count++;
-            }
-        }
+        int[][] array = {{0, 1, 2}, {3, 4, 5}, {6, 7, 8}};
+        List<Integer> checked = Arrays.asList(0, 1, 2, 3, 4, 5, 6, 7, 8);
 
-        ArrayList<Integer> checked = new ArrayList<>();
-        for (int i = 0; i < 9; i++) {
-            checked.add(i);
-        }
         List<Integer> result = convertList.toList(array);
 
         assertThat(result, is(checked));
@@ -98,11 +78,8 @@ public class ConvertListTest {
     public void whenTransferCollectionWithOneValueThenReturnArray0() throws Exception {
 
         ConvertList convertList = new ConvertList();
-        ArrayList<Integer> arrayList = new ArrayList<>();
-        arrayList.add(0);
-
-        int[][] checked = new int[1][1];
-        checked[0][0] = 0;
+        List<Integer> arrayList = Arrays.asList(0);
+        int[][] checked = {{0}};
 
         int[][] result = convertList.toArray(arrayList, 1);
 
@@ -118,13 +95,8 @@ public class ConvertListTest {
     public void whenTransferCollectionWithTwoValueAndOneRowThenReturnArray01() throws Exception {
 
         ConvertList convertList = new ConvertList();
-        ArrayList<Integer> arrayList = new ArrayList<>();
-        arrayList.add(0);
-        arrayList.add(1);
-
-        int[][] checked = new int[1][2];
-        checked[0][0] = 0;
-        checked[0][1] = 1;
+        List<Integer> arrayList = Arrays.asList(0, 1);
+        int[][] checked = {{0, 1},};
 
         int[][] result = convertList.toArray(arrayList, 1);
 
@@ -140,17 +112,8 @@ public class ConvertListTest {
     public void whenTransferCollectionWithFourValueAndTwoRowThenReturnArray0123() throws Exception {
 
         ConvertList convertList = new ConvertList();
-        ArrayList<Integer> arrayList = new ArrayList<>();
-        arrayList.add(0);
-        arrayList.add(1);
-        arrayList.add(2);
-        arrayList.add(3);
-
-        int[][] checked = new int[2][2];
-        checked[0][0] = 0;
-        checked[0][1] = 1;
-        checked[1][0] = 2;
-        checked[1][1] = 3;
+        List<Integer> arrayList = Arrays.asList(0, 1, 2, 3);
+        int[][] checked = {{0, 1}, {2, 3}};
 
         int[][] result = convertList.toArray(arrayList, 2);
 
@@ -166,20 +129,8 @@ public class ConvertListTest {
     public void whenTransferCollectionWithFiveValueAndThreeRowThenReturnArray012340() throws Exception {
 
         ConvertList convertList = new ConvertList();
-        ArrayList<Integer> arrayList = new ArrayList<>();
-        arrayList.add(0);
-        arrayList.add(1);
-        arrayList.add(2);
-        arrayList.add(3);
-        arrayList.add(4);
-
-        int[][] checked = new int[3][2];
-        checked[0][0] = 0;
-        checked[0][1] = 1;
-        checked[1][0] = 2;
-        checked[1][1] = 3;
-        checked[2][0] = 4;
-        checked[2][1] = 0;
+        List<Integer> arrayList = Arrays.asList(0, 1, 2, 3, 4);
+        int[][] checked = {{0, 1}, {2, 3}, {4, 0}};
 
         int[][] result = convertList.toArray(arrayList, 3);
 
