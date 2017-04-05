@@ -96,7 +96,7 @@ public class ConvertListTest {
 
         ConvertList convertList = new ConvertList();
         List<Integer> arrayList = Arrays.asList(0, 1);
-        int[][] checked = {{0, 1},};
+        int[][] checked = {{0, 1}};
 
         int[][] result = convertList.toArray(arrayList, 1);
 
@@ -135,6 +135,45 @@ public class ConvertListTest {
         int[][] result = convertList.toArray(arrayList, 3);
 
         assertThat(result, is(checked));
+    }
+
+    /**
+     * When transfer list with two array return all valuesin array list.
+     *
+     * @throws Exception the exception
+     */
+    @Test
+    public void whenTransferListWithTwoArrayReturnAllValuesinArrayList() throws Exception {
+
+        ConvertList convertList = new ConvertList();
+        List<int[]> list = new ArrayList();
+        list.add(new int[]{1, 2});
+        list.add(new int[]{3, 4, 5, 6});
+        List<Integer> checked = Arrays.asList(1, 2, 3, 4, 5, 6);
+
+        List<Integer> result = convertList.convert(list);
+
+        assertThat(result, is(checked));
+
+    }
+
+    /**
+     * When transfer list with one array return values from this array.
+     *
+     * @throws Exception the exception
+     */
+    @Test
+    public void whenTransferListWithOneArrayReturnValuesFromThisArray() throws Exception {
+
+        ConvertList convertList = new ConvertList();
+        List<int[]> list = new ArrayList();
+        list.add(new int[]{1, 2});
+        List<Integer> checked = Arrays.asList(1, 2);
+
+        List<Integer> result = convertList.convert(list);
+
+        assertThat(result, is(checked));
+
     }
 
 }
