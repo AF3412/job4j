@@ -1,5 +1,7 @@
 package ru.af3412.tracker.start;
 
+import java.util.ArrayList;
+
 /**
  * The type Edit item.
  */
@@ -43,7 +45,7 @@ public class MenuTracker {
 	private Input input;
 	private Tracker tracker;
 	private int position = 0;
-	private UserAction[] action = new UserAction[5];
+	private ArrayList<UserAction> action = new ArrayList<>();
 
     /**
      * Instantiates a new Menu tracker.
@@ -60,11 +62,11 @@ public class MenuTracker {
      * Fill action.
      */
     public void fillAction() {
-		this.action[position++] = this.new AddItem("Add Item");
-		this.action[position++] = new MenuTracker.ShowItem("Show all item");
-		this.action[position++] = new EditItem("Edit Item");
-		this.action[position++] = new FindId("Find Id");
-		this.action[position++] = new DeleteItem("Delete Item");
+		this.action.add(this.new AddItem("Add Item"));
+		this.action.add(new MenuTracker.ShowItem("Show all item"));
+		this.action.add(new EditItem("Edit Item"));
+		this.action.add(new FindId("Find Id"));
+		this.action.add(new DeleteItem("Delete Item"));
 	}
 
     /**
@@ -73,12 +75,12 @@ public class MenuTracker {
      * @return the int [ ]
      */
     public int[] getRange() {
-		int[] range = new int[this.action.length];
-		for (int count = 0; count < range.length; count++) {
-			range[count] = count;
-		}
-		return (range);
-	}
+        int[] range = new int[this.action.size()];
+        for (int count = 0; count < range.length; count++) {
+            range[count] = count;
+        }
+        return (range);
+    }
 
     /**
      * Select.
@@ -86,7 +88,7 @@ public class MenuTracker {
      * @param key the key
      */
     public void select(int key) {
-		this.action[key].execute(this.input, this.tracker);
+		this.action.get(key).execute(this.input, this.tracker);
 	}
 
     /**

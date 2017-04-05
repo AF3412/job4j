@@ -20,7 +20,7 @@ public class UITest {
         String testDesc = "first desc";
 
         tracker.add("first task", "first desc");
-        Item item = tracker.getAll()[0];
+        Item item = tracker.getAll().get(0);
 
         Assert.assertThat(item.getName(), is(testName));
         Assert.assertThat(item.getDescription(), is(testDesc));
@@ -36,7 +36,7 @@ public class UITest {
         Tracker tracker = new Tracker();
         String testComment = "first comment";
         tracker.add("second task", "second desc");
-        Item item = tracker.getAll()[0];
+        Item item = tracker.getAll().get(0);
 
         tracker.addComments(item, "first comment");
         Comment comment = item.getAllComments()[0];
@@ -57,9 +57,9 @@ public class UITest {
         String testComment = "edit comment";
 
         tracker.add("third task", "third desc");
-        Item item = tracker.getAll()[0];
+        Item item = tracker.getAll().get(0);
         tracker.itemEdit(item, "edit task", "edit desc", "edit comment");
-        item = tracker.getAll()[0];
+        item = tracker.getAll().get(0);
         Comment comment = item.getAllComments()[0];
 
         Assert.assertThat(item.getName(), is(testName));
@@ -70,19 +70,25 @@ public class UITest {
 
     /**
      * When delete item that item delete in array.
+     *
+     * @throws Exception the exception
      */
     @Test
-    public void whenDeleteItemThatItemDeleteInArray() {
+    public void whenDeleteItemThatItemDeleteInArray() throws Exception {
 
         Tracker tracker = new Tracker();
         String testId = null;
         tracker.add("fourth task", "fourth desc");
-        Item item = tracker.getAll()[0];
+        Item item = tracker.getAll().get(0);
         testId = item.getId();
 
         tracker.delete(testId);
 
-        Assert.assertNull(tracker.getAll()[0]);
+        try {
+            Assert.assertNull(tracker.getAll().get(0));
+        } catch (IndexOutOfBoundsException e) {
+
+        }
 
     }
 
