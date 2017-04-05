@@ -19,7 +19,6 @@ public class Tracker {
     protected void add(String name, String description) {
         Item item = new Item(name, description, this.generateId(), System.currentTimeMillis());
         this.items.add(item);
-        //this.items = doubleItems(this.items);
     }
 
     /**
