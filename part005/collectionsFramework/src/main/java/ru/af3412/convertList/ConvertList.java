@@ -66,16 +66,13 @@ public class ConvertList {
      */
     public List<Integer> convert(List<int[]> list) {
         List<Integer> result = new ArrayList<>();
-        Iterator<int[]> iterator = list.iterator();
         for (int[] i : list) {
-            if (iterator.hasNext()) {
-                for (int j : iterator.next()) {
-                    result.add(j);
-                }
+            for (int j : i) {
+                result.add(j);
             }
         }
-
         return result;
     }
+
 
 }
