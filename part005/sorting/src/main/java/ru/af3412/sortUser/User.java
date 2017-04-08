@@ -12,7 +12,7 @@ public class User implements Comparable<User> {
     /**
      * The Age.
      */
-    int age;
+    Integer age;
 
     /**
      * Instantiates a new User.
@@ -25,10 +25,17 @@ public class User implements Comparable<User> {
         this.age = age;
     }
 
+    /**
+     * Override method compareTo
+     *
+     * @param user
+     * @return result compare age
+     */
     @Override
     public int compareTo(User user) {
 
-        return this.age - user.age;
+        return age.compareTo(user.age);
+
     }
 
 }
