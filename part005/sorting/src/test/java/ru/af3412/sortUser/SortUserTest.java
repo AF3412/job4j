@@ -104,17 +104,15 @@ public class SortUserTest {
         User user1 = new User("A", 2);
         User user2 = new User("BB", 1);
         List<User> users = Arrays.asList(user1, user2);
-        StringBuilder stringBuilder = new StringBuilder();
         Integer hashOne = user1.hashCode();
         Integer hashTwo = user2.hashCode();
+        List<User> checked;
 
-        String checked = (hashOne < hashTwo) ? "A 2BB 1" : "BB 1A 2";
+        checked = (hashOne < hashTwo) ? Arrays.asList(user1, user2) : Arrays.asList(user2, user1);
 
         SortUser sortUser = new SortUser();
-        for (User user : sortUser.sortHash(users)) {
-            stringBuilder = stringBuilder.append(user.name).append(" ").append(user.age);
-        }
-        String result = stringBuilder.toString();
+        List<User> result = new ArrayList<>();
+        result.addAll(sortUser.sortHash(users));
 
         assertThat(result, is(checked));
 
