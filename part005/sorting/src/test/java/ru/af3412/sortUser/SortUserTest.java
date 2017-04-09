@@ -2,6 +2,7 @@ package ru.af3412.sortUser;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -22,14 +23,11 @@ public class SortUserTest {
         User user1 = new User("A", 2);
         User user2 = new User("B", 1);
         List<User> users = Arrays.asList(user1, user2);
-        StringBuilder stringBuilder = new StringBuilder();
-        String checked = "B 1A 2";
+        List<User> checked = Arrays.asList(user2, user1);
 
         SortUser sortUser = new SortUser();
-        for (User user : sortUser.sort(users)) {
-            stringBuilder = stringBuilder.append(user.name).append(" ").append(user.age);
-        }
-        String result = stringBuilder.toString();
+        List<User> result = new ArrayList<>();
+        result.addAll(sortUser.sort(users));
 
         assertThat(result, is(checked));
     }
@@ -41,18 +39,15 @@ public class SortUserTest {
      */
     @Test
     public void whenAddThreeUsersWithDifferenceAgeReturnSetUsersSortedByAge() throws Exception {
-        User user1 = new User("A", 2);
+        User user1 = new User("A", 7);
         User user2 = new User("B", 1);
-        User user3 = new User("C", 5);
+        User user3 = new User("C", 2);
         List<User> users = Arrays.asList(user1, user2, user3);
-        StringBuilder stringBuilder = new StringBuilder();
-        String checked = "B 1A 2C 5";
+        List<User> checked = Arrays.asList(user2, user3, user1);
 
         SortUser sortUser = new SortUser();
-        for (User user : sortUser.sort(users)) {
-            stringBuilder = stringBuilder.append(user.name).append(" ").append(user.age);
-        }
-        String result = stringBuilder.toString();
+        List<User> result = new ArrayList<>();
+        result.addAll(sortUser.sort(users));
 
         assertThat(result, is(checked));
 
@@ -67,15 +62,12 @@ public class SortUserTest {
     public void whenAddTwoUsersWithDifferenceNameLengthReturnSetUsersSortedByNameLengthUsingComparator() throws Exception {
         User user1 = new User("A", 2);
         User user2 = new User("BB", 1);
-        List<User> users = Arrays.asList(user1, user2);
-        StringBuilder stringBuilder = new StringBuilder();
-        String checked = "A 2BB 1";
+        List<User> users = Arrays.asList(user2, user1);
+        List<User> checked = Arrays.asList(user1, user2);
 
         SortUser sortUser = new SortUser();
-        for (User user : sortUser.sortLength(users)) {
-            stringBuilder = stringBuilder.append(user.name).append(" ").append(user.age);
-        }
-        String result = stringBuilder.toString();
+        List<User> result = new ArrayList<>();
+        result.addAll(sortUser.sortLength(users));
 
         assertThat(result, is(checked));
 
@@ -92,14 +84,11 @@ public class SortUserTest {
         User user2 = new User("BB", 1);
         User user3 = new User("CCC", 1);
         List<User> users = Arrays.asList(user3, user1, user2);
-        StringBuilder stringBuilder = new StringBuilder();
-        String checked = "A 2BB 1CCC 1";
+        List<User> checked = Arrays.asList(user1, user2, user3);
 
         SortUser sortUser = new SortUser();
-        for (User user : sortUser.sortLength(users)) {
-            stringBuilder = stringBuilder.append(user.name).append(" ").append(user.age);
-        }
-        String result = stringBuilder.toString();
+        List<User> result = new ArrayList<>();
+        result.addAll(sortUser.sortLength(users));
 
         assertThat(result, is(checked));
 
