@@ -12,32 +12,6 @@ import java.util.Comparator;
 public class SortUser {
 
     /**
-     * inner class - comparator for sorting by hash code.
-     */
-    private class UserHashCodeComparator implements Comparator<User> {
-        /**
-         * Compares two users by hash.
-         */
-        public int compare(User first, User second) {
-            Integer firstHash = first.hashCode();
-            Integer secondHash = second.hashCode();
-            return firstHash.compareTo(secondHash);
-        }
-    }
-
-    /**
-     * inner class - comparator for sorting by length name.
-     */
-    private class UserStringLengthComparator implements Comparator<User> {
-        /**
-         * Compares two users by length name.
-         */
-        public int compare(User first, User second) {
-            return first.name.length() - second.name.length();
-        }
-    }
-
-    /**
      * Sort set.
      *
      * @param listUsers the list users
@@ -56,7 +30,14 @@ public class SortUser {
      * @return the list
      */
     public List<User> sortHash(List<User> users) {
-        Collections.sort(users, new UserHashCodeComparator());
+        users.sort(new Comparator() {
+            @Override
+            public int compare(Object first, Object second) {
+                Integer firstHash = first.hashCode();
+                Integer secondHash = second.hashCode();
+                return firstHash.compareTo(secondHash);
+            }
+        });
         return users;
     }
 
@@ -67,7 +48,12 @@ public class SortUser {
      * @return the list
      */
     public List<User> sortLength(List<User> users) {
-        Collections.sort(users, new UserStringLengthComparator());
+        users.sort(new Comparator() {
+            @Override
+            public int compare(Object first, Object second) {
+                return ((User) first).name.length() - ((User) second).name.length();
+            }
+        });
         return users;
     }
 
