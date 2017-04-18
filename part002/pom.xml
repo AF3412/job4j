@@ -15,7 +15,6 @@
 	</parent>
 	
 	<modules>
-		<module>tracker</module>
 		<module>exception</module>
         <module>chess</module>
     </modules>

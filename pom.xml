@@ -101,6 +101,7 @@
         <module>part003</module>
         <module>part004</module>
         <module>part005</module>
+        <module>part009</module>
     </modules>
 
 </project>
