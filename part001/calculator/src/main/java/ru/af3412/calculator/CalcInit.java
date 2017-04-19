@@ -15,7 +15,7 @@ public class CalcInit{
 		double first = 5;
 		double second = 6;
 
-		ru.af3412.Calculator calc1 = new ru.af3412.Calculator();
+		Calculator calc1 = new Calculator();
 		calc1.add(first, second);
 		calc1.printResult();
 		calc1.substruct(first, second);
