@@ -5,42 +5,47 @@ import java.util.Iterator;
 /**
  * Created by Филатов on 25.05.2017.
  */
-public class DoubleIteratorArray<T> implements Iterator<T> {
+public class DoubleIteratorArray implements Iterator {
 
+    /**
+     * Double arrays values.
+     */
     private final int[][] values;
+    /**
+     * Index for rows in array.
+     */
     private int indexString = 0;
+    /**
+     * Index for columns in array.
+     */
     private int indexColumn = 0;
 
+    /**
+     * Instantiates a new Double iterator array.
+     *
+     * @param values the values
+     */
     public DoubleIteratorArray(int[][] values) {
         this.values = values;
     }
 
     @Override
     public boolean hasNext() {
-        boolean result = false;
-
-
-
-        return result;
+        return (indexString < values.length);
     }
 
     @Override
-    public T next() {
+    public Integer next() {
+        int val = values[indexString][indexColumn];
 
-
-
-        return (T) values;
-
-    }
-
-    private void nextLine() {
-        if (indexColumn >= values[indexString].length) {
+        if (indexColumn == values[indexString].length - 1) {
             indexString++;
             indexColumn = 0;
-        }
-        else {
+        } else {
             indexColumn++;
         }
+
+        return val;
     }
 
 }
