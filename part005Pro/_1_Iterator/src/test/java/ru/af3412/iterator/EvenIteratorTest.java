@@ -1,0 +1,74 @@
+package ru.af3412.iterator;
+
+import org.junit.Test;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.Is.is;
+
+/**
+ * Created by Филатов on 27.05.2017.
+ */
+public class EvenIteratorTest {
+
+    /**
+     * When add zero value method next return this value.
+     */
+    @Test
+    public void whenAddZeroValueMethodNextReturnThisValue() {
+        int[] value = {0};
+        EvenIterator ei = new EvenIterator(value);
+        int checked = 0;
+
+        int result = ei.next();
+
+        assertThat(result, is(checked));
+    }
+
+    /**
+     * When add few value method next return even value.
+     */
+    @Test
+    public void whenAddFewValueMethodNextReturnEvenValue() {
+        int[] value = {2, 4, 6, 1};
+        EvenIterator ei = new EvenIterator(value);
+        int[] checked = {2, 4, 6, -1};
+        int[] result = new int[4];
+
+        for (int i = 0; i < 4; i++) {
+            result[i] = ei.next();
+        }
+
+        assertThat(result, is(checked));
+    }
+
+    /**
+     * When next value is exist has next return true.
+     */
+    @Test
+    public void whenNextValueIsExistHasNextReturnTrue() {
+        int[] value = {1, 2};
+        EvenIterator ei = new EvenIterator(value);
+        boolean checked = true;
+
+        ei.next();
+        boolean result = ei.hasNext();
+
+        assertThat(result, is(checked));
+    }
+
+    /**
+     * When next value is exist has next return false.
+     */
+    @Test
+    public void whenNextValueIsExistHasNextReturnFalse() {
+        int[] value = {1};
+        EvenIterator ei = new EvenIterator(value);
+        boolean checked = false;
+
+        ei.next();
+        boolean result = ei.hasNext();
+
+        assertThat(result, is(checked));
+    }
+
+}
