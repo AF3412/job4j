@@ -93,8 +93,8 @@ public class DoubleIteratorArrayTest {
      * When next value in array with defferent string is not exist has next return false.
      */
     @Test
-    public void whenNextValueInArrayWithDefferentStringIsNotExistHasNextReturnFalse() {
-        int[][] value = {{0}, {1,2}, {1,2,3}};
+    public void whenNextValueInArrayWithDifferentStringIsNotExistHasNextReturnFalse() {
+        int[][] value = {{0}, {1, 2}, {1, 2, 3}};
         DoubleIteratorArray dia = new DoubleIteratorArray(value);
         boolean checked = false;
 
@@ -114,7 +114,7 @@ public class DoubleIteratorArrayTest {
      */
     @Test
     public void whenNextValueInArrayWithDifferentStringIsExistHasNextReturnTrue() {
-        int[][] value = {{0}, {1,2}, {1,2,3}};
+        int[][] value = {{0}, {1, 2}, {1, 2, 3}};
         DoubleIteratorArray dia = new DoubleIteratorArray(value);
         boolean checked = true;
 
