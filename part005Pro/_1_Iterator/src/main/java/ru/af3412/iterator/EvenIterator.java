@@ -18,6 +18,16 @@ public class EvenIterator implements Iterator {
     private int index = 0;
 
     /**
+     * Array with even values.
+     */
+    private int[] evenValues;
+
+    /**
+     * Check is init added even values to array evenValues.
+     */
+    private boolean init;
+
+    /**
      * Instantiates a new Even iterator.
      *
      * @param values the values
@@ -28,19 +38,37 @@ public class EvenIterator implements Iterator {
 
     @Override
     public boolean hasNext() {
-        return index < values.length;
+        return index < evenValues.length;
     }
 
     @Override
     public Integer next() {
-        int val;
-        if (values[index] % 2 == 0) {
-            val = values[index];
-        } else {
-            val = -1;
+        int even;
+        if (!init) {
+            evenValues = evenValue();
+            init = true;
         }
-        index++;
-        return val;
+        even = evenValues[index++];
+
+        return even;
+    }
+
+    /**
+     * This method added even values from initial array to even values array.
+     * @return array with even values.
+     */
+    private int[] evenValue() {
+        int[] evenValues = new int[this.values.length];
+        int evenIndex = 0;
+
+        for (int i = 0; i < this.values.length; i++) {
+            if (this.values[i] % 2 == 0) {
+                evenValues[evenIndex++] = this.values[i];
+            }
+        }
+
+        return evenValues;
+
     }
 
 }

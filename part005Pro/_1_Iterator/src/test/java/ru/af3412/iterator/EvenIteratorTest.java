@@ -31,10 +31,27 @@ public class EvenIteratorTest {
     public void whenAddFewValueMethodNextReturnEvenValue() {
         int[] value = {2, 4, 6, 1};
         EvenIterator ei = new EvenIterator(value);
-        int[] checked = {2, 4, 6, -1};
-        int[] result = new int[4];
+        int[] checked = {2, 4, 6};
+        int[] result = new int[3];
 
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < 3; i++) {
+            result[i] = ei.next();
+        }
+
+        assertThat(result, is(checked));
+    }
+
+    /**
+     * When add few difference value method next return even value.
+     */
+    @Test
+    public void whenAddFewDifferenceValueMethodNextReturnEvenValue() {
+        int[] value = {2, 4, 6, 1, 8, 5, 6};
+        EvenIterator ei = new EvenIterator(value);
+        int[] checked = {2, 4, 6, 8, 6};
+        int[] result = new int[5];
+
+        for (int i = 0; i < 5; i++) {
             result[i] = ei.next();
         }
 
@@ -46,7 +63,7 @@ public class EvenIteratorTest {
      */
     @Test
     public void whenNextValueIsExistHasNextReturnTrue() {
-        int[] value = {1, 2};
+        int[] value = {1, 2, 3};
         EvenIterator ei = new EvenIterator(value);
         boolean checked = true;
 
