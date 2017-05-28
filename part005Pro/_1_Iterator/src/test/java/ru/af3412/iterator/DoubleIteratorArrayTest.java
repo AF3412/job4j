@@ -89,5 +89,79 @@ public class DoubleIteratorArrayTest {
         assertThat(result, is(checked));
     }
 
+    /**
+     * When next value in array with defferent string is not exist has next return false.
+     */
+    @Test
+    public void whenNextValueInArrayWithDefferentStringIsNotExistHasNextReturnFalse() {
+        int[][] value = {{0}, {1,2}, {1,2,3}};
+        DoubleIteratorArray dia = new DoubleIteratorArray(value);
+        boolean checked = false;
+
+        dia.next();
+        dia.next();
+        dia.next();
+        dia.next();
+        dia.next();
+        dia.next();
+        boolean result = dia.hasNext();
+
+        assertThat(result, is(checked));
+    }
+
+    /**
+     * When next value in array with different string is exist has next return true.
+     */
+    @Test
+    public void whenNextValueInArrayWithDifferentStringIsExistHasNextReturnTrue() {
+        int[][] value = {{0}, {1,2}, {1,2,3}};
+        DoubleIteratorArray dia = new DoubleIteratorArray(value);
+        boolean checked = true;
+
+        dia.next();
+        dia.next();
+        dia.next();
+        dia.next();
+        dia.next();
+        boolean result = dia.hasNext();
+
+        assertThat(result, is(checked));
+    }
+
+    /**
+     * When next value in array with two string and three and one columns is exist has next return true.
+     */
+    @Test
+    public void whenNextValueInArrayWithTwoStringAndThreeAndOneColumnsIsExistHasNextReturnTrue() {
+        int[][] value = {{0, 1, 2}, {1}};
+        DoubleIteratorArray dia = new DoubleIteratorArray(value);
+        boolean checked = true;
+
+        dia.next();
+        dia.next();
+        dia.next();
+        boolean result = dia.hasNext();
+
+        assertThat(result, is(checked));
+    }
+
+    /**
+     * When next value in array with two string and three and one columns is exist has next return false.
+     */
+    @Test
+    public void whenNextValueInArrayWithTwoStringAndThreeAndOneColumnsIsExistHasNextReturnFalse() {
+        int[][] value = {{0, 1, 2}, {1}};
+        DoubleIteratorArray dia = new DoubleIteratorArray(value);
+        boolean checked = false;
+
+        dia.next();
+        dia.next();
+        dia.next();
+        dia.next();
+        boolean result = dia.hasNext();
+
+        assertThat(result, is(checked));
+    }
+
 
 }
