@@ -77,8 +77,23 @@ public class EvenIteratorTest {
      * When next value is exist has next return false.
      */
     @Test
-    public void whenNextValueIsExistHasNextReturnFalse() {
+    public void whenNextValueIsNotExistHasNextReturnFalse() {
         int[] value = {1};
+        EvenIterator ei = new EvenIterator(value);
+        boolean checked = false;
+
+        ei.next();
+        boolean result = ei.hasNext();
+
+        assertThat(result, is(checked));
+    }
+
+    /**
+     * When next value is not exist and previous is even has next return false.
+     */
+    @Test
+    public void whenNextValueIsNotExistAndPreviousIsEvenHasNextReturnFalse() {
+        int[] value = {2};
         EvenIterator ei = new EvenIterator(value);
         boolean checked = false;
 
