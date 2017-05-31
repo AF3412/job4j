@@ -28,7 +28,15 @@ public class EvenIterator implements Iterator {
 
     @Override
     public boolean hasNext() {
-        return index < values.length;
+        boolean result = false;
+        for (int i = this.index; i < values.length; i++) {
+            if (values[i] % 2 == 0) {
+                result = true;
+                this.index = i;
+                break;
+            }
+        }
+        return result;
     }
 
     @Override

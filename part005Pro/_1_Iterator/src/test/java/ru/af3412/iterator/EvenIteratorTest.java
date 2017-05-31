@@ -63,9 +63,24 @@ public class EvenIteratorTest {
      */
     @Test
     public void whenNextValueIsExistHasNextReturnTrue() {
-        int[] value = {1, 2, 3};
+        int[] value = {1, 2, 3, 4};
         EvenIterator ei = new EvenIterator(value);
         boolean checked = true;
+
+        ei.next();
+        boolean result = ei.hasNext();
+
+        assertThat(result, is(checked));
+    }
+
+    /**
+     * When next value is not exist because previous value was even has next return false.
+     */
+    @Test
+    public void whenNextValueIsNotExistBecausePreviousValueWasEvenHasNextReturnFalse() {
+        int[] value = {1, 2, 3};
+        EvenIterator ei = new EvenIterator(value);
+        boolean checked = false;
 
         ei.next();
         boolean result = ei.hasNext();
@@ -94,6 +109,50 @@ public class EvenIteratorTest {
     @Test
     public void whenNextValueIsNotExistAndPreviousIsEvenHasNextReturnFalse() {
         int[] value = {2};
+        EvenIterator ei = new EvenIterator(value);
+        boolean checked = false;
+
+        ei.next();
+        boolean result = ei.hasNext();
+
+        assertThat(result, is(checked));
+    }
+
+    /**
+     * When next value is exist and previous is even has next return true.
+     */
+    @Test
+    public void whenNextValueIsExistAndPreviousIsEvenHasNextReturnTrue() {
+        int[] value = {2, 4};
+        EvenIterator ei = new EvenIterator(value);
+        boolean checked = true;
+
+        ei.next();
+        boolean result = ei.hasNext();
+
+        assertThat(result, is(checked));
+    }
+
+    /**
+     * When next value is exist and is even has next return true.
+     */
+    @Test
+    public void whenNextValueIsExistAndIsEvenHasNextReturnTrue() {
+        int[] value = {2, 4};
+        EvenIterator ei = new EvenIterator(value);
+        boolean checked = true;
+
+        boolean result = ei.hasNext();
+
+        assertThat(result, is(checked));
+    }
+
+    /**
+     * When next value is exist and previous is not even has next return false.
+     */
+    @Test
+    public void whenNextValueIsExistAndPreviousIsNotEvenHasNextReturnFalse() {
+        int[] value = {1, 3};
         EvenIterator ei = new EvenIterator(value);
         boolean checked = false;
 
