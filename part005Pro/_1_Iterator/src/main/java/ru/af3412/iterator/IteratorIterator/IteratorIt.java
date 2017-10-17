@@ -24,7 +24,7 @@ import java.util.Iterator;
  * Метод не должен копировать данные. Нужно реализовать итератор, который будет пробегать по вложенными итераторам без копирования данных.
  *
  */
-public interface IteratorIt {
+public interface IteratorIt extends Iterator {
 
     /**
      * Convert iterator.
