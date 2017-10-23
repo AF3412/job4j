@@ -1,9 +1,11 @@
+package ru.af3412.generic;
+
 /**
  * Created by AF on 21.10.2017.
  *
  * @param <E> the type parameter
  */
-public class SimpleList<E> {
+public class SimpleArray<E> {
 
     /**
      * The Objects.
@@ -19,7 +21,7 @@ public class SimpleList<E> {
      *
      * @param size the size
      */
-    public SimpleList(int size) {
+    public SimpleArray(int size) {
         this.objects = new Object[size];
     }
 
@@ -29,6 +31,7 @@ public class SimpleList<E> {
      * @param value the value
      */
     public void add(E value) {
+        indexCheck(index);
         this.objects[index++] = value;
     }
 
@@ -39,6 +42,7 @@ public class SimpleList<E> {
      * @return the e
      */
     public E get(int position) {
+        indexCheck(position);
         return (E) this.objects[position];
     }
 
@@ -49,6 +53,7 @@ public class SimpleList<E> {
      * @param value    the value
      */
     public void update(int position, E value) {
+        indexCheck(position);
         this.objects[position] = value;
     }
 
@@ -58,7 +63,19 @@ public class SimpleList<E> {
      * @param position the position
      */
     public void delete(int position) {
+        indexCheck(position);
         this.objects[position] = null;
+    }
+
+    /**
+     * Checked size of array.
+     *
+     * @param position
+     */
+    private void indexCheck(int position) {
+        if (position > this.objects.length || position < 0) {
+            throw new IndexOutOfBoundsException("Out of array length ");
+        }
     }
 
 

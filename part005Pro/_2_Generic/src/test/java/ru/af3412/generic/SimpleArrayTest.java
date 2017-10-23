@@ -1,3 +1,5 @@
+package ru.af3412.generic;
+
 import org.junit.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -7,7 +9,7 @@ import static org.junit.Assert.assertNull;
 /**
  * Created by AF on 21.10.2017.
  */
-public class SimpleListTest {
+public class SimpleArrayTest {
 
     /**
      * When create container should return string.
@@ -15,7 +17,7 @@ public class SimpleListTest {
     @Test
     public void whenCreateContainerShouldReturnString() {
 
-        SimpleList<String> list = new SimpleList<>(4);
+        SimpleArray<String> list = new SimpleArray<>(4);
         list.add("test");
 
         String result = list.get(0);
@@ -29,10 +31,10 @@ public class SimpleListTest {
     @Test
     public void whenCreateContainerShouldReturnInteger() {
 
-        SimpleList<Integer> simpleList = new SimpleList<>(4);
+        SimpleArray<Integer> simpleArray = new SimpleArray<>(4);
 
-        simpleList.add(1);
-        int result = simpleList.get(0);
+        simpleArray.add(1);
+        int result = simpleArray.get(0);
 
         assertThat(result, is(1));
     }
@@ -42,11 +44,11 @@ public class SimpleListTest {
      */
     @Test
     public void whenUpdateElementReturnNewValue() {
-        SimpleList<Integer> simpleList = new SimpleList<>(4);
+        SimpleArray<Integer> simpleArray = new SimpleArray<>(4);
 
-        simpleList.add(1);
-        simpleList.update(0, 2);
-        int result = simpleList.get(0);
+        simpleArray.add(1);
+        simpleArray.update(0, 2);
+        int result = simpleArray.get(0);
 
         assertThat(result, is(2));
     }
@@ -56,12 +58,22 @@ public class SimpleListTest {
      */
     @Test
     public void whenDeleteElementReturnNull() {
-        SimpleList<Integer> simpleList = new SimpleList<>(4);
+        SimpleArray<Integer> simpleArray = new SimpleArray<>(4);
 
-        simpleList.add(1);
-        simpleList.delete(0);
+        simpleArray.add(1);
+        simpleArray.delete(0);
 
-        assertNull(simpleList.get(0));
+        assertNull(simpleArray.get(0));
+    }
+
+    /**
+     * When out of array size return exception.
+     */
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void whenOutOfArraySizeReturnException() {
+        SimpleArray<Integer> simpleArray = new SimpleArray<>(0);
+        simpleArray.add(1);
+
     }
 
 }
