@@ -26,6 +26,15 @@ public class SimpleArray<E> {
     }
 
     /**
+     * Gets size.
+     *
+     * @return the object size
+     */
+    public int getSize() {
+        return objects.length;
+    }
+
+    /**
      * Add.
      *
      * @param value the value
@@ -70,7 +79,7 @@ public class SimpleArray<E> {
     /**
      * Checked size of array.
      *
-     * @param position
+     * @param position checked size of array length.
      */
     private void indexCheck(int position) {
         if (position > this.objects.length || position < 0) {

@@ -40,6 +40,35 @@ public class SimpleArrayTest {
     }
 
     /**
+     * When create container with string should return string.
+     */
+    @Test
+    public void whenCreateContainerWithStringShouldReturnString() {
+
+        SimpleArray<String> simpleArray = new SimpleArray<>(4);
+
+        simpleArray.add("1");
+        String result = simpleArray.get(0);
+
+        assertThat(result, is("1"));
+    }
+
+    /**
+     * When create container with user should return user.
+     */
+    @Test
+    public void whenCreateContainerWithUserShouldReturnUser() {
+
+        SimpleArray<User> simpleArray = new SimpleArray<>(4);
+        User u = new User();
+        simpleArray.add(u);
+
+        User result = simpleArray.get(0);
+
+        assertThat(result, is(u));
+    }
+
+    /**
      * When update element return new value.
      */
     @Test
@@ -73,7 +102,16 @@ public class SimpleArrayTest {
     public void whenOutOfArraySizeReturnException() {
         SimpleArray<Integer> simpleArray = new SimpleArray<>(0);
         simpleArray.add(1);
+    }
 
+    /**
+     * When create container with size ten return size ten.
+     */
+    @Test
+    public void whenCreateContainerWithSizeTenReturnSizeTen() {
+        int size = 10;
+        SimpleArray<String> simpleArray = new SimpleArray<>(size);
+        assertThat(simpleArray.getSize(), is(size));
     }
 
 }
