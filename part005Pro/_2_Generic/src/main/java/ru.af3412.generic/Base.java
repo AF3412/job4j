@@ -5,18 +5,24 @@ package ru.af3412.generic;
  */
 public abstract class Base {
 
+    private String id;
+
     /**
      * Sets id.
      *
      * @param id the id
      */
-    abstract void setId(String id);
+     void setId(String id) {
+         this.id = id;
+     }
 
     /**
      * Gets id.
      *
      * @return the id
      */
-    abstract String getId();
+    String getId() {
+        return this.id;
+    }
 
 }

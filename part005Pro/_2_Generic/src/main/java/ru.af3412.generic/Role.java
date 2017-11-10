@@ -10,13 +10,4 @@ public class Role extends Base {
      */
     private String id;
 
-    @Override
-    void setId(String id) {
-        this.id = id;
-    }
-
-    @Override
-    String getId() {
-        return this.id;
-    }
 }
