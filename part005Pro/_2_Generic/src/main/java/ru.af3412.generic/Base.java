@@ -5,6 +5,9 @@ package ru.af3412.generic;
  */
 public abstract class Base {
 
+    /**
+     * "id" is identificator.
+     */
     private String id;
 
     /**

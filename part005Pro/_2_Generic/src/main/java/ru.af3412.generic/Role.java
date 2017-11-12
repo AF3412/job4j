@@ -5,9 +5,4 @@ package ru.af3412.generic;
  */
 public class Role extends Base {
 
-    /**
-     * "id" is identificator.
-     */
-    private String id;
-
 }

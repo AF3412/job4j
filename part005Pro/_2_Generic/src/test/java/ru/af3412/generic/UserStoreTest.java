@@ -51,7 +51,7 @@ public class UserStoreTest {
         user.setId("1");
         userStore.add(user);
 
-        User result = userStore.getUser("1");
+        User result = (User) userStore.getValue("1");
 
         assertThat(result, is(user));
 
@@ -71,7 +71,7 @@ public class UserStoreTest {
         userStore.add(user);
 
         userStore.update("0", anotherUser);
-        User result = userStore.getUser("1");
+        User result = (User) userStore.getValue("1");
 
         assertThat(result, is(anotherUser));
     }
@@ -90,7 +90,7 @@ public class UserStoreTest {
 
         userStore.delete("0");
 
-        User result = userStore.getUser("0");
+        User result = (User) userStore.getValue("0");
 
         assertNull(result);
     }

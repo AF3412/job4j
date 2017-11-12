@@ -5,19 +5,34 @@ package ru.af3412.generic;
  *
  * @param <E> the type parameter
  */
-public abstract class AbstractStore<E extends Base> {
+public abstract class AbstractStore<E extends Base> implements Store<E> {
+
+
+    /**
+     * The Store.
+     */
+    private SimpleArray<E> store = new SimpleArray<>(10);
+
+    /**
+     * Gets store.
+     *
+     * @return the store
+     */
+    public SimpleArray<E> getStore() {
+        return store;
+    }
 
     /**
      * Add boolean.
      *
-     * @param array the array
      * @param model the model
      * @return the boolean
      */
-    boolean add(SimpleArray array, E model) {
+    @Override
+    public boolean add(E model) {
         boolean result = false;
         try {
-            array.add(model);
+            store.add(model);
             result = true;
         } catch (IndexOutOfBoundsException e) {
             System.out.printf("Out of index %s%n", e);
@@ -28,17 +43,17 @@ public abstract class AbstractStore<E extends Base> {
     /**
      * Update e.
      *
-     * @param array the array
      * @param id    the id
      * @param model the model
      * @return the e
      */
-    E update(SimpleArray<E> array, String id, E model) {
+    @Override
+    public E update(String id, E model) {
         E result = model;
         try {
-            int position = this.findIdPosition(array, id);
-            result = array.get(position);
-            array.update(position, model);
+            int position = this.findIdPosition(id);
+            result = store.get(position);
+            store.update(position, model);
         } catch (IndexOutOfBoundsException e) {
             System.out.printf("Out of index %s%n", e);
         }
@@ -48,15 +63,15 @@ public abstract class AbstractStore<E extends Base> {
     /**
      * Delete boolean.
      *
-     * @param array the array
-     * @param id    the id
+     * @param id the id
      * @return the boolean
      */
-    boolean delete(SimpleArray array, String id) {
+    @Override
+    public boolean delete(String id) {
         boolean result = false;
         try {
-            int position = this.findIdPosition(array, id);
-            array.delete(position);
+            int position = this.findIdPosition(id);
+            store.delete(position);
             result = true;
         } catch (IndexOutOfBoundsException e) {
             System.out.printf("Out of index %s%n", e);
@@ -67,32 +82,30 @@ public abstract class AbstractStore<E extends Base> {
     /**
      * Gets value.
      *
-     * @param array the array
-     * @param id    the id
+     * @param id the id
      * @return the value
      */
-    E getValue(SimpleArray<E> array, String id) {
-        return array.get(findIdPosition(array, id));
+    E getValue(String id) {
+        return store.get(findIdPosition(id));
     }
 
     /**
      * Find value by id.
      *
-     * @param array is SimpleArray
      * @param id is String value of id
      * @return find position or "-1" if value not find
      */
-    private int findIdPosition(SimpleArray<E> array, String id) {
+    private int findIdPosition(String id) {
         int result = -1;
         try {
-            for (int i = 0; i < array.getSize(); i++) {
-                if (array.get(i).getId().equals(id)) {
+            for (int i = 0; i < store.getSize(); i++) {
+                if (store.get(i).getId().equals(id)) {
                     result = i;
                     break;
                 }
             }
         } catch (NullPointerException e) {
-            System.out.printf("Value not find %n%s%n", e);
+            System.out.printf("Value not find. %s%n", e);
         }
         return result;
     }
