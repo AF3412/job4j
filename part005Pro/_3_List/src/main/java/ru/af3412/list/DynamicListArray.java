@@ -1,5 +1,6 @@
 package ru.af3412.list;
 
+import java.util.Arrays;
 import java.util.Iterator;
 
 /**
@@ -78,6 +79,7 @@ public class DynamicListArray<E> implements Iterable<E> {
         if (checkBoundary(position)) {
             this.container[position] = null;
             indexingArray();
+            index--;
             result = true;
         }
         return result;
@@ -113,8 +115,7 @@ public class DynamicListArray<E> implements Iterable<E> {
         boolean result = false;
         int containerSize = this.container.length;
         try {
-            int newSize = Math.addExact(containerSize, containerSize);
-            Object[] tmpContainer = new Object[newSize];
+            Object[] tmpContainer = Arrays.copyOf(this.container, Math.addExact(containerSize, containerSize));
             System.arraycopy(this.container, 0, tmpContainer, 0, containerSize);
             this.container = tmpContainer;
             result = true;
