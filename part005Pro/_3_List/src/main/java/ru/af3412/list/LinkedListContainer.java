@@ -1,6 +1,7 @@
 package ru.af3412.list;
 
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 /**
  * Created by AF on 18.11.2017.
@@ -209,9 +210,13 @@ public class LinkedListContainer<E> implements Iterable {
         /**
          * Берем текущий элемент и переходим на следующий.
          * @return возвращаем текущий элемент.
+         * @throws NoSuchElementException если следующий элемент не существует.
          */
         @Override
-        public E next() {
+        public E next() throws NoSuchElementException {
+            if (cursor >= size) {
+                 throw new NoSuchElementException();
+            }
             E result = findNode(cursor).element;
             cursor++;
             return result;

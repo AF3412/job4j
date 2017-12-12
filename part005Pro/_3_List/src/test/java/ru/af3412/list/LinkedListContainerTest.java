@@ -3,6 +3,7 @@ package ru.af3412.list;
 import org.junit.Test;
 
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
@@ -122,5 +123,29 @@ public class LinkedListContainerTest {
 
     }
 
+    /**
+     * When next element not exists in empty container throw no such element exception.
+     */
+    @Test(expected = NoSuchElementException.class)
+    public void whenNextElementNotExistsInEmptyContainerThrowNoSuchElementException() {
+        LinkedListContainer<Integer> listContainer = new LinkedListContainer<>();
+
+        Iterator iterator = listContainer.iterator();
+        iterator.next();
+
+    }
+
+    /**
+     * When next element not exists in not empty throw no such element exception.
+     */
+    @Test(expected = NoSuchElementException.class)
+    public void whenNextElementNotExistsInNotEmptyThrowNoSuchElementException() {
+        LinkedListContainer<Integer> listContainer = new LinkedListContainer<>();
+        listContainer.add(1);
+        Iterator iterator = listContainer.iterator();
+        iterator.next();
+        iterator.next();
+
+    }
 
 }
