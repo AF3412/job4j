@@ -214,7 +214,7 @@ public class LinkedListContainer<E> implements Iterable {
          */
         @Override
         public E next() throws NoSuchElementException {
-            if (cursor >= size) {
+            if (!hasNext()) {
                  throw new NoSuchElementException();
             }
             E result = findNode(cursor).element;
