@@ -44,6 +44,18 @@ public class LinkedListContainer<E> implements Iterable {
     }
 
     /**
+     * Возвращает размер (количество элементов) списка.
+     * @return this.size.
+     */
+    public int getSize() {
+        return this.size;
+    }
+
+    public boolean isEmpty() {
+        return (this.size == 0);
+    }
+
+    /**
      * Возврещает итератор листа.
      * @return iterator.
      */

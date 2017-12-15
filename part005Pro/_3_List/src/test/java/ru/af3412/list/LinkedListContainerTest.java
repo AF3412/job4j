@@ -15,6 +15,19 @@ public class LinkedListContainerTest {
 
 
     /**
+     * When add one value to list size list is one.
+     */
+    @Test
+    public void whenAddOneValueToListSizeListIsOne() {
+        LinkedListContainer<Integer> listContainer = new LinkedListContainer<>();
+        listContainer.add(1);
+
+        int result = listContainer.getSize();
+
+        assertThat(result, is(1));
+    }
+
+    /**
      * When add one value to list return this value.
      */
     @Test
