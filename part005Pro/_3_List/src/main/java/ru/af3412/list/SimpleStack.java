@@ -8,9 +8,7 @@ import java.util.NoSuchElementException;
  * представляющий собой список элементов, организованных по принципу LIFO
  * (англ. last in — first out, «последним пришёл — первым вышел»
  */
-public class SimpleStack<T> extends SimpleContainer {
-
-    private LinkedListContainer<T> container = super.container;
+public class SimpleStack<T> extends SimpleContainer<T> {
 
     /**
      * Метод возврщает последний элемент из коллекции.

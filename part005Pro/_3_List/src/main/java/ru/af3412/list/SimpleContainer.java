@@ -10,7 +10,7 @@ public abstract class SimpleContainer<T> {
     /**
      * Коллекция, с помощью которой реализуется SimpleContainer.
      */
-    LinkedListContainer<T> container = new LinkedListContainer<>();
+    protected LinkedListContainer<T> container = new LinkedListContainer<>();
 
     /**
      * Метод возвращает размер коллекции.

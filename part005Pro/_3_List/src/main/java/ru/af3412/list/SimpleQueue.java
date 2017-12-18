@@ -8,9 +8,7 @@ import java.util.NoSuchElementException;
  * представляющий собой список элементов, организованных по принципу FIFO
  * (англ. first in — first out, «последним пришёл — первым вышел»
  */
-public class SimpleQueue<T> extends SimpleContainer {
-
-    private LinkedListContainer<T> container = super.container;
+public class SimpleQueue<T> extends SimpleContainer<T> {
 
     /**
      * Метод возврщает первый элемент из коллекции.
