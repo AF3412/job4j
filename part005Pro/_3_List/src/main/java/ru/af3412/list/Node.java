@@ -7,11 +7,14 @@ package ru.af3412.list;
  */
 public class Node<T> {
 
+    /**
+     * Значение, которое добавляем в Node.
+     */
     private T value;
     /**
      * The Next.
      */
-    Node<T> next;
+    private Node<T> next;
 
     /**
      * Instantiates a new Node.
@@ -25,6 +28,7 @@ public class Node<T> {
     /**
      * Has cycle boolean.
      * ПРоверяет не зациклен ли односвязный список.
+     *
      * @param first the first
      * @return the boolean
      */
@@ -38,7 +42,7 @@ public class Node<T> {
 
         Node nextNode = first.next;
 
-        for (; ; ) {
+        for (;;) {
             if (first == nextNode) {
                 return true;
             }

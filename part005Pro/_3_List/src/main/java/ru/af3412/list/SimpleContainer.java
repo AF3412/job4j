@@ -4,16 +4,21 @@ import java.util.NoSuchElementException;
 
 /**
  * Created by AF on 15.12.2017.
+ *
+ * @param <T> is generic.
  */
 public abstract class SimpleContainer<T> {
 
     /**
      * Коллекция, с помощью которой реализуется SimpleContainer.
+     *
+     * @param <T> is generic.
      */
     protected LinkedListContainer<T> container = new LinkedListContainer<>();
 
     /**
      * Метод возвращает размер коллекции.
+     *
      * @return размер коллекции.
      */
     public int size() {
@@ -22,6 +27,7 @@ public abstract class SimpleContainer<T> {
 
     /**
      * Метод для добавления элемента в коллекцию.
+     *
      * @param value елемент, который будет добавлен в коллекцию.
      */
     public void push(T value) {
@@ -30,6 +36,7 @@ public abstract class SimpleContainer<T> {
 
     /**
      * Метод возвращает элемент из коллекции.
+     *
      * @return элемент коллекции и удаляет его.
      * @throws NoSuchElementException если размер коллекции равен 0.
      */

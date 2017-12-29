@@ -7,6 +7,7 @@ import java.util.NoSuchElementException;
  * реализует коллекцию состоящую из абстрактных типов данных,
  * представляющий собой список элементов, организованных по принципу LIFO
  * (англ. last in — first out, «последним пришёл — первым вышел»
+ * @param <T> is generic.
  */
 public class SimpleStack<T> extends SimpleContainer<T> {
 

@@ -5,11 +5,13 @@ import java.util.NoSuchElementException;
 
 /**
  * Created by AF on 18.11.2017.
+ *
+ * @param <E> is generic.
  */
 public class LinkedListContainer<E> implements Iterable {
 
     /**
-     * размер свзяного списка
+     * размер свзяного списка.
      */
     private int size = 0;
 
@@ -45,18 +47,25 @@ public class LinkedListContainer<E> implements Iterable {
 
     /**
      * Возвращает размер (количество элементов) списка.
-     * @return this.size.
+     *
+     * @return this.size. size
      */
     public int getSize() {
         return this.size;
     }
 
+    /**
+     * Проверка того, что контейнер пустой.
+     *
+     * @return true если пустой.
+     */
     public boolean isEmpty() {
         return (this.size == 0);
     }
 
     /**
      * Возврещает итератор листа.
+     *
      * @return iterator.
      */
     @Override
@@ -66,7 +75,8 @@ public class LinkedListContainer<E> implements Iterable {
 
     /**
      * добавляем элемент в конец листа.
-     * @param element
+     *
+     * @param element объект, который добавляем.
      */
     public void add(E element) {
         if (currentNode == null) {
@@ -85,7 +95,8 @@ public class LinkedListContainer<E> implements Iterable {
 
     /**
      * Добавляем элемент, вставляя его по индексу.
-     * @param index индекс, куда надо вставить элемент.
+     *
+     * @param index   индекс, куда надо вставить элемент.
      * @param element сам элемент.
      * @throws IndexOutOfBoundsException если выходит за пределы листа.
      */
@@ -106,6 +117,7 @@ public class LinkedListContainer<E> implements Iterable {
 
     /**
      * Возвращаем значение из Node по индексу.
+     *
      * @param index номер элемента который надо вернуть.
      * @return значение из Node.
      * @throws IndexOutOfBoundsException если выходит за пределы листа/
@@ -119,6 +131,7 @@ public class LinkedListContainer<E> implements Iterable {
 
     /**
      * Удаляем элемент по индексу.
+     *
      * @param index который надо удалить.
      * @throws IndexOutOfBoundsException если выходит за пределы листа.
      */
@@ -135,6 +148,7 @@ public class LinkedListContainer<E> implements Iterable {
 
     /**
      * Удаление элемента по его значению.
+     *
      * @param value искомый элемент.
      */
     public void remove(E value) {
@@ -143,6 +157,7 @@ public class LinkedListContainer<E> implements Iterable {
 
     /**
      * Поиск элемента по значению.
+     *
      * @param value значение.
      * @return индекс данного элемента.
      */
@@ -160,6 +175,7 @@ public class LinkedListContainer<E> implements Iterable {
 
     /**
      * Ищем Node по индексу.
+     *
      * @param index номер Node.
      * @return Node по индексу.
      * @throws IndexOutOfBoundsException может выкинуть исключение, если выходит за пределы листа.
@@ -177,6 +193,7 @@ public class LinkedListContainer<E> implements Iterable {
 
     /**
      * Проверка на выход за пределы листа.
+     *
      * @param index проверка, что элемент находится в пределах листа.
      * @return true or false.
      */
@@ -190,10 +207,29 @@ public class LinkedListContainer<E> implements Iterable {
      * @param <T> любое значение.
      */
     private class Node<T> {
-        T element;
-        Node<T> next;
-        Node<T> prev;
 
+        /**
+         * The Element.
+         */
+        private T element;
+
+        /**
+         * The Next.
+         */
+        private Node<T> next;
+
+        /**
+         * The Prev.
+         */
+        private Node<T> prev;
+
+        /**
+         * Instantiates a new Node.
+         *
+         * @param element the element
+         * @param prev    the prev
+         * @param next    the next
+         */
         Node(T element, Node<T> prev, Node<T> next) {
             this.element = element;
             this.prev = prev;
@@ -212,6 +248,7 @@ public class LinkedListContainer<E> implements Iterable {
 
         /**
          * Проверяем не вышли ли мы за пределы листа.
+         *
          * @return
          */
         @Override
@@ -221,13 +258,14 @@ public class LinkedListContainer<E> implements Iterable {
 
         /**
          * Берем текущий элемент и переходим на следующий.
+         *
          * @return возвращаем текущий элемент.
          * @throws NoSuchElementException если следующий элемент не существует.
          */
         @Override
         public E next() throws NoSuchElementException {
             if (!hasNext()) {
-                 throw new NoSuchElementException();
+                throw new NoSuchElementException();
             }
             E result = findNode(cursor).element;
             cursor++;

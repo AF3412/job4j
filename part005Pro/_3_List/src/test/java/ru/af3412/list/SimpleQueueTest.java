@@ -13,6 +13,9 @@ import static org.hamcrest.core.Is.is;
 public class SimpleQueueTest {
 
 
+    /**
+     * When add one element to simple queue size simple queue is one.
+     */
     @Test
     public void whenAddOneElementToSimpleQueueSizeSimpleQueueIsOne() {
         SimpleQueue<Integer> simpleQueue = new SimpleQueue<>();
@@ -24,6 +27,9 @@ public class SimpleQueueTest {
     }
 
 
+    /**
+     * When add one element to simple queue after poll size is null.
+     */
     @Test
     public void whenAddOneElementToSimpleQueueAfterPollSizeIsNull() {
         SimpleQueue<Integer> simpleQueue = new SimpleQueue<>();
@@ -36,6 +42,9 @@ public class SimpleQueueTest {
     }
 
 
+    /**
+     * When add one element to simple queue poll return this element.
+     */
     @Test
     public void whenAddOneElementToSimpleQueuePollReturnThisElement() {
         SimpleQueue<Integer> simpleQueue = new SimpleQueue<>();
@@ -47,6 +56,9 @@ public class SimpleQueueTest {
     }
 
 
+    /**
+     * When add three element to simple queue poll return this element.
+     */
     @Test
     public void whenAddThreeElementToSimpleQueuePollReturnThisElement() {
         SimpleQueue<Integer> simpleQueue = new SimpleQueue<>();
@@ -60,7 +72,10 @@ public class SimpleQueueTest {
     }
 
 
-    @Test (expected = NoSuchElementException.class)
+    /**
+     * When simple queue is empty poll return null.
+     */
+    @Test(expected = NoSuchElementException.class)
     public void whenSimpleQueueIsEmptyPollReturnNull() {
         SimpleQueue<Integer> simpleQueue = new SimpleQueue<>();
 

@@ -7,11 +7,14 @@ import java.util.NoSuchElementException;
  * реализует коллекцию состоящую из абстрактных типов данных,
  * представляющий собой список элементов, организованных по принципу FIFO
  * (англ. first in — first out, «последним пришёл — первым вышел»
+ *
+ * @param <T> is generic.
  */
 public class SimpleQueue<T> extends SimpleContainer<T> {
 
     /**
      * Метод возврщает первый элемент из коллекции.
+     *
      * @return элемент коллекции и удаляет его.
      * @throws NoSuchElementException если размер коллекции равен 0.
      */
