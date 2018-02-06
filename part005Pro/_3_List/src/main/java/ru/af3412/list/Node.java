@@ -11,10 +11,11 @@ public class Node<T> {
      * Значение, которое добавляем в Node.
      */
     private T value;
+
     /**
      * The Next.
      */
-    private Node<T> next;
+    public Node<T> next;
 
     /**
      * Instantiates a new Node.
