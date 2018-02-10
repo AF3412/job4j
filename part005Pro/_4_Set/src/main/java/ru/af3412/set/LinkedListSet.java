@@ -6,6 +6,8 @@ import java.util.Iterator;
 
 /**
  * Created by AF on 06.02.2018.
+ *
+ * @param <E> the type parameter
  */
 public class LinkedListSet<E> implements Iterable<E> {
 

@@ -161,4 +161,21 @@ public class LinkedListContainerTest {
 
     }
 
+    /**
+     * When find index element method find element return index this element.
+     */
+    @Test
+    public void whenFindIndexElementMethodFindElementReturnIndexThisElement() {
+        LinkedListContainer<Integer> listContainer = new LinkedListContainer<>();
+        listContainer.add(1);
+        listContainer.add(2);
+        listContainer.add(3);
+        listContainer.add(3);
+        int expected = 2;
+
+        int result = listContainer.findElement(3);
+
+        assertThat(result, is(expected));
+    }
+
 }

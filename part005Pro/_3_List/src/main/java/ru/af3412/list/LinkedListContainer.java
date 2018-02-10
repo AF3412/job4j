@@ -162,14 +162,32 @@ public class LinkedListContainer<E> implements Iterable {
      * @return индекс данного элемента.
      */
     public int findElement(E value) {
+        if (getSize() == 0) {
+            return -1;
+        }
         int result = -1;
+        int index = 0;
         Node<E> tmpNode = firstNode.next;
-        for (int i = 0; i < size; i++) {
+        while (tmpNode.next != null) {
             if (tmpNode.element.equals(value)) {
-                result = i;
+                result = index;
                 break;
             }
+            tmpNode = tmpNode.next;
+            index++;
         }
+        /*while (tmpNode.next != null || tmpNode != null) {
+            for (int i = 0; i < size; i++) {
+                if (tmpNode.element.equals(value)) {
+                    result = i;
+                    break;
+                }
+            }
+            if (result != -1) {
+                break;
+            }
+            tmpNode = tmpNode.next;
+        }*/
         return result;
     }
 

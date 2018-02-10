@@ -5,6 +5,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
+import java.util.List;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
@@ -73,6 +74,25 @@ public class LinkedListSetTest {
             assertThat(result.next(), is(checked.next()));
         }
 
+    }
+
+    /**
+     * When add duplicate values returned only unique values.
+     */
+    @Test
+    public void whenAddDuplicateValuesReturnedOnlyUniqueValues() {
+        LinkedListSet<Integer> set = new LinkedListSet<>();
+        set.add(1);
+        set.add(2);
+        set.add(3);
+        set.add(2);
+        set.add(1);
+        List<Integer> expected = Arrays.asList(1, 2, 3);
+        List<Integer> result = new ArrayList<>();
+        for (Integer i : set) {
+            result.add(i);
+        }
+        assertThat(result, is(expected));
     }
 
 }
