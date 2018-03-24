@@ -30,7 +30,7 @@ public class SimpleHashSetTest {
         SimpleHashSet<String> set = new SimpleHashSet<>();
 
         set.add("Тест");
-        int result =  set.getSize();
+        int result = set.getSize();
 
         assertThat(result, is(1));
     }
@@ -44,7 +44,7 @@ public class SimpleHashSetTest {
 
         set.add("Тест");
         set.add("Тест2");
-        int result =  set.getSize();
+        int result = set.getSize();
 
         assertThat(result, is(2));
     }
@@ -58,7 +58,7 @@ public class SimpleHashSetTest {
 
         set.add("Тест");
         set.add("Тест");
-        int result =  set.getSize();
+        int result = set.getSize();
 
         assertThat(result, is(1));
     }
@@ -73,7 +73,7 @@ public class SimpleHashSetTest {
         set.add("Тест2");
 
         set.remove("Тест");
-        int result =  set.getSize();
+        int result = set.getSize();
 
         assertThat(result, is(1));
     }
@@ -87,9 +87,23 @@ public class SimpleHashSetTest {
         set.add("Тест");
         set.add("Тест2");
 
-        boolean result =  set.contains("Тест333");
+        boolean result = set.contains("Тест333");
 
         assertThat(result, is(false));
+    }
+
+    /**
+     * When add two integer value get size return size.
+     */
+    @Test
+    public void whenAddTwoIntegerValueGetSizeReturnSize() {
+        SimpleHashSet<Integer> set = new SimpleHashSet<>();
+
+        set.add(1);
+        set.add(2);
+        int result = set.getSize();
+
+        assertThat(result, is(2));
     }
 
 

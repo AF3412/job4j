@@ -1,6 +1,8 @@
 package ru.af3412.set;
 
 
+import java.util.Arrays;
+
 /**
  * Created by AF on 03.03.2018.
  *
@@ -41,7 +43,7 @@ public class SimpleHashSet<E> {
         if (size == containerSize) {
             this.container = increaseContainer(this.container);
         }
-        if (!contains(value) ) {
+        if (!contains(value)) {
             container[createHashValue(value)] = new InnerObjectClass(value);
             result = true;
             size++;
@@ -56,14 +58,10 @@ public class SimpleHashSet<E> {
      * @param value the value
      * @return the boolean
      */
-    public boolean contains (E value) {
-        boolean result = false;
-        for(InnerObjectClass ioc : container) {
-            if (ioc != null) {
-                if (createHashValue(value) == ioc.getHashValueKey()) {
-                    result = true;
-                }
-            }
+    public boolean contains(E value) {
+        boolean result = true;
+        if ((container[createHashValue(value)]) == null) {
+            result = false;
         }
         return result;
     }
@@ -97,7 +95,7 @@ public class SimpleHashSet<E> {
         this.size = this.size * 2;
         InnerObjectClass[] newContainer = new InnerObjectClass[this.size];
 
-        for(InnerObjectClass ioc : oldContainer) {
+        for (InnerObjectClass ioc : oldContainer) {
             newContainer[createHashValue(ioc.getValue())] = new InnerObjectClass(ioc.getValue());
         }
         return newContainer;
@@ -139,7 +137,35 @@ public class SimpleHashSet<E> {
     }
 
     private int createHashValue(Object e) {
-        return e.hashCode() % containerSize;
+        int hash = 0;
+        if (e.getClass().getName().equals("java.lang.String")) {
+            char[] charArray = ((String) e).toCharArray();
+            for (char aCharArray : charArray) {
+                hash = 31 * hash + aCharArray;
+            }
+            hash = hash % containerSize;
+        } else if (e.getClass().getName().equals("java.lang.Integer")) {
+            int value = (Integer) e;
+            hash = (value < 200) ? value : value % containerSize;
+        } else {
+            hash = e.hashCode() > 0 ? e.hashCode() : e.hashCode() * (-1);
+            hash = hash % containerSize;
+        }
+
+        return hash;
     }
 
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof SimpleHashSet)) return false;
+        SimpleHashSet<?> that = (SimpleHashSet<?>) o;
+        return Arrays.equals(container, that.container);
+    }
+
+    @Override
+    public int hashCode() {
+        return Arrays.hashCode(container);
+    }
 }
