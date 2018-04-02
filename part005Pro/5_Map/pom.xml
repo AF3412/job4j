@@ -3,20 +3,13 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>job4j</artifactId>
+        <artifactId>part005Pro</artifactId>
         <groupId>ru.af3412</groupId>
         <version>1.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>part005Pro</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>_1_Iterator</module>
-        <module>_2_Generic</module>
-        <module>_3_List</module>
-        <module>_4_Set</module>
-        <module>5_Map</module>
-    </modules>
+    <artifactId>5_map</artifactId>
+
 
 </project>
