@@ -26,6 +26,10 @@ public class UserTest {
         testMap.put(userTwo, new Object());
 
         System.out.println(testMap);
+        System.out.println(testMap.get(userOne));
+        System.out.println(testMap.get(userTwo));
+        System.out.println(testMap.get(userTwo));
+        System.out.println(testMap.get(userTwo));
     }
 
 

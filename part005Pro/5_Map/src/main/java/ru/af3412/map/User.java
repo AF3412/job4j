@@ -1,6 +1,7 @@
 package ru.af3412.map;
 
 import java.util.Calendar;
+import java.util.Objects;
 
 /**
  * The type User.
@@ -78,6 +79,9 @@ public class User {
         this.birthday = birthday;
     }
 
+    @Override
+    public int hashCode() {
 
-
+        return Objects.hash(getName(), getChildren(), getBirthday());
+    }
 }
