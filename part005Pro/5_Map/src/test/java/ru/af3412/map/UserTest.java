@@ -17,19 +17,16 @@ public class UserTest {
      * Test calendar.
      */
     @Test
-    public void testCalendar() {
+    public void testMap() {
         Calendar calendar = new GregorianCalendar(2018, 4, 2);
         User userOne = new User("Alex", 2, calendar);
         User userTwo = new User("Alex", 2, calendar);
+
         Map<User, Object> testMap = new HashMap<>();
         testMap.put(userOne, new Object());
         testMap.put(userTwo, new Object());
 
         System.out.println(testMap);
-        System.out.println(testMap.get(userOne));
-        System.out.println(testMap.get(userTwo));
-        System.out.println(testMap.get(userTwo));
-        System.out.println(testMap.get(userTwo));
     }
 
 
