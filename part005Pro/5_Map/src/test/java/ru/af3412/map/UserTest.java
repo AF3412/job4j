@@ -2,11 +2,10 @@ package ru.af3412.map;
 
 import org.junit.Test;
 
-import java.util.*;
-
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.*;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by AF on 02.04.2018.
@@ -28,7 +27,6 @@ public class UserTest {
 
         System.out.println(testMap);
     }
-
 
 
 }
