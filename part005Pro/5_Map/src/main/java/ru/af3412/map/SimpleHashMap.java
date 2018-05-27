@@ -97,11 +97,9 @@ public class SimpleHashMap<K, V> implements Iterable {
         return new Iterator() {
             @Override
             public boolean hasNext() {
-                int bound = container.length;
-                for (int i = iteratorCount; i < bound; i++) {
-                    if (container[i] != null) {
-                        return true;
-                    }
+                if (next() != null) {
+                    iteratorCount--;
+                    return true;
                 }
                 return false;
             }
