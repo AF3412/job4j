@@ -40,21 +40,42 @@ public class Tree<E extends Comparable<E>> implements SimpleTree<E> {
         return rsl;
     }
 
-    private List<E> asList(Node<E> root) {
-        List<E> result = new ArrayList<>();
+    private Set<E> asList(Node<E> root) {
+        /*Set<Node<E>> result = new HashSet<>();
+        for (Node<E> node : root.leaves()) {
+            result.add(node);
+            if (!node.leaves().isEmpty()) {
+                result.addAll(asList(node));
+            }
+        }*/
+        Set<E> result = new HashSet<>();
         for (Node<E> node : root.leaves()) {
             result.add(node.value);
             if (!node.leaves().isEmpty()) {
                 result.addAll(asList(node));
             }
         }
+        result.add(root.value);
         return result;
     }
 
     @Override
     public Iterator<E> iterator() {
-        return asList(root).iterator();
+        return asList(this.root).iterator();
     }
 
+    public boolean isBinary() {
+
+        for (E value : this) {
+            Optional<Node<E>> node = findBy(value);
+            if (node.isPresent()) {
+                if (node.get().leaves().size() > 2) {
+                    return false;
+                }
+            }
+        }
+        return true;
+
+    }
 
 }

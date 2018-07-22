@@ -15,7 +15,9 @@ public class Node<E extends Comparable<E>> {
 
     public boolean add(Node<E> child) {
         boolean notExists = !children.contains(child);
-        children.add(child);
+        if (notExists) {
+            children.add(child);
+        }
 
         return notExists;
     }
