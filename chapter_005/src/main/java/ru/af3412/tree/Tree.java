@@ -65,7 +65,6 @@ public class Tree<E extends Comparable<E>> implements SimpleTree<E> {
     }
 
     public boolean isBinary() {
-
         for (E value : this) {
             Optional<Node<E>> node = findBy(value);
             if (node.isPresent()) {
