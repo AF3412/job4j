@@ -3,7 +3,9 @@ package ru.af3412.stream;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
@@ -69,6 +71,25 @@ public class SchoolTest {
         List<Student> result = school
                 .collect(students, (student) -> (student.getScore() >= 0 && student.getScore() < 50));
         assertThat(result, is(expected));
+    }
+
+    @Test
+    public void whenCollectStudentsToMapThenReturnStudentsMap() {
+        final List<Student> students = new ArrayList<>() { {
+            add(new Student(10, "Иванов"));
+            add(new Student(20, "Петров"));
+            add(new Student(30, "Сидоров"));
+        } };
+
+        final Map<String, Student> expected = new HashMap<>();
+        expected.put("Иванов", new Student(10, "Иванов"));
+        expected.put("Петров", new Student(20, "Петров"));
+        expected.put("Сидоров", new Student(30, "Сидоров"));
+
+        final Map<String, Student> result = school.collectMap(students);
+
+        assertThat(result, is(expected));
+
     }
 
 }

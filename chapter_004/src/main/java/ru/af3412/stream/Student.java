@@ -1,15 +1,33 @@
 package ru.af3412.stream;
 
+import java.util.Objects;
+
 public class Student {
 
     private final int score;
+    private final String lastName;
 
     public Student(int score) {
         this.score = score;
+        this.lastName = "";
+    }
+
+    public Student(String lastName) {
+        this.lastName = lastName;
+        this.score = 0;
+    }
+
+    public Student(int score, String lastName) {
+        this.score = score;
+        this.lastName = lastName;
     }
 
     public int getScore() {
         return score;
+    }
+
+    public String getLastName() {
+        return lastName;
     }
 
     @Override
@@ -23,11 +41,16 @@ public class Student {
 
         Student student = (Student) o;
 
-        return score == student.score;
+        if (score != student.score) {
+            return false;
+        }
+        return Objects.equals(lastName, student.lastName);
     }
 
     @Override
     public int hashCode() {
-        return score;
+        int result = score;
+        result = 31 * result + (lastName != null ? lastName.hashCode() : 0);
+        return result;
     }
 }
