@@ -23,6 +23,7 @@ public class School {
     Map<String, Student> collectMap(List<Student> students) {
         return students
                 .stream()
+                .distinct()
                 .collect(Collectors.toMap(Student::getLastName, student -> student));
     }
 

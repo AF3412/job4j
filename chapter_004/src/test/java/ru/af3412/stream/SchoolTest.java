@@ -92,4 +92,24 @@ public class SchoolTest {
 
     }
 
+    @Test
+    public void whenCollectStudentsWithDuplicatesToMapThenReturnStudentsMap() {
+        final List<Student> students = new ArrayList<>() { {
+            add(new Student(10, "Иванов"));
+            add(new Student(10, "Иванов"));
+            add(new Student(20, "Петров"));
+            add(new Student(30, "Сидоров"));
+        } };
+
+        final Map<String, Student> expected = new HashMap<>();
+        expected.put("Иванов", new Student(10, "Иванов"));
+        expected.put("Петров", new Student(20, "Петров"));
+        expected.put("Сидоров", new Student(30, "Сидоров"));
+
+        final Map<String, Student> result = school.collectMap(students);
+
+        assertThat(result, is(expected));
+
+    }
+
 }
