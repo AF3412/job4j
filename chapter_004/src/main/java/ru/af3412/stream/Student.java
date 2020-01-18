@@ -2,9 +2,9 @@ package ru.af3412.stream;
 
 import java.util.Objects;
 
-public class Student {
+public class Student implements Comparable<Student> {
 
-    private final int score;
+    private final Integer score;
     private final String lastName;
 
     public Student(int score) {
@@ -31,6 +31,11 @@ public class Student {
     }
 
     @Override
+    public int compareTo(Student o) {
+        return o.getScore() - this.score;
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;
@@ -41,7 +46,7 @@ public class Student {
 
         Student student = (Student) o;
 
-        if (score != student.score) {
+        if (!score.equals(student.score)) {
             return false;
         }
         return Objects.equals(lastName, student.lastName);

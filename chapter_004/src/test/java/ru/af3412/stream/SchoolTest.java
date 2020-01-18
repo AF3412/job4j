@@ -112,4 +112,24 @@ public class SchoolTest {
 
     }
 
+    @Test
+    public void whenCollectStudentsListWithNullAndBoundMoreScoreThenReturnSortedListStudents() {
+        final List<Student> students = new ArrayList<>() { {
+            add(new Student(20, "Петров"));
+            add(null);
+            add(new Student(10, "Иванов"));
+            add(new Student(30, "Сидоров"));
+            add(null);
+        } };
+        final int bound = 10;
+        final List<Student> expected = new ArrayList<>() { {
+            add(new Student(30, "Сидоров"));
+            add(new Student(20, "Петров"));
+        } };
+
+        final List<Student> result = school.levelOf(students, bound);
+
+        assertThat(result, is(expected));
+    }
+
 }
