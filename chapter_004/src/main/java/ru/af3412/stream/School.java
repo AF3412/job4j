@@ -35,8 +35,8 @@ public class School {
     List<Student> levelOf(List<Student> students, int bound) {
         return students
                 .stream()
-                .sorted(Comparator.nullsLast(Student::compareTo))
                 .flatMap(Stream::ofNullable)
+                .sorted()
                 .takeWhile(student -> student.getScore() > bound)
                 .collect(Collectors.toList());
     }
