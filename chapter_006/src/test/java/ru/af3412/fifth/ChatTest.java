@@ -26,7 +26,7 @@ public class ChatTest {
     @Test
     public void testReadFileToArrayString() throws IOException {
 
-        File file = new File("../data/test/chat_readFileToArrayString.txt");
+        File file = new File("..//data//test//chat_readFileToArrayString.txt");
         Chat chat = new Chat();
         String[] valueArrayString = {"1", "2", "3", "4", "5"};
 
