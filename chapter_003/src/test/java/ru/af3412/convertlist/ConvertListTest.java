@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -78,7 +79,7 @@ public class ConvertListTest {
     public void whenTransferCollectionWithOneValueThenReturnArray0() throws Exception {
 
         ConvertList convertList = new ConvertList();
-        List<Integer> arrayList = Arrays.asList(0);
+        List<Integer> arrayList = Collections.singletonList(0);
         int[][] checked = {{0}};
 
         int[][] result = convertList.toArray(arrayList, 1);

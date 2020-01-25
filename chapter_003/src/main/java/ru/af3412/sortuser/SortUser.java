@@ -29,13 +29,10 @@ public class SortUser {
      * @return the list
      */
     public List<User> sortHash(List<User> users) {
-        users.sort(new Comparator() {
-            @Override
-            public int compare(Object first, Object second) {
-                Integer firstHash = first.hashCode();
-                Integer secondHash = second.hashCode();
-                return firstHash.compareTo(secondHash);
-            }
+        users.sort((first, second) -> {
+            Integer firstHash = first.hashCode();
+            Integer secondHash = second.hashCode();
+            return firstHash.compareTo(secondHash);
         });
         return users;
     }
@@ -47,12 +44,7 @@ public class SortUser {
      * @return the list
      */
     public List<User> sortLength(List<User> users) {
-        users.sort(new Comparator() {
-            @Override
-            public int compare(Object first, Object second) {
-                return ((User) first).name.length() - ((User) second).name.length();
-            }
-        });
+        users.sort(Comparator.comparingInt(user -> user.name.length()));
         return users;
     }
 

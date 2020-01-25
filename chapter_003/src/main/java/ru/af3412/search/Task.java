@@ -21,11 +21,14 @@ public class Task {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Task task = (Task) o;
-        return priority == task.priority &&
-                Objects.equals(desc, task.desc);
+        return priority == task.priority && Objects.equals(desc, task.desc);
     }
 
     @Override
