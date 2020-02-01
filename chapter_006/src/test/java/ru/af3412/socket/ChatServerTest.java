@@ -34,7 +34,7 @@ public class ChatServerTest {
     @Test
     public void testReturnArrayStringFromFile() throws Exception {
 
-        File file = new File("..\\data\\test\\chat_readFileToArrayString.txt");
+        File file = new File("../data/test/chat_readFileToArrayString.txt");
         ChatServer chat = new ChatServer();
         String[] valueArrayString = {"1", "2", "3", "4", "5"};
 
