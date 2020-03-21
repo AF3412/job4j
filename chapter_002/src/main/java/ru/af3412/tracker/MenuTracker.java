@@ -1,6 +1,9 @@
 package ru.af3412.tracker;
 
+import java.text.MessageFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.stream.IntStream;
 
 /**
  * The type Edit item.
@@ -43,7 +46,6 @@ public class MenuTracker {
 
     private Input input;
     private Tracker tracker;
-    private int position = 0;
     private ArrayList<UserAction> action = new ArrayList<>();
 
     /**
@@ -74,11 +76,7 @@ public class MenuTracker {
      * @return the int [ ]
      */
     public int[] getRange() {
-        int[] range = new int[this.action.size()];
-        for (int count = 0; count < range.length; count++) {
-            range[count] = count;
-        }
-        return (range);
+        return IntStream.range(0, this.action.size()).toArray();
     }
 
     /**
@@ -142,7 +140,7 @@ public class MenuTracker {
         public void execute(Input input, Tracker tracker) {
             for (Item item : tracker.getAll()) {
                 if (item != null) {
-                    System.out.println(String.format("%s, %s, %s", item.getName(), item.getDescription(), item.getId()));
+                    System.out.println(MessageFormat.format("{0}, {1}, {2}", item.getName(), item.getDescription(), item.getId()));
                 }
             }
         }
@@ -171,7 +169,7 @@ public class MenuTracker {
                     System.out.print("Name: " + item.getName() + "; ");
                     System.out.print("Description: " + item.getDescription() + "; ");
                     System.out.print("Id: " + item.getId());
-                    System.out.print(item.getAllComments());
+                    System.out.print(Arrays.toString(item.getAllComments()));
                 }
             }
         }

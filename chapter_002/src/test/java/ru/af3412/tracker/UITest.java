@@ -71,26 +71,19 @@ public class UITest {
 
     /**
      * When delete item that item delete in array.
-     *
-     * @throws Exception the exception
      */
-    @Test
-    public void whenDeleteItemThatItemDeleteInArray() throws Exception {
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void whenDeleteItemThatItemDeleteInArray() {
 
         Tracker tracker = new Tracker();
-        String testId = null;
+        String testId;
         tracker.add("fourth task", "fourth desc");
         Item item = tracker.getAll().get(0);
         testId = item.getId();
 
         tracker.delete(testId);
 
-        try {
-            Assert.assertNull(tracker.getAll().get(0));
-        } catch (IndexOutOfBoundsException e) {
-
-        }
-
+        Assert.assertNull(tracker.getAll().get(0));
     }
 
 }
