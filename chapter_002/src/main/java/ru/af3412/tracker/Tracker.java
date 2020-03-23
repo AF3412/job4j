@@ -1,6 +1,7 @@
 package ru.af3412.tracker;
 
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Random;
 
 /**
@@ -8,8 +9,8 @@ import java.util.Random;
  */
 public class Tracker {
 
-    private ArrayList<Item> items = new ArrayList<>();
-    private static final Random RN = new Random();
+    private final ArrayList<Item> items = new ArrayList<>();
+    private final static Random RN = new Random();
 
     /**
      * Add.
@@ -53,14 +54,11 @@ public class Tracker {
      * @return the item
      */
     protected Item findById(String id) {
-        Item result = null;
-        for (Item item : items) {
-            if (item != null && item.getId().equals(id)) {
-                result = item;
-                break;
-            }
-        }
-        return result;
+        return items.stream()
+                .filter(Objects::nonNull)
+                .filter(item -> item.getId().equals(id))
+                .findFirst()
+                .orElse(null);
     }
 
     /**
@@ -69,12 +67,11 @@ public class Tracker {
      * @param id the id
      */
     protected void delete(String id) {
-        for (int index = 0; index < items.size(); index++) {
-            if (items.get(index) != null && items.get(index).getId().equals(id)) {
-                items.remove(index);
-                break;
-            }
-        }
+        items.stream()
+                .filter(Objects::nonNull)
+                .filter(item -> item.getId().equals(id))
+                .findFirst()
+                .ifPresent(items::remove);
     }
 
     /**
@@ -83,7 +80,6 @@ public class Tracker {
      * @return the item [ ]
      */
     protected ArrayList<Item> getAll() {
-
         return this.items;
     }
 
