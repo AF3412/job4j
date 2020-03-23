@@ -1,4 +1,4 @@
-package ru.af3412.testLogger_001;
+package ru.af3412.testlogger002;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
