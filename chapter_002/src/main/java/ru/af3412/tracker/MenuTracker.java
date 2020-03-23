@@ -23,7 +23,7 @@ class EditItem extends BaseAction {
         return 2;
     }
 
-    public void execute(Input input, Tracker tracker) {
+    public void execute(Input input, ITracker tracker) {
 
         String id = input.ask("Please enter task Id: ");
         Item result = tracker.findById(id);
@@ -45,7 +45,7 @@ class EditItem extends BaseAction {
 public class MenuTracker {
 
     private Input input;
-    private Tracker tracker;
+    private ITracker tracker;
     private ArrayList<UserAction> action = new ArrayList<>();
 
     /**
@@ -54,7 +54,7 @@ public class MenuTracker {
      * @param input   the input
      * @param tracker the tracker
      */
-    public MenuTracker(Input input, Tracker tracker) {
+    public MenuTracker(Input input, ITracker tracker) {
         this.input = input;
         this.tracker = tracker;
     }
@@ -114,7 +114,7 @@ public class MenuTracker {
             return 0;
         }
 
-        public void execute(Input input, Tracker tracker) {
+        public void execute(Input input, ITracker tracker) {
             String name = input.ask("Please input task name: ");
             String description = input.ask("Please input task description: ");
             tracker.add(name, description);
@@ -137,7 +137,7 @@ public class MenuTracker {
             return 1;
         }
 
-        public void execute(Input input, Tracker tracker) {
+        public void execute(Input input, ITracker tracker) {
             for (Item item : tracker.getAll()) {
                 if (item != null) {
                     System.out.println(MessageFormat.format("{0}, {1}, {2}", item.getName(), item.getDescription(), item.getId()));
@@ -162,7 +162,7 @@ public class MenuTracker {
             return 3;
         }
 
-        public void execute(Input input, Tracker tracker) {
+        public void execute(Input input, ITracker tracker) {
             String id = input.ask("Please input id: ");
             for (Item item : tracker.getAll()) {
                 if ((item != null) && (item.getId().equals(id))) {
@@ -191,7 +191,7 @@ public class MenuTracker {
             return 4;
         }
 
-        public void execute(Input input, Tracker tracker) {
+        public void execute(Input input, ITracker tracker) {
             String id = input.ask("Please input id: ");
             tracker.delete(id);
         }

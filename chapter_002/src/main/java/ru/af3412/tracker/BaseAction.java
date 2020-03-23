@@ -21,7 +21,7 @@ public abstract class BaseAction implements UserAction {
 
     public abstract int key();
 
-    public abstract void execute(Input input, Tracker tracker);
+    public abstract void execute(Input input, ITracker tracker);
 
     public String info() {
         return String.format("%s. %s", this.key(), this.actionName);

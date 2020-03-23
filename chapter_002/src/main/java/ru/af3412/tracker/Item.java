@@ -1,5 +1,8 @@
 package ru.af3412.tracker;
 
+import java.util.Arrays;
+import java.util.Objects;
+
 /**
  * The type Item.
  */
@@ -115,4 +118,27 @@ public class Item {
         return result;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Item item = (Item) o;
+        return dateCreate == item.dateCreate
+                && positionComments == item.positionComments
+                && Objects.equals(name, item.name)
+                && Objects.equals(description, item.description)
+                && Objects.equals(id, item.id)
+                && Arrays.equals(comments, item.comments);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = Objects.hash(name, description, id, dateCreate, positionComments);
+        result = 31 * result + Arrays.hashCode(comments);
+        return result;
+    }
 }

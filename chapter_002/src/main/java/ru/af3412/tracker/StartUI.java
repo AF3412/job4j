@@ -6,7 +6,7 @@ package ru.af3412.tracker;
 public class StartUI {
 
     private Input input;
-
+    private ITracker tracker = new Tracker();
     /**
      * Instantiates a new Start ui.
      *
@@ -28,8 +28,6 @@ public class StartUI {
         new StartUI(input).init();
 
     }
-
-    private Tracker tracker = new Tracker();
 
     /**
      * Init.

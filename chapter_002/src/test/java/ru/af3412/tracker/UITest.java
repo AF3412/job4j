@@ -16,7 +16,7 @@ public class UITest {
     @Test
     public void whenAddItemThatAddInArray() {
 
-        Tracker tracker = new Tracker();
+        ITracker tracker = new Tracker();
         String testName = "first task";
         String testDesc = "first desc";
 
@@ -34,7 +34,7 @@ public class UITest {
     @Test
     public void whenAddCommentThatAddCommentInItem() {
 
-        Tracker tracker = new Tracker();
+        ITracker tracker = new Tracker();
         String testComment = "first comment";
         tracker.add("second task", "second desc");
         Item item = tracker.getAll().get(0);
@@ -52,7 +52,7 @@ public class UITest {
     @Test
     public void whenEditItemThatItemEditInArray() {
 
-        Tracker tracker = new Tracker();
+        ITracker tracker = new Tracker();
         String testName = "edit task";
         String testDesc = "edit desc";
         String testComment = "edit comment";
@@ -75,7 +75,7 @@ public class UITest {
     @Test(expected = IndexOutOfBoundsException.class)
     public void whenDeleteItemThatItemDeleteInArray() {
 
-        Tracker tracker = new Tracker();
+        ITracker tracker = new Tracker();
         String testId;
         tracker.add("fourth task", "fourth desc");
         Item item = tracker.getAll().get(0);

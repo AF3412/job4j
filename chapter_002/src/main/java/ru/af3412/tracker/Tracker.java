@@ -7,7 +7,7 @@ import java.util.Random;
 /**
  * The type Tracker.
  */
-public class Tracker {
+public class Tracker implements ITracker {
 
     private final ArrayList<Item> items = new ArrayList<>();
     private final static Random RN = new Random();
@@ -18,9 +18,10 @@ public class Tracker {
      * @param name        the name
      * @param description the description
      */
-    protected void add(String name, String description) {
+    public Item add(String name, String description) {
         Item item = new Item(name, description, this.generateId(), System.currentTimeMillis());
         this.items.add(item);
+        return item;
     }
 
     /**
@@ -29,7 +30,7 @@ public class Tracker {
      * @param item    the item
      * @param comment the comment
      */
-    protected void addComments(Item item, String comment) {
+    public void addComments(Item item, String comment) {
         item.addComments(comment);
     }
 
@@ -41,7 +42,7 @@ public class Tracker {
      * @param description the description
      * @param comment     the comment
      */
-    protected void itemEdit(Item item, String name, String description, String comment) {
+    public void itemEdit(Item item, String name, String description, String comment) {
         item.setName(name);
         item.setDescription(description);
         this.addComments(item, comment);
@@ -53,7 +54,7 @@ public class Tracker {
      * @param id the id
      * @return the item
      */
-    protected Item findById(String id) {
+    public Item findById(String id) {
         return items.stream()
                 .filter(Objects::nonNull)
                 .filter(item -> item.getId().equals(id))
@@ -66,7 +67,7 @@ public class Tracker {
      *
      * @param id the id
      */
-    protected void delete(String id) {
+    public void delete(String id) {
         items.stream()
                 .filter(Objects::nonNull)
                 .filter(item -> item.getId().equals(id))
@@ -79,7 +80,7 @@ public class Tracker {
      *
      * @return the item [ ]
      */
-    protected ArrayList<Item> getAll() {
+    public ArrayList<Item> getAll() {
         return this.items;
     }
 
