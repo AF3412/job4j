@@ -117,7 +117,7 @@ public class MenuTracker {
         public void execute(Input input, ITracker tracker) {
             String name = input.ask("Please input task name: ");
             String description = input.ask("Please input task description: ");
-            tracker.add(name, description);
+            tracker.add(new Item(name, description));
         }
 
     }

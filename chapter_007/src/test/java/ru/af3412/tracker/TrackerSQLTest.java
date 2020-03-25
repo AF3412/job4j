@@ -37,7 +37,7 @@ public class TrackerSQLTest {
         Item item = null;
         try (TrackerSQL trackerSQL = new TrackerSQL()) {
             trackerSQL.init();
-            item = trackerSQL.add("first task", "first desc");
+            item = trackerSQL.add(new Item("first task", "first desc"));
         } catch (Exception e) {
             LOG.error(e.getMessage(), e);
         }
@@ -52,21 +52,16 @@ public class TrackerSQLTest {
      */
     @Test
     public void whenGetAllItemThatReturnAllItemsInDataBase() {
-        Item item = null;
-        try (TrackerSQL trackerSQL = new TrackerSQL()) {
-            trackerSQL.init();
-            trackerSQL.add("second task", "second description");
-        } catch (Exception e) {
-            LOG.error(e.getMessage(), e);
-        }
-
         List<Item> items = null;
         try (TrackerSQL trackerSQL = new TrackerSQL()) {
             trackerSQL.init();
+            trackerSQL.add(new Item("second task", "second description"));
+
             items = trackerSQL.getAll();
         } catch (Exception e) {
             LOG.error(e.getMessage(), e);
         }
+
         Assert.assertNotNull(items);
     }
 
@@ -75,25 +70,19 @@ public class TrackerSQLTest {
      */
     @Test
     public void whenFindItemByIdThatReturnItem() {
-        String testName = "third task";
-        String testDesc = "third description";
-        Item item = null;
-        try (TrackerSQL trackerSQL = new TrackerSQL()) {
-            trackerSQL.init();
-            item = trackerSQL.add(testName, testDesc);
-        } catch (Exception e) {
-            LOG.error(e.getMessage(), e);
-        }
+        Item item = new Item("third task", "third description");
         Item result = null;
         try (TrackerSQL trackerSQL = new TrackerSQL()) {
             trackerSQL.init();
-            result = trackerSQL.findById(item.getId());
+            String id = trackerSQL.add(item).getId();
+
+            result = trackerSQL.findById(id);
         } catch (Exception e) {
             LOG.error(e.getMessage(), e);
         }
+
         Assert.assertThat(item.getName(), is(result.getName()));
         Assert.assertThat(item.getDescription(), is(result.getDescription()));
-        Assert.assertThat(item.getDateCreate(), is(result.getDateCreate()));
     }
 
     /**
@@ -101,24 +90,13 @@ public class TrackerSQLTest {
      */
     @Test
     public void whenDeleteItemThatItItemNotFindInDB() {
-        String testName = "four task";
-        String testDesc = "four description";
-        Item item = null;
-        try (TrackerSQL trackerSQL = new TrackerSQL()) {
-            trackerSQL.init();
-            item = trackerSQL.add(testName, testDesc);
-        } catch (Exception e) {
-            LOG.error(e.getMessage(), e);
-        }
-        try (TrackerSQL trackerSQL = new TrackerSQL()) {
-            trackerSQL.init();
-            trackerSQL.delete(item.getId());
-        } catch (Exception e) {
-            LOG.error(e.getMessage(), e);
-        }
         Item result = null;
         try (TrackerSQL trackerSQL = new TrackerSQL()) {
             trackerSQL.init();
+            Item item = trackerSQL.add(new Item("four task", "four description"));
+
+            trackerSQL.delete(item.getId());
+
             result = trackerSQL.findById(item.getId());
         } catch (Exception e) {
             LOG.error(e.getMessage(), e);

@@ -10,11 +10,10 @@ public interface ITracker {
     /**
      * Add item.
      *
-     * @param name        the name
-     * @param description the description
-     * @return the item
+     * @param item        the item
+     * @return the new item
      */
-    Item add(String name, String description);
+    Item add(Item item);
 
     /**
      * Add comments.

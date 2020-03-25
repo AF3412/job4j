@@ -20,7 +20,7 @@ public class UITest {
         String testName = "first task";
         String testDesc = "first desc";
 
-        tracker.add("first task", "first desc");
+        tracker.add(new Item("first task", "first desc"));
         Item item = tracker.getAll().get(0);
 
         Assert.assertThat(item.getName(), is(testName));
@@ -36,7 +36,7 @@ public class UITest {
 
         ITracker tracker = new Tracker();
         String testComment = "first comment";
-        tracker.add("second task", "second desc");
+        tracker.add(new Item("second task", "second desc"));
         Item item = tracker.getAll().get(0);
 
         tracker.addComments(item, "first comment");
@@ -57,7 +57,7 @@ public class UITest {
         String testDesc = "edit desc";
         String testComment = "edit comment";
 
-        tracker.add("third task", "third desc");
+        tracker.add(new Item("third task", "third desc"));
         Item item = tracker.getAll().get(0);
         tracker.itemEdit(item, "edit task", "edit desc", "edit comment");
         item = tracker.getAll().get(0);
@@ -77,7 +77,7 @@ public class UITest {
 
         ITracker tracker = new Tracker();
         String testId;
-        tracker.add("fourth task", "fourth desc");
+        tracker.add(new Item("fourth task", "fourth desc"));
         Item item = tracker.getAll().get(0);
         testId = item.getId();
 

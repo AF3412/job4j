@@ -13,14 +13,14 @@ public class Tracker implements ITracker {
     private final static Random RN = new Random();
 
     /**
-     * Add.
+     * Add item.
      *
-     * @param name        the name
-     * @param description the description
+     * @param item        the item
+     * @return the new item
      */
-    public Item add(String name, String description) {
-        Item item = new Item(name, description, this.generateId(), System.currentTimeMillis());
-        this.items.add(item);
+    public Item add(Item item) {
+        Item newItem = new Item(item.getName(), item.getDescription(), this.generateId(), System.currentTimeMillis());
+        this.items.add(newItem);
         return item;
     }
 

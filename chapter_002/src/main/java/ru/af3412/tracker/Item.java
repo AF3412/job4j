@@ -26,6 +26,17 @@ public class Item {
      *
      * @param name        the name
      * @param description the description
+     */
+    public Item(String name, String description) {
+        this.name = name;
+        this.description = description;
+    }
+
+    /**
+     * Instantiates a new Item.
+     *
+     * @param name        the name
+     * @param description the description
      * @param id          the id
      * @param dateCreate  the date create
      */
