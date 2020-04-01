@@ -27,7 +27,7 @@ public class StartTest {
      */
     @Test(timeout = 300000)
     public void whenCreateBigSizeValuesProcessEndsInLessThanFiveMinutes() {
-        new Start().process(10000000);
+        new Start().process(1000000);
     }
 
 }
