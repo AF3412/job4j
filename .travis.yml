@@ -23,3 +23,10 @@ notifications:
       -af3412@yandex.ru
     on_success: never # default: change
     on_failure: always # default: always
+
+
+#Используем postgresql для "Трекера"
+services:
+  - postgresql
+before_install:
+  - psql -c 'create database tracker;' -U postgres
