@@ -24,6 +24,9 @@ public class TrackerSQL implements ITracker, AutoCloseable {
 
     public TrackerSQL(Connection connection) {
         this.connection = connection;
+        if (this.connection != null) {
+            createTrackerDataBaseStructureIfNotExists();
+        }
     }
 
     /**
