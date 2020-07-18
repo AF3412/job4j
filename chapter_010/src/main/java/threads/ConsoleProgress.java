@@ -1,3 +1,5 @@
+package threads;
+
 public class ConsoleProgress implements Runnable {
 
     @Override

@@ -1,3 +1,5 @@
+package threads;
+
 public class Wget {
     public static void main(String[] args) {
         Thread thread = new Thread(
