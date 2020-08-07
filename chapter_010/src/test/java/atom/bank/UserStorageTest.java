@@ -1,40 +1,58 @@
 package atom.bank;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
 public class UserStorageTest {
 
-    public static class ThreadUserStorage extends Thread {
-        private final UserStorage userStorage;
+    private UserStorage userStorage;
+    private User one;
+    private User two;
 
-        private ThreadUserStorage(final UserStorage userStorage) {
-            this.userStorage = userStorage;
-        }
-
-        @Override
-        public void run() {
-            System.out.println(Thread.currentThread().getName());
-        }
-
+    @Before
+    public void prepareTests() {
+        userStorage = new UserStorage();
+        one = new User(1, 10);
+        two = new User(2, 20);
     }
 
     @Test
-    public void whenCreateTwoUsersFromTwoThreadsReturnSizeIsTwo() throws InterruptedException {
-        UserStorage userStorage = new UserStorage();
-        User one = new User(1, 10);
-        User two = new User(2, 20);
-        Thread first = new ThreadUserStorage(userStorage);
-        Thread second = new ThreadUserStorage(userStorage);
-        first.start();
-        second.start();
+    public void whenAddUsersThenReturnSizeIsTwo() {
         userStorage.add(one);
         userStorage.add(two);
-        first.join();
-        second.join();
         assertThat(userStorage.get().size(), is(2));
+    }
+
+    @Test
+    public void whenTransferBetweenUsersThenUsersAmountChange() {
+        userStorage.add(one);
+        userStorage.add(two);
+        userStorage.transfer(2, 1, 5);
+        assertThat(one.amount, is(15));
+        assertThat(two.amount, is(15));
+    }
+
+    @Test
+    public void whenDeleteUserThenStorageSizeChanged() {
+        userStorage.add(one);
+        userStorage.add(two);
+        boolean del = this.userStorage.delete(one);
+        assertTrue(del);
+        assertThat(userStorage.get().size(), is(1));
+    }
+
+    @Test
+    public void whenUpdateUserThenUserDataUpdated() {
+        userStorage.add(one);
+        userStorage.add(two);
+        User updatedUser = new User(1, 30);
+        boolean updated = this.userStorage.update(updatedUser);
+        assertTrue(updated);
+        assertThat(one.amount, is(30));
     }
 
 }

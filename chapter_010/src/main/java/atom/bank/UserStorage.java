@@ -13,7 +13,6 @@ public class UserStorage {
     private final List<User> users = new ArrayList<>();
 
     synchronized boolean add(User user) {
-        System.out.println("add: " + Thread.currentThread().getName());
         return this.users.add(user);
     }
 
@@ -36,21 +35,19 @@ public class UserStorage {
     }
 
     synchronized boolean transfer(int fromId, int toId, int amount) {
-        User from = null;
-        User to = null;
-        for (User user : users) {
-            if (user.id == fromId) {
-                from = user;
-            }
-            if (user.id == toId) {
-                to = user;
-            }
-            if (from != null && to != null ) {
-                from.amount -= amount;
-                to.amount += amount;
-                return true;
-            }
+        User from = findById(fromId);
+        User to = findById(toId);
+        if (from != null && to != null) {
+            from.amount -= amount;
+            to.amount += amount;
         }
         return false;
+    }
+
+    private synchronized User findById(int id) {
+        return users.stream()
+                .filter(user -> user.id == id)
+                .findFirst()
+                .orElse(null);
     }
 }
