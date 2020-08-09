@@ -44,7 +44,7 @@ public class UserStorage {
         return false;
     }
 
-    private synchronized User findById(int id) {
+    private User findById(int id) {
         return users.stream()
                 .filter(user -> user.id == id)
                 .findFirst()
