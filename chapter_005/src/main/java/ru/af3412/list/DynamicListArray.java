@@ -57,7 +57,7 @@ public class DynamicListArray<E> implements Iterable<E> {
      * @return the boolean
      */
     public boolean add(E value) {
-        boolean result = false;
+        boolean result;
         if (checkContainerSize()) {
             this.container[index++] = value;
             result = true;
@@ -152,7 +152,7 @@ public class DynamicListArray<E> implements Iterable<E> {
     /**
      * private class for Iterator realisation.
      */
-    private class Itr implements Iterator {
+    private class Itr implements Iterator<E> {
         /**
          * The Cursor.
          */
@@ -160,7 +160,7 @@ public class DynamicListArray<E> implements Iterable<E> {
         /**
          * The Check elements.
          */
-        private int checkElements = index;
+        private final int checkElements = index;
         /**
          * The Data.
          */
