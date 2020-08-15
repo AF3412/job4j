@@ -6,11 +6,10 @@ import net.jcip.annotations.ThreadSafe;
 @ThreadSafe
 public class CountBarrier {
 
-    @GuardedBy("this")
     private final Object monitor = this;
-
     private final int total;
 
+    @GuardedBy("this")
     private int count = 0;
 
     public CountBarrier(final int total) {
