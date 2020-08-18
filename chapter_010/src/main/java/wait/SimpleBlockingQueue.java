@@ -24,7 +24,7 @@ public class SimpleBlockingQueue<T> {
 
     public synchronized void offer(T value) {
         try {
-            if (queue.size() == limit) {
+            while (queue.size() >= limit) {
                 this.wait();
             }
         } catch (InterruptedException e) {
@@ -36,7 +36,7 @@ public class SimpleBlockingQueue<T> {
 
     public synchronized T poll() {
         try {
-            if (queue.size() == 0) {
+            while (queue.size() == 0) {
                 this.wait();
             }
         } catch (InterruptedException e) {
