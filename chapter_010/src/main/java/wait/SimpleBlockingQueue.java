@@ -22,28 +22,24 @@ public class SimpleBlockingQueue<T> {
         return queue;
     }
 
-    public synchronized void offer(T value) {
-        try {
-            while (queue.size() >= limit) {
-                this.wait();
-            }
-        } catch (InterruptedException e) {
-            Thread.currentThread().interrupt();
+    public synchronized void offer(T value) throws InterruptedException {
+        while (queue.size() >= limit) {
+            this.wait();
         }
         queue.add(value);
         this.notify();
     }
 
-    public synchronized T poll() {
-        try {
-            while (queue.size() == 0) {
-                this.wait();
-            }
-        } catch (InterruptedException e) {
-            Thread.currentThread().interrupt();
+    public synchronized T poll() throws InterruptedException {
+        while (isEmpty()) {
+            this.wait();
         }
         T result = queue.poll();
         this.notify();
         return result;
+    }
+
+    public synchronized boolean isEmpty() {
+        return this.queue.isEmpty();
     }
 }
