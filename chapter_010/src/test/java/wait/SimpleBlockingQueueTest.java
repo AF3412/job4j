@@ -4,10 +4,10 @@ import org.junit.Test;
 
 import java.util.Arrays;
 import java.util.concurrent.CopyOnWriteArrayList;
-import java.util.stream.IntStream;
+import java.util.concurrent.CountDownLatch;
 
 import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 
 public class SimpleBlockingQueueTest {
 
@@ -29,7 +29,7 @@ public class SimpleBlockingQueueTest {
         Thread consumer = new Thread(() -> {
             try {
                 for (int i = 0; i < 10; i++) {
-                    Thread.sleep(1000);
+                    Thread.sleep(200);
                     Integer value = queue.poll();
                     System.out.println("Get: " + value);
                 }
@@ -50,11 +50,28 @@ public class SimpleBlockingQueueTest {
     public void whenFetchAllThenGetIt() throws InterruptedException {
         final CopyOnWriteArrayList<Integer> buffer = new CopyOnWriteArrayList<>();
         final SimpleBlockingQueue<Integer> queue = new SimpleBlockingQueue<>(3);
+        CountDownLatch countDownLatch = new CountDownLatch(10);
         Thread producer = new Thread(
                 () -> {
                     try {
                         for (int i = 0; i < 5; i++) {
                             queue.offer(i);
+                            countDownLatch.countDown();
+                        }
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                        Thread.currentThread().interrupt();
+                    }
+                }
+        );
+        Thread consumer = new Thread(
+                () -> {
+                    try {
+                        while (!queue.isEmpty() || !Thread.currentThread().isInterrupted()) {
+                            //очередь может быть пустой, но нить продолжает выполняться
+                            //System.out.println("queue empty: " + queue.isEmpty());
+                            buffer.add(queue.poll());
+                            countDownLatch.countDown();
                         }
                     } catch (InterruptedException e) {
                         e.printStackTrace();
@@ -63,23 +80,8 @@ public class SimpleBlockingQueueTest {
                 }
         );
         producer.start();
-        Thread consumer = new Thread(
-                () -> {
-                    try {
-                        while (!queue.isEmpty() || !Thread.currentThread().isInterrupted()) {
-                            System.out.println(queue.isEmpty());
-                            buffer.add(queue.poll());
-                        }
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                        Thread.currentThread().interrupt();
-                    }
-                }
-        );
         consumer.start();
-        producer.join();
-        consumer.interrupt();
-        consumer.join();
+        countDownLatch.await();
         assertThat(buffer, is(Arrays.asList(0, 1, 2, 3, 4)));
     }
 
