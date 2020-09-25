@@ -9,12 +9,11 @@ public class ThreadPool {
 
     private static final int AVAILABLE_PROCESSORS = Runtime.getRuntime().availableProcessors();
 
-    private final List<Thread> threads;
+    private final List<Thread> threads = new LinkedList<>();
     private final SimpleBlockingQueue<Runnable> tasks;
 
     public ThreadPool() {
-        threads = new LinkedList<>();
-        tasks = new SimpleBlockingQueue<>(100);
+        tasks = new SimpleBlockingQueue<>();
         for (int i = 0; i < AVAILABLE_PROCESSORS; i++) {
             threads.add(new Thread(new Task(tasks)));
         }
