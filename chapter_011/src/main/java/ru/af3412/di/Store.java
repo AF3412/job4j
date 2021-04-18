@@ -6,6 +6,9 @@ import java.util.List;
 public class Store {
     private final List<String> data = new ArrayList<>();
 
+    public Store() {
+    }
+
     public void add(String value) {
         data.add(value);
     }

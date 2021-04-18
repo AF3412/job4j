@@ -1,7 +1,7 @@
 package ru.af3412.di;
 
 public class StartUI {
-    private Store store;
+    private final Store store;
 
     public StartUI(Store store) {
         this.store = store;
