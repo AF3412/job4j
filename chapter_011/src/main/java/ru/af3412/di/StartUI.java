@@ -1,14 +1,14 @@
 package ru.af3412.di;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class StartUI {
-    private final Store store;
 
-    public StartUI(Store store) {
-        this.store = store;
-    }
+    @Autowired
+    private Store store;
+
 
     public void add(String value) {
         store.add(value);
